@@ -2,73 +2,86 @@
 // @name         (AWS WAFR OH!) Amazon Web Services Well-Architected Framework Review Objective Helper
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  try to take over the world!
+// @description  To append useful message for WAFR host. 
 // @author       bobyeh@amazon.com (github:juntinyeh)
 // @author       ssslim@amazon.com (github:)
 // @match        https://console.aws.amazon.com/wellarchitected/*
 // @grant        GM.xmlHttpRequest
 // @run-at       document-end
 // ==/UserScript==
-console.log(Date.now());
 
-var OH_CONTENT;
+var LOG_LEVEL = ''; //set debug if you want to try something new.
+var OH_CONTENT; // for Object Helper JSON content
+var OH_R_QUESTION_READY = false; // register flag for page load question ready
+var OH_R_OBJECTIVE_READY = false; // register flag for objective div ready
+var OH_QUESTION_KEY = ''; // index for the current question like "OPS 1", "SEC 1" 
 
 function DOM_AppendOHEntryButton() {
-    'use strict';
-    console.log(Date.now());
-    console.log("loaded");
+    if(OH_R_OBJECTIVE_READY) return;
+
+    /* Append the objective content right after Question */
     var objs = document.getElementsByClassName("awsui-util-action-stripe");
-    console.log('objs->'+objs[0]);
-    var oh_div_button = document.createElement('div');
-    oh_div_button.id = 'oh_div_button';
-    oh_div_button.innerHTML = '<button onclick="OH_DivToggle()">Show Objective</button>';
-    objs[0].appendChild(oh_div_button);
     var oh_div_helper_container = document.createElement('div');
     oh_div_helper_container.id = 'oh_div_helper_container';
-    console.log("append button & container div");
-}
+    oh_div_helper_container.innerHTML = '';
+    if(OH_CONTENT.hasOwnProperty(OH_QUESTION_KEY))
+    {
+        for (const [key, value] of Object.entries(OH_CONTENT[OH_QUESTION_KEY])) 
+        {
+            oh_div_helper_container.innerHTML += key + '<p>' + value + '</p><hr/>';
+        }
+    }
+    objs[0].appendChild(oh_div_helper_container);
 
-function OH_DivToggle() {
-  var x = document.getElementById("oh_div_helper_container");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
+    OH_R_OBJECTIVE_READY = true;
 }
 
 function DOM_IdentifyCurrentPillarQuestion(){
-    console.log(Date.now());
-    console.log("loaded");
-    var objs = document.getElementsByClassName("aas-form");
-    console.log('objs:'+objs);
-    console.log('objs->'+objs.length);
+    if(OH_R_QUESTION_READY) return;
+
+    /* Find and parse the Question Text, get the Questions key */
+    var has_help_button = document.getElementsByClassName("has-help-button");
+    if(has_help_button.length>0)
+    {
+        var key_index = has_help_button[0].innerHTML.search(/^\S+\s\d/g);
+        if( key_index == 0)
+        {
+            OH_QUESTION_KEY = has_help_button[0].innerHTML.match(/^\S+\s\d/g);
+            OH_R_QUESTION_READY = true;
+        }
+    }
 }
 
 function EXT_GetObjHelperJSON(){
-
     GM.xmlHttpRequest({
         method: "GET",
         url: "https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/master/objective-helper/objective-helper.en.json",
         onload: function(response) {
-            alert(response.responseText);
             OH_CONTENT = JSON.parse(response.responseText);
-            console.log(OH_CONTENT);
             if(OH_CONTENT === undefined)
             {
                 alert('Unable to load the Objective Helper JSON, Please feed your monkey with proper privilege.');
+                setTimeout(EXT_GetObjHelperJSON,5000);
             }
             else
             {
-                setTimeout(DOM_IdentifyCurrentPillarQuestion(),6000);
-                setTimeout(DOM_AppendOHEntryButton(),7000);
+                setTimeout(DOM_IdentifyCurrentPillarQuestion,6000);
+                setTimeout(DOM_AppendOHEntryButton,7000);
             }
         }
     });
 }
 
-//document.addEventListener ("DOMContentLoaded", DOM_ContentReady);
+function debug(msg){
+    /* Oh, I deleted all the debug calling */
+    if(LOG_LEVEL === 'debug') {console.log("DEBUG>"+Date.now()+" ->" + msg);}
+}
+
 function OH_bootstrap() {
+    /* Main entry point for the scripts */
+
+    /* Fetch the JSON from Github, now the github URL is fixed with en LANG. 
+       Will extend to multi language later */
     EXT_GetObjHelperJSON();
 }
 

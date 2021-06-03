@@ -2,11 +2,13 @@
 	"OPS 1":{
 		"Objective":"Content of OPS1 Objective",
 		"Audience":"CEO, COO, Ops Lead, Ops",
-		"Related Questions":"COS 1"
+		"Related Questions":"COS 1",
+		"Appendix":"Whoever has good idea, append the key/value"
 	},
 	"OPS 2":{
-		"Objective":"Content of OPS1 Objective",
+		"Objective":"Content of OPS2 Objective",
 		"Audience":"CEO, COO, Ops Lead, Ops",
-		"Related Questions":"COS 1"
+		"Related Questions":"COS 2",
+		"External Resource":"<a href='#'>External Link</a>"
 	}
 }
