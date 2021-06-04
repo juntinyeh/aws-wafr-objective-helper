@@ -41,12 +41,18 @@ function DOM_AppendOHEntryButton() {
     {
         for (const [key, value] of Object.entries(OH_CONTENT[OH_QUESTION_KEY])) 
         {
-            oh_div_helper_container.innerHTML += key + '<p>' + value + '</p><hr/>';
+            oh_div_helper_container.innerHTML += key + '<p>' + JSON_format_value(value) + '</p><hr/>';
         }
     }
     objs[0].appendChild(oh_div_helper_container);
 
     OH_R_OBJECTIVE_READY = true;
+}
+
+function JSON_format_value(value){
+    if(value.search(/\s\*\s/g) > -1) value = value.replace(/\s\*\s/g,'<li>');
+    if(value.search(/\\n/g) > -1) value = value.replace(/\\n/g,'</li>');
+    return value;
 }
 
 function DOM_IdentifyCurrentPillarQuestion(){
@@ -68,7 +74,7 @@ function DOM_IdentifyCurrentPillarQuestion(){
 function EXT_GetObjHelperJSON(){
     GM.xmlHttpRequest({
         method: "GET",
-        url: "https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/master/objective-helper/objective-helper.en.json",
+        url: "https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/master/objective-helper/objective-helper." + JSON_language + ".json",
         onload: function(response) {
             OH_CONTENT = JSON.parse(response.responseText);
             if(OH_CONTENT === undefined)
