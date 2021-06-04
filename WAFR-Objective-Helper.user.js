@@ -225,7 +225,7 @@ function EXT_Get_Objective_Helper_JSON(){
                 OH_R_CONTENT_READY = false;
                 console.log(err.message);
                 JSON_language = 'en';
-                setTimeout(EXT_GetObjHelperJSON,1000);
+                setTimeout(EXT_Get_Objective_Helper_JSON,1000);
             }
         }
     });
