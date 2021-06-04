@@ -10,9 +10,9 @@
 		"Grrrrrrr":{
 			"text":"Arrrrrrrrrhhhh",
 			"HTTP_Req":{
-				"url":"",
+				"url":"http://aaa.bbb.ccc/eee",
 				"method":"POST",
-				"data":""
+				"data":"fffggghhh"
 			}
 		},
 		"HTTP_Req":{
