@@ -6,7 +6,19 @@
 		"Uaurrrrrrrh":"Auuuuuu Auuuaaahhhhhhhhhaarrr ",
 		"Iuuuurrrh":"Auhhrr",
 		"Uaaah":"Uuuuuuaaa Aaaaaaaaaahhhaharrrr Rrrrrh",
-		"Rrrrrrrh":"<a href='https://en.wikipedia.org/wiki/Chewbacca'>Cheeeeeuuuuuh</a>"
+		"Rrrrrrrh":"<a href='https://en.wikipedia.org/wiki/Chewbacca'>Cheeeeeuuuuuh</a>",
+		"Grrrrrrr":{
+			"text":"Arrrrrrrrrhhhh",
+			"HTTP_Req":{
+				"url":"",
+				"method":"POST",
+				"data":""
+			}
+		},
+		"HTTP_Req":{
+			"url":"http://aaa.bbb.ccc/ddd?eee=ffff",
+			"method":"GET"
+		}
 	},
 	"OPS 2":{
 		"Uhrrr":"Juuuahh Iuuhhh Ahhhhhhhhhhhhrrrrrrr",
