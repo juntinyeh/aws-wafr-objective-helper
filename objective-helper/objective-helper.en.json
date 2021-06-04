@@ -1,12 +1,12 @@
 {
 	"_comment": "Frontend tips, ' * ' will be replaced by '<li>' and '\\n' will be replaced by '</li>' for page readability",
 	"OPS 1":{
-		"Objective":"* Gain understanding on what is the _business objective_ of the workload. \\n * How does the workload _impact the overall business_ ? \\n * Gain understanding around _internal and external requirements_ the business have. \\n * Understand their _current priority_, and which areas they are willing to trade off",
+		"Objective":" * Gain understanding on what is the _business objective_ of the workload. \\n * How does the workload _impact the overall business_ ? \\n * Gain understanding around _internal and external requirements_ the business have. \\n * Understand their _current priority_, and which areas they are willing to trade off",
 		"Audience":"CEO, COO, Ops Lead, Ops",
 		"Related Questions":""
 	},
 	"OPS 2":{
-		"Objective":"* Gain understaning around their _business & team structure_. \\n * Who is responsible for _which workload and which domain_. \\n * Gain understaning on how well _defined documented and communicated these are._",
+		"Objective":" * Gain understaning around their _business & team structure_. \\n * Who is responsible for _which workload and which domain_. \\n * Gain understaning on how well _defined documented and communicated these are._",
 		"Audience":"CEO, COO, Ops Lead, Ops",
 		"Related Questions":"COS 2"
 	}

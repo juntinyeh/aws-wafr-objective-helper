@@ -49,6 +49,7 @@ var OH_QUESTION_KEY = ''; // index for the current question like "OPS 1", "SEC 1
 var OH_QUESTION_KEY_CHANGED = false; // incase page fly
 var oh_div_helper_container = document.createElement('div'); //Div Container
     oh_div_helper_container.id = 'oh_div_helper_container';
+    oh_div_helper_container.style.background = '#FFFFCC'; //Append bgcolor
     oh_div_helper_container.innerHTML = '';
 /***************************************/
 
@@ -154,8 +155,8 @@ function JSON_format_default(JSON_key, JSON_value){
 
 /* simple readability convert for our default format */
 function JSON_format_objective(JSON_key, JSON_value){
-    if(JSON_value.search(/\s\*\s/g) > -1) JSON_value = JSON_value.replace(/\s\*\s/g,'<li>');
-    if(JSON_value.search(/\\n/g) > -1) JSON_value = JSON_value.replace(/\\n/g,'</li>');
+    //if(JSON_value.search(/\s\*\s/g) > -1) JSON_value = JSON_value.replace(/\s\*\s/g,'<li>');
+    if(JSON_value.search(/\\n/g) > -1) JSON_value = JSON_value.replace(/\\n/g,'<br />');
     return JSON_format_default(JSON_key, JSON_value);
 }
 
