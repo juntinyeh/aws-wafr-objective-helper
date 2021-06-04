@@ -1,11 +1,8 @@
 {
-	"_readme":"Do not edit the 'question key' ==> 'OPS 1', 'SEC 3', ...
-			   Frontend tips, '^\*\s' will be replaced to '<li>' in html
-			   '\n' will be rplaced to '</li>' in html",
-	"_comment":"A long time ago in a galaxy far, far away.",	
+	"_readme":"Do not edit the 'question key' ==> 'OPS 1', 'SEC 3', ... Frontend tips, '\\s\\*\\s' will be replaced to '<li>' in html '\\n' will be rplaced to '</li>' in html",
+	"_comment":"A long time ago in a galaxy far, far away. ",	
 	"OPS 1":{
-		"Uhrrr":"* Juuuuaah Auu Ahhhhhhhhhhhhrrrrrrr
-		* Aaaaaaaa Eeeeuhhhhhhh",
+		"Uhrrr":" * Juuuuaah Auu Ahhhhhhhhhhhhrrrrrrr \\n * Aaaaaaaa Eeeeuhhhhhhh \\n",
 		"Uaurrrrrrrh":"Auuuuuu Auuuaaahhhhhhhhhaarrr ",
 		"Iuuuurrrh":"Auhhrr",
 		"Uaaah":"Uuuuuuaaa Aaaaaaaaaahhhaharrrr Rrrrrh"
