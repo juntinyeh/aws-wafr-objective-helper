@@ -10,11 +10,24 @@
 // @run-at       document-end
 // ==/UserScript==
 
+var JSON_language = document.documentElement.lang; 
+/* 
+Edit this value manually if document.documentElement.lang not yet support your 
+language. Check the github directory to make sure the target file existed.
+==> objective-helper/objective-helper.JSON_language.json
+
+ex: A Wookiee language for Chewbacca is not yet support by AWS frontned, then
+you can contribute content in file:objective-helper/objective-helper.Wookiee.json
+and set JSON_language = 'Wookiee' 
+*/
+
+/* CAUTION, HIGH VOLTAGE, DO NOT TOUCH */
 var LOG_LEVEL = ''; //set debug if you want to try something new.
 var OH_CONTENT; // for Object Helper JSON content
 var OH_R_QUESTION_READY = false; // register flag for page load question ready
 var OH_R_OBJECTIVE_READY = false; // register flag for objective div ready
 var OH_QUESTION_KEY = ''; // index for the current question like "OPS 1", "SEC 1" 
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 
 function DOM_AppendOHEntryButton() {
     if(OH_R_OBJECTIVE_READY) return;
@@ -60,7 +73,8 @@ function EXT_GetObjHelperJSON(){
             OH_CONTENT = JSON.parse(response.responseText);
             if(OH_CONTENT === undefined)
             {
-                alert('Unable to load the Objective Helper JSON, Please feed your monkey with proper privilege.');
+                console.log('Unable to load the Objective Helper JSON, Please feed your monkey with proper privilege.');
+                JSON_language = 'en';
                 setTimeout(EXT_GetObjHelperJSON,5000);
             }
             else
