@@ -121,7 +121,7 @@
   "Question Connections":"OPS 1, OPS 4"},
 "COST 8":{
   "Objective":"* Gain insights on their understanding of data transfer charges in their workload, and what stratefy have they implemented to manage / prepare for this?",
-  "Question Connections":"REL 2, PERF 5",
+  "Question Connections":"REL 2, PERF 5"},
 "COST 9":{
   "Objective":" Gain understanding on what is their approach to be able to manage the demand and supply of resources. While making sure wastage is kept minimum.",
   "Question Connections":"REL 6"},
