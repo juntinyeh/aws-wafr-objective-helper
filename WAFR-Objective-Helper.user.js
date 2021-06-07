@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         (AWS WAFR OH!) Amazon Web Services Well-Architected Framework Review Objective Helper
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.1.1
 // @description  To append useful message for WAFR host. 
 // @author       bobyeh@amazon.com (github:juntinyeh)
 // @author       ssslim@amazon.com (github:)
@@ -112,10 +112,10 @@ function DOM_Identify_Current_Pillar_Question(){
     var has_help_button = document.getElementsByClassName("has-help-button");
     if(has_help_button.length>0)
     {
-        var key_index = has_help_button[0].innerHTML.search(/^\S+\s\d/g);
+        var key_index = has_help_button[0].innerHTML.search(/^\S+\s\d+/g);
         if( key_index == 0)
         {
-            var current_question_key = String(has_help_button[0].innerHTML.match(/^\S+\s\d/g));
+            var current_question_key = String(has_help_button[0].innerHTML.match(/^\S+\s\d+/g));
             if(current_question_key != OH_QUESTION_KEY)
             {
                 OH_QUESTION_KEY = current_question_key;
@@ -206,7 +206,7 @@ function EXT_Get_Objective_Helper_JSON(){
     if(OH_R_CONTENT_READY) return;
     GM.xmlHttpRequest({
         method: "GET",
-        url: "https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/master/objective-helper/objective-helper." + JSON_language + ".json",
+        url: "https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/objective-helper/objective-helper." + JSON_language + ".json",
         onload: function(response) {
             try {
                 OH_CONTENT = JSON.parse(response.responseText);
