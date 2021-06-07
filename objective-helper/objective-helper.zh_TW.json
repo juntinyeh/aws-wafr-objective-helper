@@ -1,11 +1,11 @@
 {
   "OPS 1":{
-  "目標":"* 明確理解客戶的商業目標. \\n * 此工作負載對達成商業目標的直接影響? \\n * 確認有正確的內外部需求定義. \\n * 了解客戶優先權 \\n 確認優先權的決策者或決策權力所在",
-  "範例問題":"* 請問在服務的需求方向以及決策通常是怎麼在內部決定的？ \\n 如果在不同的需求之間有衝突的時候由誰來決定優先權？ \\n 這個服務對於外部客戶想要提供的是什麼服務？ \\n 面對外部使用者/消費者，是否有相關的法規需要注意？ \\n 公司/單位是如何判斷這個工作負載的收益及風險？",
+  "目標":"* 明確理解客戶的商業目標. \\n * 此工作負載對達成商業目標的直接影響? \\n * 確認有正確的內外部需求定義. \\n * 了解客戶優先權 \\n * 確認優先權的決策者或決策權力所在",
+  "範例問題":"* 請問在服務的需求方向以及決策通常是怎麼在內部決定的？ \\n * 如果在不同的需求之間有衝突的時候由誰來決定優先權？ \\n * 這個服務對於外部客戶想要提供的是什麼服務？ \\n * 面對外部使用者/消費者，是否有相關的法規需要注意？ \\n * 公司/單位是如何判斷這個工作負載的收益及風險？",
   "目標人員":"* 商業團隊經理、業務團隊經理、專案經理、COO、CEO"},
 "OPS 2":{
   "目標":"* 確認商業以及團隊人員結構 \\n * 工作流程以及權力執掌:資源掌管 \\n * 確認內部溝通以及相互職權理解",
-  "範例問題":"* 在目前這個工作負載的相關團隊中，請問有多少團隊/角色/部門在裡面？ \\n ",
+  "範例問題":"* 在目前這個工作負載的相關團隊中，請問有多少團隊/角色/部門在裡面？ \\n * 請問各位角色都是專職的人在負責嗎？ 例如：在混合雲環境AWS跟機房都有專職的Ops負責嗎？ \\n * 請問在與外包開發廠商溝通的過程中，有人專門作交付驗証以及功能測試嗎？",
   "目標人員":"* 商業團隊經理、業務團隊經理、專案經理、維運團隊經理"},
 "OPS 3":{
   "目標":"* 理解客戶企業文化是否鼓勵試錯 \\n * 確認客戶在工具使用上的狀態.",
@@ -25,13 +25,14 @@
   "目標":" * 了解目前客戶維運團隊狀態 \\n * 專/兼職維運人員在維運相關技能/工具，工作流程 \\n * 訊息掌控與溝通決策的狀態，確保所有管道暢通",
   "目標人員":"* Operations"},
 "OPS 8":{
-  "目標":"* 了解目前客戶維運在不同層級的KPI設定，技術維運團隊以及商業維運團隊 \\n * 不同角度所設定的KPI是否有正相關 (例如, Order Rate, Customer Retention Rate, 獲利與維運支出比例) \\n 運維狀態客戶迴饋 (例如, 客戶滿意度). \\n * 是否有正確拮取數據資料進行分析，用於建立參考基準、趨勢分析或異常參照? \\n * 商業決策上是否有參照這些維運數據?",
-  "Question Connections":"OPS9, REL6",
+  "目標":"* 了解目前客戶維運在不同層級的KPI設定，技術維運團隊以及商業維運團隊 \\n * 不同角度所設定的KPI是否有正相關 (例如, Order Rate, Customer Retention Rate, 獲利與維運支出比例) \\n * 是否有正確拮取數據資料進行分析，用於建立參考基準、趨勢分析或異常參照? \\n * 商業決策上是否有參照這些維運數據?",
+  "範例問題":"* 維運團隊是否有觀測指標可以對應到商業數字？ \\n 是否有作任何資料分析可以供業務團隊作趨勢分析或預測？",
+  "關聯問題":"OPS9, REL6",
   "目標人員":"* 商業團隊經理、業務團隊經理、專案經理、維運團隊經理、維運技術人員"},
 "OPS 9":{
   "目標":"* 對維運團隊/開發團隊是否有相關的KPI設置，與客戶產出之間的關聯性 (例如, 新功能上線之後新增的客戶服務案數字) \\n * 是否有正確拮取數據資料進行分析，用於建立參考基準、趨勢分析或異常參照? \\n * 商業決策上是否有參照這些維運數據?",
-  "範例問題":"* 目前在生產環境上有哪些監控項目？有哪些KPIs?其中有哪些是跟主要商業團隊或業務數字有關？",
-  "Question Connections":"OPS 8, REL6",
+  "範例問題":"* 目前在生產環境上有哪些監控項目？ \\n * 有哪些KPIs? \\n * 其中有哪些是跟主要商業團隊或業務數字有關？ \\n (製造業)工廠產線的監控KPI會跟出貨速度指標作對應嗎？ \\n ",
+  "關聯問題":"OPS 8, REL6",
   "目標人員":"* 商業團隊經理、業務團隊經理、專案經理、維運團隊經理、維運技術人員"},
 "OPS 10":{
   "目標":"* 了解目前客戶的維運團隊在事件處理上的作法 \\n ",
@@ -74,15 +75,15 @@
   "目標":"* Gain understanding on what are the things / approach they have implemented when designing interactions in a distributed system to manage failures, or allow the system to widhstand it."},
 "REL 6":{
   "目標":"* Gain understanding on how are they monitoring their workload resources ? \\n * What are the things in their workload that they are monitoring, and how are they treating those data to allow better reliability in the workload",
-  "Question Connections":"OPS 8, OPS9, REL6"},
+  "關聯問題":"OPS 8, OPS9, REL6"},
 "REL 7":{
   "目標":"* Gain understanding on the approach of their design for their workload to allow the workload to adapt to change in demand. \\n * Find out, on how they are implementing this ability to adapt ? gather high level technical details around their approach",
-  "Question Connections":"COST 9"},
+  "關聯問題":"COST 9"},
 "REL 8":{
   "目標":"* Gain understanding on their process to implement change in the workload, at application and infrastructure level. \\n * What are the things that they do to be able reliably implement changes like patch / software / config change to ensure that it is done in a controlled manner ? \\n * If changes are not done in a controlled manner, it can become difficult for them to predict effect of these changes, and to decide the appropriate follow up question."},
 "REL 9":{
   "目標":"* Gain understanding on how they are backing up their data. \\n * Have they defined and have business agreed on the RTO / RPO ? \\n * If there is no direction from the business, do they know what is their RTO / RPO at their current strategy they implemented ? ",
-  "Question Connections":"REL 13"},
+  "關聯問題":"REL 13"},
 "REL 10":{
   "目標":"* Gain understanding on their approach / strategies in isolating the impact when failure occured in the workload so that the effect to other services are managed / reduced \\n * This is particularly prominent if their workload is distributed accross multiple components. \\n * If the workload is a monolith, look at surrounding services that interconnects with the workload, e.g: billing system, crm, etc. What strategy are they implementing to reduce the impact on other services that relies on the service."},
 "REL 11":{
@@ -91,7 +92,7 @@
   "目標":" Gain understanding on how they are testing all of the strategies they have to improve reliability on the workload "},
 "REL 13":{
   "目標":"* Gain understanding on their plan for Disaster recovery \\n * Have they got this plan documented and tested ? \\n * Have they defined the RTO / RPO?",
-  "Question Connections":"REL 9"},
+  "關聯問題":"REL 9"},
 "PERF 1":{
   "目標":" Gain understanding / insight on what are their approach in making sure that they have the most optimal architecture model for their workload."},
 "PERF 2":{
@@ -112,27 +113,27 @@
   "目標":"* Gain understanding around what practice does the customer have in terms of managing thier cloud expenditures. \\n * Have they established a dedicated function to handle the management ? \\n * What is their general strategy, and what are the things that they implement to handle their Cloud Financial Management."},
 "COST 2":{
   "目標":"* Gain insights on what are the things they implemenet in their workload to govern usage of the workload. \\n * What are the strategies and things implemented to ensure the cost are appropriately incurred while making sure the 目標s are stillachieved.",
-  "Question Connections":"SEC 3"},
+  "關聯問題":"SEC 3"},
 "COST 3":{
   "目標":" Gain insights on what are the things implemented to monitor the usage of the resources used and what mechanism do they use to create attrobution of the cost for that particular category",
-  "Question Connections":"OPS 8, REL 1, REL 6"},
+  "關聯問題":"OPS 8, REL 1, REL 6"},
 "COST 4":{
   "目標":" What are their approach when decomissioning resources to ensure that they are reducing waste.",
-  "Question Connections":"REL 6"},
+  "關聯問題":"REL 6"},
 "COST 5":{
   "目標":"* Gain insights, on their approach and strategies to evaluate cost when they select their services as their building block for the workload."},
 "COST 6":{
   "目標":" Gain insight on their effort when choosing resource size and the quantity to ensure it can accomodate the task at hand while minimizing wastage.",
-  "Question Connections":"PERF 2, PERF 3, PERF 4"},
+  "關聯問題":"PERF 2, PERF 3, PERF 4"},
 "COST 7":{
   "目標":"* Gain insights on their understanding about AWS cloud cost model, and if they are utilizing the right pricing model for the workload. \\n * Have they levaraged, Reserved Instance Pricing ?, Saving Plans ?",
-  "Question Connections":"OPS 1, OPS 4"},
+  "關聯問題":"OPS 1, OPS 4"},
 "COST 8":{
   "目標":"* Gain insights on their understanding of data transfer charges in their workload, and what stratefy have they implemented to manage / prepare for this?",
-  "Question Connections":"REL 2, PERF 5"},
+  "關聯問題":"REL 2, PERF 5"},
 "COST 9":{
   "目標":" Gain understanding on what is their approach to be able to manage the demand and supply of resources. While making sure wastage is kept minimum.",
-  "Question Connections":"REL 6"},
+  "關聯問題":"REL 6"},
 "COST 10":{
   "目標":"* Gain understanding on their process / approach in keeping up with AWS new services, features that would improve their workload cost optimization."}
 }
