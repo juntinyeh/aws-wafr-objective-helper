@@ -82,7 +82,7 @@
 "REL 12":{
   "Objective":" Gain understanding on how they are testing all of the strategies they have to improve reliability on the workload "},
 "REL 13":{
-  "Objective":"* Gain understanding on their plan for Disaster recovery \\n * Have they got this plan documented and tested ? \\n * Have they defined the RTO / RPO?"},
+  "Objective":"* Gain understanding on their plan for Disaster recovery \\n * Have they got this plan documented and tested ? \\n * Have they defined the RTO / RPO?",
   "Question Connections":"REL 9"},
 "PERF 1":{
   "Objective":" Gain understanding / insight on what are their approach in making sure that they have the most optimal architecture model for their workload."},
