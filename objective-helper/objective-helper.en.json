@@ -1,7 +1,7 @@
 {
-"OPS 1":{
-  "Objective":"* Gain understanding on what is the business objective of the workload. \\ * How does the workload impact the overall business ? \\ * Gain understanding around internal and external requirements the business have. \\ * Understand their current priority, and which areas they are willing to trade off",
-  "Audience Context":" Business Devlopment. \\ * Business Process."},
+  "OPS 1":{
+  "Objective":"* Gain understanding on what is the business objective of the workload. \\n * How does the workload impact the overall business ? \\n * Gain understanding around internal and external requirements the business have. \\n * Understand their current priority, and which areas they are willing to trade off",
+  "Audience Context":" Business Devlopment. \\n * Business Process."},
 "OPS 2":{
   "Objective":"* Gain understaning around their business & team structure. \\n * Who is responsible for which workload and which domain. \\n * Gain understaning on how well defined documented and communicated these are.",
   "Audience Context":" Business Process. \\n * Operations"},
