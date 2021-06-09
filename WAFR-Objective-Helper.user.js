@@ -25,8 +25,10 @@ var JSON_language = document.documentElement.lang;
 /*
 var arr_Objective = ['Objective','Uhrrr'];
 Append the translation of the Objective in your own language here, which we created a simple layout readability handler for ' * ' and '\n'.
-*/
 var arr_Objective = ['Objective'];
+
+v0.1.2 Disable this setting from v0.1.2, simplify the code logic. Change the readability to default text handling, in case we have different language and key/value combination coming in. 
+*/
 
 /* 
 var arr_Click_Req = ['Click_Req','Grrrrrrr'];
@@ -37,7 +39,7 @@ var arr_Click_Req = ['Click_Req'];
 /* 
 set Log_Level = 'debug' if you want to try something new and use the debug(log_message) it will help you to dump the timestamp and message on browser console.
 */
-var LOG_LEVEL = ''; 
+var LOG_LEVEL = '';
 
 /***************************************/
 /* CAUTION, HIGH VOLTAGE, DO NOT TOUCH */
@@ -139,11 +141,14 @@ function DOM_Refresh_Check(){
 /* JSON Data Handling */
 /* Dispatch to different format handler here */
 function JSON_format_handler(JSON_key, JSON_value){
-    if(arr_Objective.includes(JSON_key)) return JSON_format_objective(JSON_key, JSON_value);
+    //Change the text convert as default setting 
+    //if(arr_Objective.includes(JSON_key)) return JSON_format_objective(JSON_key, JSON_value);
 
     if(arr_Click_Req.includes(JSON_key)) return JSON_format_click_req(JSON_key,JSON_value);
 
     if(JSON_key == 'HTTP_Req') return JSON_format_background_req(JSON_key, JSON_value);
+
+    if(typeof(JSON_value) == 'object' && Array.isArray(JSON_value)) return JSON_format_text_list(JSON_key, JSON_value);
 
     return JSON_format_default(JSON_key, JSON_value)
 }
@@ -153,8 +158,21 @@ function JSON_format_default(JSON_key, JSON_value){
     DOM_Container_append_text(JSON_key + '<p>' + JSON_value + '</p><hr />');
 }
 
+/* convert text list with auto <br/> */
+function JSON_format_text_list(JSON_key, JSON_value){
+    debug("JSON_format_text_list");
+    var JSON_value_text = '';
+    JSON_value.forEach(append_to_text);
+    function append_to_text(item, index){
+        JSON_value_text += " - " + item + "<br />";
+    }
+    return JSON_format_default(JSON_key, JSON_value_text);
+}
+
+
 /* simple readability convert for our default format */
-function JSON_format_objective(JSON_key, JSON_value){
+//function JSON_format_objective(JSON_key, JSON_value){
+function JSON_format_newline_to_br(JSON_key, JSON_value){
     //if(JSON_value.search(/\s\*\s/g) > -1) JSON_value = JSON_value.replace(/\s\*\s/g,'<li>');
     if(JSON_value.search(/\\n/g) > -1) JSON_value = JSON_value.replace(/\\n/g,'<br />');
     return JSON_format_default(JSON_key, JSON_value);
