@@ -52,9 +52,29 @@ var OH_QUESTION_KEY_CHANGED = false; // incase page fly
 var oh_div_helper_container = document.createElement('div'); //Div Container
     oh_div_helper_container.id = 'oh_div_helper_container';
     oh_div_helper_container.style.background = '#FFFFCC'; //Append bgcolor
+    oh_div_helper_container.style.display = 'none';
     oh_div_helper_container.innerHTML = '';
 /***************************************/
 
+var oh_div_helper_header = document.createElement('button');
+    oh_div_helper_header.id = 'oh_div_helper_header';
+    oh_div_helper_header.innerHTML = '▼';
+    oh_div_helper_header.addEventListener("click", function() {
+        var content = document.getElementById("oh_div_helper_container");
+        var header = document.getElementById("oh_div_helper_header");
+        if(content.style.display == 'none'){
+            content.style.display = 'block';
+            header.innerHTML = '▲';
+        }
+        else {
+            content.style.display = 'none';
+            header.innerHTML = '▼';
+        }
+    });
+
+var oh_div_helper = document.createElement('div');
+    oh_div_helper.appendChild(oh_div_helper_header);
+    oh_div_helper.appendChild(oh_div_helper_container);
 
 /* DOM Handling */
 /* Find the Question location and append a Div */
@@ -64,7 +84,7 @@ function DOM_Append_Helper_Container_Div() {
 
     var objs = document.getElementsByClassName("awsui-util-action-stripe");    
     DOM_Container_flush();
-    objs[0].appendChild(oh_div_helper_container);
+    objs[0].appendChild(oh_div_helper);
     OH_R_CONTAINER_DIV_READY = true;
 }
 
