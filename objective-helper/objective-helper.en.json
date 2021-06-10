@@ -11,8 +11,8 @@
       "Business Process."
     ],
     "HTTP_Req":{
-			"url":"http://aaa.bbb.ccc/ddd?eee=ffff",
-			"method":"POST"
+			"url":"https://l3r6u05ohj.execute-api.ap-southeast-2.amazonaws.com/Prod/hello/",
+			"method":"GET"
 		}
   },
   "OPS 2": {
