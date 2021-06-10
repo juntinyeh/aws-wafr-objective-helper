@@ -2,41 +2,42 @@
 // @name         (AWS WAFR OH!) Amazon Web Services Well-Architected Framework Review Objective Helper
 // @namespace    http://tampermonkey.net/
 // @version      0.1.1
-// @description  To append useful message for WAFR host. 
+// @description  To append useful message for WAFR host.
 // @author       bobyeh@amazon.com (github:juntinyeh)
-// @author       ssslim@amazon.com (github:)
-// @match        https://console.aws.amazon.com/wellarchitected/*
+// @author       ssslim@amazon.com (github:stephensalim)
+// @match        https://*.console.aws.amazon.com/wellarchitected/*
 // @grant        GM.xmlHttpRequest
 // @run-at       document-end
+// @require  https://gist.github.com/raw/2625891/waitForKeyElements.js
 // ==/UserScript==
 
-/* 
-var JSON_language = document.documentElement.lang; 
+/*
+var JSON_language = document.documentElement.lang;
 
-Edit this value manually if document.documentElement.lang not yet support your 
+Edit this value manually if document.documentElement.lang not yet support your
 language. Check the github directory to make sure the target file existed.
 ==> objective-helper/objective-helper.JSON_language.json
 
 ex: A Wookiee language for Chewbacca is not yet support by AWS frontned, then
-you can contribute content in file:objective-helper/objective-helper.Wookiee.json and set JSON_language = 'Wookiee' 
+you can contribute content in file:objective-helper/objective-helper.Wookiee.json and set JSON_language = 'Wookiee'
 */
-var JSON_language = document.documentElement.lang; 
+var JSON_language = document.documentElement.lang;
 
 /*
 var arr_Objective = ['Objective','Uhrrr'];
 Append the translation of the Objective in your own language here, which we created a simple layout readability handler for ' * ' and '\n'.
 var arr_Objective = ['Objective'];
 
-v0.1.2 Disable this setting from v0.1.2, simplify the code logic. Change the readability to default text handling, in case we have different language and key/value combination coming in. 
+v0.1.2 Disable this setting from v0.1.2, simplify the code logic. Change the readability to default text handling, in case we have different language and key/value combination coming in.
 */
 
-/* 
+/*
 var arr_Click_Req = ['Click_Req','Grrrrrrr'];
 By default you will use Click_Req, unless you really boring. Also if you want to append Click_Req element you will have to handle the CSP exception in your own browser.
 */
 var arr_Click_Req = ['Click_Req'];
 
-/* 
+/*
 set Log_Level = 'debug' if you want to try something new and use the debug(log_message) it will help you to dump the timestamp and message on browser console.
 */
 var LOG_LEVEL = '';
@@ -47,13 +48,20 @@ var OH_CONTENT = false; // for Object Helper JSON content
 var OH_R_CONTENT_READY = false; // JSON content loaded
 var OH_R_QUESTION_READY = false; // register flag for page load question ready
 var OH_R_CONTAINER_DIV_READY = false; // register flag for container div ready
-var OH_QUESTION_KEY = ''; // index for the current question like "OPS 1", "SEC 1" 
+var OH_QUESTION_KEY = ''; // index for the current question like "OPS 1", "SEC 1"
 var OH_QUESTION_KEY_CHANGED = false; // incase page fly
 var oh_div_helper_container = document.createElement('div'); //Div Container
     oh_div_helper_container.id = 'oh_div_helper_container';
     oh_div_helper_container.style.background = '#FFFFCC'; //Append bgcolor
     oh_div_helper_container.style.display = 'none';
     oh_div_helper_container.innerHTML = '';
+
+var oh_followup_display_container = document.createElement('div'); //Div Container
+    oh_followup_display_container.id = 'oh_followup_display_container';
+    oh_followup_display_container.style.background = '#ccffff'; //Append bgcolor
+    oh_followup_display_container.style.display = 'block';
+    oh_followup_display_container.innerHTML = '';
+
 /***************************************/
 
 var oh_div_helper_header = document.createElement('button');
@@ -72,9 +80,99 @@ var oh_div_helper_header = document.createElement('button');
         }
     });
 
+
+var oh_list_button = document.createElement('button');
+    oh_list_button.id = 'oh_list_button';
+    oh_list_button.innerHTML = 'LIST';
+    oh_list_button.addEventListener("click", function() {
+        var content = document.getElementById("oh_followup_display_container");
+        var GM_payload = {
+            method: 'GET',
+            url: 'https://7oj9c9aikg.execute-api.ap-southeast-2.amazonaws.com/Prod/hello/',
+            data: '',
+            headers: '',
+            onload: function(response) {
+                content.innerHTML = response.responseText;
+            }
+        };
+        GM.xmlHttpRequest(GM_payload);
+    });
+
+
+var oh_add_button = document.createElement('button');
+    oh_add_button.id = 'oh_add_button';
+    oh_add_button.innerHTML = 'ADD';
+    oh_add_button.addEventListener("click", function() {
+        var content = document.getElementById("oh_followup_display_container");
+        var GM_payload = {
+            method: 'POST',
+            url: 'https://7oj9c9aikg.execute-api.ap-southeast-2.amazonaws.com/Prod/hello/',
+            data: '',
+            headers: '',
+            onload: function(response) {
+                content.innerHTML = response.responseText;
+            }
+        };
+        GM.xmlHttpRequest(GM_payload);
+    });
+
+
+var oh_del_button = document.createElement('button');
+    oh_del_button.id = 'oh_del_button';
+    oh_del_button.innerHTML = 'DELETE';
+    oh_del_button.addEventListener("click", function() {
+        var content = document.getElementById("oh_followup_display_container");
+        var GM_payload = {
+            method: 'POST',
+            url: 'https://7oj9c9aikg.execute-api.ap-southeast-2.amazonaws.com/Prod/hello/',
+            data: '',
+            headers: '',
+            onload: function(response) {
+                content.innerHTML = response.responseText;
+            }
+        };
+        GM.xmlHttpRequest(GM_payload);
+    });
+
+var oh_update_button = document.createElement('button');
+    oh_update_button.id = 'oh_update_button';
+    oh_update_button.innerHTML = 'UPDATE';
+    oh_update_button.addEventListener("click", function() {
+        var content = document.getElementById("oh_followup_display_container");
+        var GM_payload = {
+            method: 'POST',
+            url: 'https://7oj9c9aikg.execute-api.ap-southeast-2.amazonaws.com/Prod/hello/',
+            data: '',
+            headers: '',
+            onload: function(response) {
+                content.innerHTML = response.responseText;
+            }
+        };
+        GM.xmlHttpRequest(GM_payload);
+    });
+
+
+var oh_followup_div_helper = document.createElement('div');
+    oh_followup_div_helper.appendChild(document.createElement("br"));
+    oh_followup_div_helper.appendChild(document.createTextNode("Follow-ups:"));
+    oh_followup_div_helper.appendChild(document.createElement("hr"));
+    oh_followup_div_helper.appendChild(oh_list_button);
+    oh_followup_div_helper.appendChild(document.createTextNode("\u00A0\u00A0"));
+    oh_followup_div_helper.appendChild(oh_add_button);
+    oh_followup_div_helper.appendChild(document.createTextNode("\u00A0\u00A0"));
+    oh_followup_div_helper.appendChild(oh_del_button);
+    oh_followup_div_helper.appendChild(document.createTextNode("\u00A0\u00A0"));
+    oh_followup_div_helper.appendChild(oh_update_button);
+    oh_followup_div_helper.appendChild(document.createElement("br"));
+    oh_followup_div_helper.appendChild(document.createElement("br"));
+    oh_followup_div_helper.appendChild(oh_followup_display_container);
+
+
 var oh_div_helper = document.createElement('div');
     oh_div_helper.appendChild(oh_div_helper_header);
     oh_div_helper.appendChild(oh_div_helper_container);
+
+
 
 /* DOM Handling */
 /* Find the Question location and append a Div */
@@ -82,9 +180,11 @@ var oh_div_helper = document.createElement('div');
 function DOM_Append_Helper_Container_Div() {
     if(OH_R_CONTAINER_DIV_READY) return;
 
-    var objs = document.getElementsByClassName("awsui-util-action-stripe");    
+    var objs = document.getElementsByClassName("awsui-util-action-stripe");
     DOM_Container_flush();
+
     objs[0].appendChild(oh_div_helper);
+    objs[0].appendChild(oh_followup_div_helper);
     OH_R_CONTAINER_DIV_READY = true;
 }
 
@@ -93,7 +193,7 @@ function DOM_Check_Container_Div_Existed() {
     if(objs === null){
         OH_R_CONTAINER_DIV_READY = false;
     }
-    return OH_R_CONTAINER_DIV_READY; 
+    return OH_R_CONTAINER_DIV_READY;
 }
 
 /* Check the JSON and load all the content into Container Div */
@@ -105,8 +205,8 @@ function DOM_Append_Helper_Content() {
     var JSON_value;
     if(OH_CONTENT.hasOwnProperty(OH_QUESTION_KEY))
     {
-        JSON_value = OH_CONTENT[OH_QUESTION_KEY]    
-        for (const [key, value] of Object.entries(JSON_value)) 
+        JSON_value = OH_CONTENT[OH_QUESTION_KEY]
+        for (const [key, value] of Object.entries(JSON_value))
         {
             JSON_format_handler(key,value);
         }
@@ -116,10 +216,10 @@ function DOM_Append_Helper_Content() {
 
 function DOM_Container_flush()
 {
-    oh_div_helper_container.innerHTML = '';   
+    oh_div_helper_container.innerHTML = '';
 }
 
-    
+
 function DOM_Container_append_text(text)
 {
     oh_div_helper_container.innerHTML += text;
@@ -161,13 +261,11 @@ function DOM_Refresh_Check(){
 /* JSON Data Handling */
 /* Dispatch to different format handler here */
 function JSON_format_handler(JSON_key, JSON_value){
-    //Change the text convert as default setting 
+    //Change the text convert as default setting
     //if(arr_Objective.includes(JSON_key)) return JSON_format_objective(JSON_key, JSON_value);
 
     if(arr_Click_Req.includes(JSON_key)) return JSON_format_click_req(JSON_key,JSON_value);
-
     if(JSON_key == 'HTTP_Req') return JSON_format_background_req(JSON_key, JSON_value);
-
     if(typeof(JSON_value) == 'object' && Array.isArray(JSON_value)) return JSON_format_text_list(JSON_key, JSON_value);
 
     return JSON_format_default(JSON_key, JSON_value)
@@ -201,7 +299,7 @@ function JSON_format_newline_to_br(JSON_key, JSON_value){
 /* To perform a background http request */
 /* Disclaimer:::: Once you create a data key "HTTP_Req" in JSON file, greaseMonkey/TemperMoneky will pop-up a confirmation for you to grant the privilege for access remote host. Please understand this will send data from your session outo the remote host, and be careful about the data privacy and security. */
 function JSON_format_background_req(JSON_key, JSON_value){
-    JSON_HttpReq_Handler(JSON_value, debug);    
+    JSON_HttpReq_Handler(JSON_value, debug);
     return "";
 }
 
@@ -229,10 +327,11 @@ function JSON_HttpReq_Handler(JSON_value, callback){
         data: '',
         headers: '',
         onload: function(response) {
+            console.log(response.responseText);
             callback(response);
         }
     };
-    for (const [key, value] of Object.entries(JSON_value)) 
+    for (const [key, value] of Object.entries(JSON_value))
     {
         GM_payload[key] = value;
     }
@@ -244,10 +343,11 @@ function EXT_Get_Objective_Helper_JSON(){
     if(OH_R_CONTENT_READY) return;
     GM.xmlHttpRequest({
         method: "GET",
-        url: "https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/objective-helper/objective-helper." + JSON_language + ".json",
+        url: "https://raw.githubusercontent.com/stephensalim/aws-wafr-objective-helper/main/objective-helper/objective-helper." + JSON_language + ".json",
         onload: function(response) {
             try {
                 OH_CONTENT = JSON.parse(response.responseText);
+
                 if(OH_CONTENT === undefined)
                 {
                     console.log('Unable to load the Objective Helper JSON, Please feed your monkey with proper privilege.');
@@ -278,7 +378,7 @@ function debug(msg){
 function OH_bootstrap() {
     /* Main entry point for the scripts */
     EXT_Get_Objective_Helper_JSON();
-    setInterval(DOM_Refresh_Check, 5000);
+    setInterval(DOM_Refresh_Check, 1000);
 }
 
 OH_bootstrap();
