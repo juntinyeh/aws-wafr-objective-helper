@@ -1,415 +1,414 @@
 {
-  "OPS 1": {
-    "Objective": [
-      "Gain understanding on what is the business objective of the workload. ",
-      "How does the workload impact the overall business ? ",
-      "Gain understanding around internal and external requirements the business have. ",
-      "Understand their current priority, and which areas they are willing to trade off"
-    ],
-    "Audience Context": [
-      "Business Devlopment.",
-      "Business Process."
-    ],
-    "Features": {
-      "Follow-up": [
-          {
-            "button_text":"Update List",
-            "url":"https://l3r6u05ohj.execute-api.ap-southeast-2.amazonaws.com/Prod/hello/",
-            "method":"GET"
-          },
-          {
-            "button_text":"Add Follow-up",
-            "url":"https://l3r6u05ohj.execute-api.ap-southeast-2.amazonaws.com/Prod/hello/",
-            "method":"GET"
-          },
-          {
-            "button_text":"Remove Follow-up",
-            "url":"https://l3r6u05ohj.execute-api.ap-southeast-2.amazonaws.com/Prod/hello/",
-            "method":"GET"
-          },
-          {
-            "button_text":"Update Follow-up",
-            "url":"https://l3r6u05ohj.execute-api.ap-southeast-2.amazonaws.com/Prod/hello/",
-            "method":"GET"
-          }                          
-      ]
-    }
+	"OPS 1": {
+		"Objective": [
+			"Gain understanding on what is the business objective of the workload. ",
+			"How does the workload impact the overall business ? ",
+			"Gain understanding around internal and external requirements the business have. ",
+			"Understand their current priority, and which areas they are willing to trade off"
+		],
+		"Audience Context": [
+			"Business Devlopment.",
+			"Business Process."
+		],
+		"Features": {
+			"Follow-up": [{
+					"button_text": "Update List",
+					"url": "https://l3r6u05ohj.execute-api.ap-southeast-2.amazonaws.com/Prod/hello/",
+					"method": "GET"
+				},
+				{
+					"button_text": "Add Follow-up",
+					"url": "https://l3r6u05ohj.execute-api.ap-southeast-2.amazonaws.com/Prod/hello/",
+					"method": "GET"
+				},
+				{
+					"button_text": "Remove Follow-up",
+					"url": "https://l3r6u05ohj.execute-api.ap-southeast-2.amazonaws.com/Prod/hello/",
+					"method": "GET"
+				},
+				{
+					"button_text": "Update Follow-up",
+					"url": "https://l3r6u05ohj.execute-api.ap-southeast-2.amazonaws.com/Prod/hello/",
+					"method": "GET"
+				}
+			]
+		}
 
-  },
-  "OPS 2": {
-    "Objective": [
-      "Understand their business & team structure.",
-      "Who is responsible for which workload and which domain.",
-      "Find out how well defined (documented and communicated) these process are."
-    ],
-    "Audience Context": [
-      "Business Process.",
-      "Operations"
-    ]
-  },
-  "OPS 3": {
-    "Objective": [
-      "Understand their organizational culture",
-      "Do they mechanism to encourage and empower culture of Escalation, Bias for action, Experimentation. ?",
-      "Find out how they are equipping the team encourage the above culture ?."
-    ],
-    "Audience Context": [
-      "Business Process. ",
-      "Operations"
-    ]
-  },
-  "OPS 4": {
-    "Objective": [
-      "Gain an understanding, on how well have they enabled visibility & tracibility to the state of their workload.  ",
-      " ( Application, Workload, Activity, and Dependency ) at transaction level. ",
-      "Also, on how this relates to their business objective. "
-    ],
-    "Audience Context": [
-      " Operations"
-    ]
-  },
-  "OPS 5": {
-    "Objective": [
-      "Gain understanding on how the they can handle / manage changes in their workload ",
-      "Are they doing that in such a way that it allows them to reduce the defects, rate, remediation, and improve it's flow into production. Accelerating their time to market ?"
-    ],
-    "Audience Context": [
-      " Operations"
-    ]
-  },
-  "OPS 6": {
-    "Objective": [
-      " Gain understanding on how well is their operational practice / approch in mitigating risk of failed deployments"
-    ],
-    "Audience Context": [
-      " Operations"
-    ]
-  },
-  "OPS 7": {
-    "Objective": [
-      " Gain understanding around the avalability of any mechanism / process the team has to assess the operational readiness of a workload."
-    ],
-    "Audience Context": [
-      " Operations"
-    ]
-  },
-  "OPS 8": {
-    "Objective": [
-      "Gain understanding on what is the defined business KPI for the workload, and how does that translates to what is being monitored in the workload. (for example, order rate, customer retention rate, and profit versus operating expense) and customer outcomes (for example, customer satisfaction). ",
-      "Are data being captured and analyzed to identify baseline, trends, and anomalies ? ",
-      "How much visibility does the business has to these data ?"
-    ],
-    "Question Connections": [
-      "OPS 8, OPS9, REL6"
-    ],
-    "Audience Context": [
-      "Business Process. ",
-      "Operations"
-    ]
-  },
-  "OPS 9": {
-    "Objective": [
-      "Gain understanding on what is the defined business KPI for the operations, and how does that translates to what is being monitored in the workload operations (for example, new features delivered) and customer outcomes (for example, customer support cases). ",
-      "Are data being captured and analyzed to identify baseline, trends, and anomalies ? ",
-      "How much visibility does the business has to these data ?"
-    ],
-    "Question Connections": [
-      "OPS 8, OPS9, REL6"
-    ],
-    "Audience Context": [
-      "Business Process. ",
-      "Operations"
-    ]
-  },
-  "OPS 10": {
-    "Objective": [
-      " Gain understanding on how their operational capability to manage and handle operational events / incidents"
-    ],
-    "Audience Context": [
-      " Operations"
-    ]
-  },
-  "OPS 11": {
-    "Objective": [
-      " Gain understanding around the mechanism they have to continously improve and evolve their operations"
-    ],
-    "Audience Context": [
-      " Operations"
-    ]
-  },
-  "SEC 1": {
-    "Objective": [
-      "Gain understanding on their general security approach in when operating workload. Have they implemented the process they defined in operational excellence at org and workload level. and apply them in all areas. ",
-      "Gain understanding on how they are staying up to date with industry requirements & threats intelligence. ",
-      "Gain understanding on how they are Automating Security process testing, validation."
-    ]
-  },
-  "SEC 2": {
-    "Objective": [
-      " Gain understanding around their process to manage identities being used by human and being used between systems. ( inside or outside your environment"
-    ]
-  },
-  "SEC 3": {
-    "Objective": [
-      "Gain understanding on how they manage permissions that control access to people and machine identities requiring access to AWS and your workload. ",
-      "Permissions control who can access what, and under what conditions."
-    ]
-  },
-  "SEC 4": {
-    "Objective": [
-      "Gain understaning how they capture and analyze security events from logs, and metrics. ",
-      "How do they gain visibility to these logs & events. ",
-      "What actions are they taking on these security events or potential threats to help secure them ?"
-    ]
-  },
-  "SEC 5": {
-    "Objective": [
-      "Gain understanding on their approach to secure network that is related to their workload. ",
-      "How are they protecting network connectivity to their workload from internet, to internet, private network between systems"
-    ]
-  },
-  "SEC 6": {
-    "Objective": [
-      "Gain understanging on how they are securing the computer resources in their workload from external and internal threats. Compute resources are EC2 Instance, Containers, Lambda, Database Service, IoT Device and more, resources that typically handles / host business logic aspect in the workload."
-    ]
-  },
-  "SEC 7": {
-    "Objective": [
-      "Gain understanding on their strategy / method they use to categorize their data, based on criticallity and sensitivity. ",
-      "How are they categorizing these data, and understand the significance of this data to their business, and what actions do they take to protect / control access. as well as the retention they applied."
-    ]
-  },
-  "SEC 8": {
-    "Objective": [
-      "Gain understanding on how they are securing their data that is stored in their mid / long term storage. This could be in S3 or their Database instance. ",
-      "How are they implement multiple controls to reduce risk of un-authorized access and mishandling."
-    ]
-  },
-  "SEC 9": {
-    "Objective": [
-      "Gain understanding on how they are securing their data during transit. This could be in data that is transfered across network, or through communication services such as Gateway / Messaging. ",
-      "How do they implement multiple controls to reduce risk of un-authorized access and mishandling."
-    ]
-  },
-  "SEC 10": {
-    "Objective": [
-      "Gain understanding on what are the things they implement in Preparation to security incidents. ",
-      "How can they in a timely manner, runs an effective investigation, response to to the event/incident , and recovery from it to minimize disruption to your organization."
-    ]
-  },
-  "REL 1": {
-    "Objective": [
-      "Gain understanding around their awareness about the concept of Service Quote, and why that concept exist to protect them from accidental provisioning. ",
-      "Gain understanding also on how they are now managing their workload to address this."
-    ]
-  },
-  "REL 2": {
-    "Objective": [
-      "Gain understanging on their approach on planning and implementing their network topology from. ",
-      "What are the things, they consider when are they planning their network topology which includes, intra- and inter-system connectivity, public IP address management, private IP address management, domain name resolution."
-    ]
-  },
-  "REL 3": {
-    "Objective": [
-      "Gain understanding on their approch in implementing a Service-oritented Architecture ? ",
-      "On how they are segmenting their workload, and if each of the serment focuses on a certain functionality or business domain. ",
-      "Is the workload currently runs as a single or multiple monoliths ? or are they running the application as a Mircoservice model."
-    ]
-  },
-  "REL 4": {
-    "Objective": [
-      "Gain understanding on their approach to design interactions between parts of their distributed system, or other system that interacts / relies on this workload. ",
-      "When disruption / failure occur to the system your workload interacting with or vice versa , what are the impacts to your workload and that other connecting system ? ",
-      "And how are they handling it ?"
-    ]
-  },
-  "REL 5": {
-    "Objective": [
-      "Gain understanding on what are the things / approach they have implemented when designing interactions in a distributed system to manage failures, or allow the system to widhstand it."
-    ]
-  },
-  "REL 6": {
-    "Objective": [
-      "Gain understanding on how are they monitoring their workload resources ? ",
-      "What are the things in their workload that they are monitoring, and how are they treating those data to allow better reliability in the workload"
-    ],
-    "Question Connections": [
-      "OPS 8, OPS9, REL6"
-    ]
-  },
-  "REL 7": {
-    "Objective": [
-      "Gain understanding on the approach of their design for their workload to allow the workload to adapt to change in demand. ",
-      "Find out, on how they are implementing this ability to adapt ? gather high level technical details around their approach"
-    ],
-    "Question Connections": [
-      "COST 9"
-    ]
-  },
-  "REL 8": {
-    "Objective": [
-      "Gain understanding on their process to implement change in the workload, at application and infrastructure level. ",
-      "What are the things that they do to be able reliably implement changes like patch / software / config change to ensure that it is done in a controlled manner ? ",
-      "If changes are not done in a controlled manner, it can become difficult for them to predict effect of these changes, and to decide the appropriate follow up question."
-    ]
-  },
-  "REL 9": {
-    "Objective": [
-      "Gain understanding on how they are backing up their data. ",
-      "Have they defined and have business agreed on the RTO / RPO ? ",
-      "If there is no direction from the business, do they know what is their RTO / RPO at their current strategy they implemented ? "
-    ],
-    "Question Connections": [
-      "REL 13"
-    ]
-  },
-  "REL 10": {
-    "Objective": [
-      "Gain understanding on their approach / strategies in isolating the impact when failure occured in the workload so that the effect to other services are managed / reduced ",
-      "This is particularly prominent if their workload is distributed across multiple components. ",
-      "If the workload is a monolith, look at surrounding services that interconnects with the workload, e.g: billing system, crm, etc. What strategy are they implementing to reduce the impact on other services that relies on the service."
-    ]
-  },
-  "REL 11": {
-    "Objective": [
-      "Gain understanding on what is their strategy / approach to lower the Mean time to Recovery should an issue occur in the system. ",
-      "What is their current mean time to recovery ? ",
-      "What are the approach / process / implementation they have to handle this reduction of Mean time to Recovery ( The Average time it takes from the time issue is reported until it get's resolved)"
-    ]
-  },
-  "REL 12": {
-    "Objective": [
-      " Gain understanding on how they are testing all of the strategies they have to improve reliability on the workload "
-    ]
-  },
-  "REL 13": {
-    "Objective": [
-      "Gain understanding on their plan for Disaster recovery ",
-      "Have they got this plan documented and tested ? ",
-      "Have they defined the RTO / RPO?"
-    ],
-    "Question Connections": [
-      "REL 9"
-    ]
-  },
-  "PERF 1": {
-    "Objective": [
-      " Gain understanding / insight on what are their approach in making sure that they have the most optimal architecture model for their workload."
-    ]
-  },
-  "PERF 2": {
-    "Objective": [
-      " Gain understanding on what are the strategy / approach they took to make sure they are selecting the right compute solution for their workload."
-    ]
-  },
-  "PERF 3": {
-    "Objective": [
-      " Gain understanding on what are the strategy / approach they took to make sure they are selecting the right storage solution for their workload."
-    ]
-  },
-  "PERF 4": {
-    "Objective": [
-      " Gain understanding on what are the strategy / approach they took to make sure they are selecting the right database solution for their workload."
-    ]
-  },
-  "PERF 5": {
-    "Objective": [
-      " Gain understanding on what are the strategy / approach they took to make sure they have the most optimal network configuration based on their needs and constrains."
-    ]
-  },
-  "PERF 6": {
-    "Objective": [
-      "Gain understanding on their approach to keep up to day with new resources and services. ",
-      "Do they have a process to defined to improve the workload performance ? ",
-      "What mechanism do employ to ensure their workload continuously evolves towards improvement?"
-    ]
-  },
-  "PERF 7": {
-    "Objective": [
-      "Gain understanding on their approach to record the performance metrics of all the resources they monitor, establish benchmark, and set up appropriate alerting to take action upon indication of performance degardation"
-    ]
-  },
-  "PERF 8": {
-    "Objective": [
-      "Gain insight on customer's understanding around areas in the workload that they consider critical from performance perspective. ",
-      "Determine which aspect they can trade off to achieve that, and what will be the impact to their customer , and efficiency they are achieving. ",
-      "How are they tracking /measuring these impact. ",
-      "And what strategy do they use to mitigate those tradeoffs?"
-    ]
-  },
-  "COST 1": {
-    "Objective": [
-      "Gain understanding around what practice does the customer have in terms of managing thier cloud expenditures. ",
-      "Have they established a dedicated function to handle the management ? ",
-      "What is their general strategy, and what are the things that they implement to handle their Cloud Financial Management."
-    ]
-  },
-  "COST 2": {
-    "Objective": [
-      "Gain insights on what are the things they implemenet in their workload to govern usage of the workload. ",
-      "What are the strategies and things implemented to ensure the cost are appropriately incurred while making sure the objectives are stillachieved."
-    ],
-    "Question Connections": [
-      "SEC 3"
-    ]
-  },
-  "COST 3": {
-    "Objective": [
-      " Gain insights on what are the things implemented to monitor the usage of the resources used and what mechanism do they use to create attrobution of the cost for that particular category"
-    ],
-    "Question Connections": [
-      "OPS 8, REL 1, REL 6"
-    ]
-  },
-  "COST 4": {
-    "Objective": [
-      " What are their approach when decomissioning resources to ensure that they are reducing waste."
-    ],
-    "Question Connections": [
-      "REL 6"
-    ]
-  },
-  "COST 5": {
-    "Objective": [
-      "Gain insights, on their approach and strategies to evaluate cost when they select their services as their building block for the workload."
-    ]
-  },
-  "COST 6": {
-    "Objective": [
-      " Gain insight on their effort when choosing resource size and the quantity to ensure it can accomodate the task at hand while minimizing wastage."
-    ],
-    "Question Connections": [
-      "PERF 2, PERF 3, PERF 4"
-    ]
-  },
-  "COST 7": {
-    "Objective": [
-      "Gain insights on their understanding about AWS cloud cost model, and if they are utilizing the right pricing model for the workload. ",
-      "Have they levaraged, Reserved Instance Pricing ?, Saving Plans ?"
-    ],
-    "Question Connections": [
-      "OPS 1, OPS 4"
-    ]
-  },
-  "COST 8": {
-    "Objective": [
-      "Gain insights on their understanding of data transfer charges in their workload, and what stratefy have they implemented to manage / prepare for this?"
-    ],
-    "Question Connections": [
-      "REL 2, PERF 5"
-    ]
-  },
-  "COST 9": {
-    "Objective": [
-      " Gain understanding on what is their approach to be able to manage the demand and supply of resources. While making sure wastage is kept minimum."
-    ],
-    "Question Connections": [
-      "REL 6"
-    ]
-  },
-  "COST 10": {
-    "Objective": [
-      "Gain understanding on their process / approach in keeping up with AWS new services, features that would improve their workload cost optimization."
-    ]
-  }
+	},
+	"OPS 2": {
+		"Objective": [
+			"Understand their business & team structure.",
+			"Who is responsible for which workload and which domain.",
+			"Find out how well defined (documented and communicated) these process are."
+		],
+		"Audience Context": [
+			"Business Process.",
+			"Operations"
+		]
+	},
+	"OPS 3": {
+		"Objective": [
+			"Understand their organizational culture",
+			"Do they mechanism to encourage and empower culture of Escalation, Bias for action, Experimentation. ?",
+			"Find out how they are equipping the team encourage the above culture ?."
+		],
+		"Audience Context": [
+			"Business Process. ",
+			"Operations"
+		]
+	},
+	"OPS 4": {
+		"Objective": [
+			"Gain an understanding, on how well have they enabled visibility & tracibility to the state of their workload.  ",
+			" ( Application, Workload, Activity, and Dependency ) at transaction level. ",
+			"Also, on how this relates to their business objective. "
+		],
+		"Audience Context": [
+			" Operations"
+		]
+	},
+	"OPS 5": {
+		"Objective": [
+			"Gain understanding on how the they can handle / manage changes in their workload ",
+			"Are they doing that in such a way that it allows them to reduce the defects, rate, remediation, and improve it's flow into production. Accelerating their time to market ?"
+		],
+		"Audience Context": [
+			" Operations"
+		]
+	},
+	"OPS 6": {
+		"Objective": [
+			" Gain understanding on how well is their operational practice / approch in mitigating risk of failed deployments"
+		],
+		"Audience Context": [
+			" Operations"
+		]
+	},
+	"OPS 7": {
+		"Objective": [
+			" Gain understanding around the avalability of any mechanism / process the team has to assess the operational readiness of a workload."
+		],
+		"Audience Context": [
+			" Operations"
+		]
+	},
+	"OPS 8": {
+		"Objective": [
+			"Gain understanding on what is the defined business KPI for the workload, and how does that translates to what is being monitored in the workload. (for example, order rate, customer retention rate, and profit versus operating expense) and customer outcomes (for example, customer satisfaction). ",
+			"Are data being captured and analyzed to identify baseline, trends, and anomalies ? ",
+			"How much visibility does the business has to these data ?"
+		],
+		"Question Connections": [
+			"OPS 8, OPS9, REL6"
+		],
+		"Audience Context": [
+			"Business Process. ",
+			"Operations"
+		]
+	},
+	"OPS 9": {
+		"Objective": [
+			"Gain understanding on what is the defined business KPI for the operations, and how does that translates to what is being monitored in the workload operations (for example, new features delivered) and customer outcomes (for example, customer support cases). ",
+			"Are data being captured and analyzed to identify baseline, trends, and anomalies ? ",
+			"How much visibility does the business has to these data ?"
+		],
+		"Question Connections": [
+			"OPS 8, OPS9, REL6"
+		],
+		"Audience Context": [
+			"Business Process. ",
+			"Operations"
+		]
+	},
+	"OPS 10": {
+		"Objective": [
+			" Gain understanding on how their operational capability to manage and handle operational events / incidents"
+		],
+		"Audience Context": [
+			" Operations"
+		]
+	},
+	"OPS 11": {
+		"Objective": [
+			" Gain understanding around the mechanism they have to continously improve and evolve their operations"
+		],
+		"Audience Context": [
+			" Operations"
+		]
+	},
+	"SEC 1": {
+		"Objective": [
+			"Gain understanding on their general security approach in when operating workload. Have they implemented the process they defined in operational excellence at org and workload level. and apply them in all areas. ",
+			"Gain understanding on how they are staying up to date with industry requirements & threats intelligence. ",
+			"Gain understanding on how they are Automating Security process testing, validation."
+		]
+	},
+	"SEC 2": {
+		"Objective": [
+			" Gain understanding around their process to manage identities being used by human and being used between systems. ( inside or outside your environment"
+		]
+	},
+	"SEC 3": {
+		"Objective": [
+			"Gain understanding on how they manage permissions that control access to people and machine identities requiring access to AWS and your workload. ",
+			"Permissions control who can access what, and under what conditions."
+		]
+	},
+	"SEC 4": {
+		"Objective": [
+			"Gain understaning how they capture and analyze security events from logs, and metrics. ",
+			"How do they gain visibility to these logs & events. ",
+			"What actions are they taking on these security events or potential threats to help secure them ?"
+		]
+	},
+	"SEC 5": {
+		"Objective": [
+			"Gain understanding on their approach to secure network that is related to their workload. ",
+			"How are they protecting network connectivity to their workload from internet, to internet, private network between systems"
+		]
+	},
+	"SEC 6": {
+		"Objective": [
+			"Gain understanging on how they are securing the computer resources in their workload from external and internal threats. Compute resources are EC2 Instance, Containers, Lambda, Database Service, IoT Device and more, resources that typically handles / host business logic aspect in the workload."
+		]
+	},
+	"SEC 7": {
+		"Objective": [
+			"Gain understanding on their strategy / method they use to categorize their data, based on criticallity and sensitivity. ",
+			"How are they categorizing these data, and understand the significance of this data to their business, and what actions do they take to protect / control access. as well as the retention they applied."
+		]
+	},
+	"SEC 8": {
+		"Objective": [
+			"Gain understanding on how they are securing their data that is stored in their mid / long term storage. This could be in S3 or their Database instance. ",
+			"How are they implement multiple controls to reduce risk of un-authorized access and mishandling."
+		]
+	},
+	"SEC 9": {
+		"Objective": [
+			"Gain understanding on how they are securing their data during transit. This could be in data that is transfered across network, or through communication services such as Gateway / Messaging. ",
+			"How do they implement multiple controls to reduce risk of un-authorized access and mishandling."
+		]
+	},
+	"SEC 10": {
+		"Objective": [
+			"Gain understanding on what are the things they implement in Preparation to security incidents. ",
+			"How can they in a timely manner, runs an effective investigation, response to to the event/incident , and recovery from it to minimize disruption to your organization."
+		]
+	},
+	"REL 1": {
+		"Objective": [
+			"Gain understanding around their awareness about the concept of Service Quote, and why that concept exist to protect them from accidental provisioning. ",
+			"Gain understanding also on how they are now managing their workload to address this."
+		]
+	},
+	"REL 2": {
+		"Objective": [
+			"Gain understanging on their approach on planning and implementing their network topology from. ",
+			"What are the things, they consider when are they planning their network topology which includes, intra- and inter-system connectivity, public IP address management, private IP address management, domain name resolution."
+		]
+	},
+	"REL 3": {
+		"Objective": [
+			"Gain understanding on their approch in implementing a Service-oritented Architecture ? ",
+			"On how they are segmenting their workload, and if each of the serment focuses on a certain functionality or business domain. ",
+			"Is the workload currently runs as a single or multiple monoliths ? or are they running the application as a Mircoservice model."
+		]
+	},
+	"REL 4": {
+		"Objective": [
+			"Gain understanding on their approach to design interactions between parts of their distributed system, or other system that interacts / relies on this workload. ",
+			"When disruption / failure occur to the system your workload interacting with or vice versa , what are the impacts to your workload and that other connecting system ? ",
+			"And how are they handling it ?"
+		]
+	},
+	"REL 5": {
+		"Objective": [
+			"Gain understanding on what are the things / approach they have implemented when designing interactions in a distributed system to manage failures, or allow the system to widhstand it."
+		]
+	},
+	"REL 6": {
+		"Objective": [
+			"Gain understanding on how are they monitoring their workload resources ? ",
+			"What are the things in their workload that they are monitoring, and how are they treating those data to allow better reliability in the workload"
+		],
+		"Question Connections": [
+			"OPS 8, OPS9, REL6"
+		]
+	},
+	"REL 7": {
+		"Objective": [
+			"Gain understanding on the approach of their design for their workload to allow the workload to adapt to change in demand. ",
+			"Find out, on how they are implementing this ability to adapt ? gather high level technical details around their approach"
+		],
+		"Question Connections": [
+			"COST 9"
+		]
+	},
+	"REL 8": {
+		"Objective": [
+			"Gain understanding on their process to implement change in the workload, at application and infrastructure level. ",
+			"What are the things that they do to be able reliably implement changes like patch / software / config change to ensure that it is done in a controlled manner ? ",
+			"If changes are not done in a controlled manner, it can become difficult for them to predict effect of these changes, and to decide the appropriate follow up question."
+		]
+	},
+	"REL 9": {
+		"Objective": [
+			"Gain understanding on how they are backing up their data. ",
+			"Have they defined and have business agreed on the RTO / RPO ? ",
+			"If there is no direction from the business, do they know what is their RTO / RPO at their current strategy they implemented ? "
+		],
+		"Question Connections": [
+			"REL 13"
+		]
+	},
+	"REL 10": {
+		"Objective": [
+			"Gain understanding on their approach / strategies in isolating the impact when failure occured in the workload so that the effect to other services are managed / reduced ",
+			"This is particularly prominent if their workload is distributed across multiple components. ",
+			"If the workload is a monolith, look at surrounding services that interconnects with the workload, e.g: billing system, crm, etc. What strategy are they implementing to reduce the impact on other services that relies on the service."
+		]
+	},
+	"REL 11": {
+		"Objective": [
+			"Gain understanding on what is their strategy / approach to lower the Mean time to Recovery should an issue occur in the system. ",
+			"What is their current mean time to recovery ? ",
+			"What are the approach / process / implementation they have to handle this reduction of Mean time to Recovery ( The Average time it takes from the time issue is reported until it get's resolved)"
+		]
+	},
+	"REL 12": {
+		"Objective": [
+			" Gain understanding on how they are testing all of the strategies they have to improve reliability on the workload "
+		]
+	},
+	"REL 13": {
+		"Objective": [
+			"Gain understanding on their plan for Disaster recovery ",
+			"Have they got this plan documented and tested ? ",
+			"Have they defined the RTO / RPO?"
+		],
+		"Question Connections": [
+			"REL 9"
+		]
+	},
+	"PERF 1": {
+		"Objective": [
+			" Gain understanding / insight on what are their approach in making sure that they have the most optimal architecture model for their workload."
+		]
+	},
+	"PERF 2": {
+		"Objective": [
+			" Gain understanding on what are the strategy / approach they took to make sure they are selecting the right compute solution for their workload."
+		]
+	},
+	"PERF 3": {
+		"Objective": [
+			" Gain understanding on what are the strategy / approach they took to make sure they are selecting the right storage solution for their workload."
+		]
+	},
+	"PERF 4": {
+		"Objective": [
+			" Gain understanding on what are the strategy / approach they took to make sure they are selecting the right database solution for their workload."
+		]
+	},
+	"PERF 5": {
+		"Objective": [
+			" Gain understanding on what are the strategy / approach they took to make sure they have the most optimal network configuration based on their needs and constrains."
+		]
+	},
+	"PERF 6": {
+		"Objective": [
+			"Gain understanding on their approach to keep up to day with new resources and services. ",
+			"Do they have a process to defined to improve the workload performance ? ",
+			"What mechanism do employ to ensure their workload continuously evolves towards improvement?"
+		]
+	},
+	"PERF 7": {
+		"Objective": [
+			"Gain understanding on their approach to record the performance metrics of all the resources they monitor, establish benchmark, and set up appropriate alerting to take action upon indication of performance degardation"
+		]
+	},
+	"PERF 8": {
+		"Objective": [
+			"Gain insight on customer's understanding around areas in the workload that they consider critical from performance perspective. ",
+			"Determine which aspect they can trade off to achieve that, and what will be the impact to their customer , and efficiency they are achieving. ",
+			"How are they tracking /measuring these impact. ",
+			"And what strategy do they use to mitigate those tradeoffs?"
+		]
+	},
+	"COST 1": {
+		"Objective": [
+			"Gain understanding around what practice does the customer have in terms of managing thier cloud expenditures. ",
+			"Have they established a dedicated function to handle the management ? ",
+			"What is their general strategy, and what are the things that they implement to handle their Cloud Financial Management."
+		]
+	},
+	"COST 2": {
+		"Objective": [
+			"Gain insights on what are the things they implemenet in their workload to govern usage of the workload. ",
+			"What are the strategies and things implemented to ensure the cost are appropriately incurred while making sure the objectives are stillachieved."
+		],
+		"Question Connections": [
+			"SEC 3"
+		]
+	},
+	"COST 3": {
+		"Objective": [
+			" Gain insights on what are the things implemented to monitor the usage of the resources used and what mechanism do they use to create attrobution of the cost for that particular category"
+		],
+		"Question Connections": [
+			"OPS 8, REL 1, REL 6"
+		]
+	},
+	"COST 4": {
+		"Objective": [
+			" What are their approach when decomissioning resources to ensure that they are reducing waste."
+		],
+		"Question Connections": [
+			"REL 6"
+		]
+	},
+	"COST 5": {
+		"Objective": [
+			"Gain insights, on their approach and strategies to evaluate cost when they select their services as their building block for the workload."
+		]
+	},
+	"COST 6": {
+		"Objective": [
+			" Gain insight on their effort when choosing resource size and the quantity to ensure it can accomodate the task at hand while minimizing wastage."
+		],
+		"Question Connections": [
+			"PERF 2, PERF 3, PERF 4"
+		]
+	},
+	"COST 7": {
+		"Objective": [
+			"Gain insights on their understanding about AWS cloud cost model, and if they are utilizing the right pricing model for the workload. ",
+			"Have they levaraged, Reserved Instance Pricing ?, Saving Plans ?"
+		],
+		"Question Connections": [
+			"OPS 1, OPS 4"
+		]
+	},
+	"COST 8": {
+		"Objective": [
+			"Gain insights on their understanding of data transfer charges in their workload, and what stratefy have they implemented to manage / prepare for this?"
+		],
+		"Question Connections": [
+			"REL 2, PERF 5"
+		]
+	},
+	"COST 9": {
+		"Objective": [
+			" Gain understanding on what is their approach to be able to manage the demand and supply of resources. While making sure wastage is kept minimum."
+		],
+		"Question Connections": [
+			"REL 6"
+		]
+	},
+	"COST 10": {
+		"Objective": [
+			"Gain understanding on their process / approach in keeping up with AWS new services, features that would improve their workload cost optimization."
+		]
+	}
 }
