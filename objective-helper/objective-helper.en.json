@@ -7,9 +7,13 @@
       "Understand their current priority, and which areas they are willing to trade off"
     ],
     "Audience Context": [
-      "Business Devlopment. ",
+      "Business Devlopment.",
       "Business Process."
-    ]
+    ],
+    "HTTP_Req":{
+			"url":"http://aaa.bbb.ccc/ddd?eee=ffff",
+			"method":"POST"
+		}
   },
   "OPS 2": {
     "Objective": [
@@ -241,7 +245,7 @@
   "REL 10": {
     "Objective": [
       "Gain understanding on their approach / strategies in isolating the impact when failure occured in the workload so that the effect to other services are managed / reduced ",
-      "This is particularly prominent if their workload is distributed accross multiple components. ",
+      "This is particularly prominent if their workload is distributed across multiple components. ",
       "If the workload is a monolith, look at surrounding services that interconnects with the workload, e.g: billing system, crm, etc. What strategy are they implementing to reduce the impact on other services that relies on the service."
     ]
   },
