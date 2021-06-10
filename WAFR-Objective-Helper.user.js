@@ -8,7 +8,6 @@
 // @match        https://*.console.aws.amazon.com/wellarchitected/*
 // @grant        GM.xmlHttpRequest
 // @run-at       document-end
-// @require  https://gist.github.com/raw/2625891/waitForKeyElements.js
 // ==/UserScript==
 
 /*
@@ -50,45 +49,63 @@ var OH_R_QUESTION_READY = false; // register flag for page load question ready
 var OH_R_CONTAINER_DIV_READY = false; // register flag for container div ready
 var OH_QUESTION_KEY = ''; // index for the current question like "OPS 1", "SEC 1"
 var OH_QUESTION_KEY_CHANGED = false; // incase page fly
+/***************************************/
+
+
+/***************************************/
+/*CONTEXT*/
+
+
 var oh_div_helper_container = document.createElement('div'); //Div Container
     oh_div_helper_container.id = 'oh_div_helper_container';
     oh_div_helper_container.style.background = '#FFFFCC'; //Append bgcolor
     oh_div_helper_container.style.display = 'none';
     oh_div_helper_container.innerHTML = '';
 
-var oh_followup_display_container = document.createElement('div'); //Div Container
-    oh_followup_display_container.id = 'oh_followup_display_container';
-    oh_followup_display_container.style.background = '#ccffff'; //Append bgcolor
-    oh_followup_display_container.style.display = 'block';
-    oh_followup_display_container.innerHTML = '';
-
-/***************************************/
 
 var oh_div_helper_header = document.createElement('button');
     oh_div_helper_header.id = 'oh_div_helper_header';
-    oh_div_helper_header.innerHTML = '▼';
+    oh_div_helper_header.innerHTML = 'Context ▼';
     oh_div_helper_header.addEventListener("click", function() {
         var content = document.getElementById("oh_div_helper_container");
         var header = document.getElementById("oh_div_helper_header");
         if(content.style.display == 'none'){
             content.style.display = 'block';
-            header.innerHTML = '▲';
+            header.innerHTML = 'Context ▲';
         }
         else {
             content.style.display = 'none';
-            header.innerHTML = '▼';
+            header.innerHTML = 'Context ▼';
         }
     });
 
 
+var oh_div_helper = document.createElement('div');
+    oh_div_helper.appendChild(oh_div_helper_header);
+    oh_div_helper.appendChild(oh_div_helper_container);
+
+
+/***************************************/
+
+
+/***************************************/
+/*FOLLOW UP*/
+
+var oh_followup_display_container = document.createElement('div'); //Div Container
+    oh_followup_display_container.id = 'oh_followup_display_container';
+    oh_followup_display_container.style.background = '#FFFFCC'; //Append bgcolor
+    oh_followup_display_container.style.display = 'block';
+    oh_followup_display_container.innerHTML = '';
+
 var oh_list_button = document.createElement('button');
     oh_list_button.id = 'oh_list_button';
-    oh_list_button.innerHTML = 'LIST';
+    oh_list_button.innerHTML = '&nbsp&nbspLIST&nbsp&nbsp';
+    //oh_list_button.style = 'cursor: pointer; border: 1px solid blue;';
     oh_list_button.addEventListener("click", function() {
         var content = document.getElementById("oh_followup_display_container");
         var GM_payload = {
             method: 'GET',
-            url: 'https://7oj9c9aikg.execute-api.ap-southeast-2.amazonaws.com/Prod/hello/',
+            url: 'https://7oj9c9aikg.execute-api.ap-southeast-2.amazonaws.com/Prod/list/',
             data: '',
             headers: '',
             onload: function(response) {
@@ -101,12 +118,13 @@ var oh_list_button = document.createElement('button');
 
 var oh_add_button = document.createElement('button');
     oh_add_button.id = 'oh_add_button';
-    oh_add_button.innerHTML = 'ADD';
+    oh_add_button.innerHTML = '&nbsp&nbspNEW&nbsp&nbsp';
+    //oh_add_button.style = 'cursor: pointer; border: 1px solid blue;';
     oh_add_button.addEventListener("click", function() {
         var content = document.getElementById("oh_followup_display_container");
         var GM_payload = {
             method: 'POST',
-            url: 'https://7oj9c9aikg.execute-api.ap-southeast-2.amazonaws.com/Prod/hello/',
+            url: 'https://7oj9c9aikg.execute-api.ap-southeast-2.amazonaws.com/Prod/add/',
             data: '',
             headers: '',
             onload: function(response) {
@@ -117,74 +135,123 @@ var oh_add_button = document.createElement('button');
     });
 
 
-var oh_del_button = document.createElement('button');
-    oh_del_button.id = 'oh_del_button';
-    oh_del_button.innerHTML = 'DELETE';
-    oh_del_button.addEventListener("click", function() {
+
+var oh_followup_buttons = document.createElement('div'); //Div Container
+    oh_followup_buttons.id = 'oh_followup_buttons';
+    oh_followup_buttons.style.display = 'none';
+    oh_followup_buttons.appendChild(document.createElement("br"));
+    oh_followup_buttons.appendChild(oh_list_button);
+    oh_followup_buttons.appendChild(document.createTextNode("\u00A0\u00A0"));
+    oh_followup_buttons.appendChild(oh_add_button);
+//    oh_followup_buttons.appendChild(document.createElement("hr"));
+
+
+var oh_followup_div_helper_header = document.createElement('button');
+    oh_followup_div_helper_header.id = 'oh_followup_div_helper_header';
+    oh_followup_div_helper_header.innerHTML = 'Follow-up ▼';
+    oh_followup_div_helper_header.addEventListener("click", function() {
+        var button = document.getElementById("oh_followup_buttons");
         var content = document.getElementById("oh_followup_display_container");
-        var GM_payload = {
-            method: 'POST',
-            url: 'https://7oj9c9aikg.execute-api.ap-southeast-2.amazonaws.com/Prod/hello/',
-            data: '',
-            headers: '',
-            onload: function(response) {
-                content.innerHTML = response.responseText;
-            }
-        };
-        GM.xmlHttpRequest(GM_payload);
+        var header = document.getElementById("oh_followup_div_helper_header");
+        if(content.style.display == 'none'){
+            content.style.display = 'block';
+            button.style.display = 'block';
+            header.innerHTML = 'Follow-up ▲';
+        }
+        else {
+            content.style.display = 'none';
+            button.style.display = 'none';
+            header.innerHTML = 'Follow-up ▼';
+        }
     });
-
-var oh_update_button = document.createElement('button');
-    oh_update_button.id = 'oh_update_button';
-    oh_update_button.innerHTML = 'UPDATE';
-    oh_update_button.addEventListener("click", function() {
-        var content = document.getElementById("oh_followup_display_container");
-        var GM_payload = {
-            method: 'POST',
-            url: 'https://7oj9c9aikg.execute-api.ap-southeast-2.amazonaws.com/Prod/hello/',
-            data: '',
-            headers: '',
-            onload: function(response) {
-                content.innerHTML = response.responseText;
-            }
-        };
-        GM.xmlHttpRequest(GM_payload);
-    });
-
 
 var oh_followup_div_helper = document.createElement('div');
-    oh_followup_div_helper.appendChild(document.createElement("br"));
-    oh_followup_div_helper.appendChild(document.createTextNode("Follow-ups:"));
-    oh_followup_div_helper.appendChild(document.createElement("hr"));
-    oh_followup_div_helper.appendChild(oh_list_button);
-    oh_followup_div_helper.appendChild(document.createTextNode("\u00A0\u00A0"));
-    oh_followup_div_helper.appendChild(oh_add_button);
-    oh_followup_div_helper.appendChild(document.createTextNode("\u00A0\u00A0"));
-    oh_followup_div_helper.appendChild(oh_del_button);
-    oh_followup_div_helper.appendChild(document.createTextNode("\u00A0\u00A0"));
-    oh_followup_div_helper.appendChild(oh_update_button);
-    oh_followup_div_helper.appendChild(document.createElement("br"));
-    oh_followup_div_helper.appendChild(document.createElement("br"));
+    oh_followup_div_helper.appendChild(oh_followup_div_helper_header);
+    oh_followup_div_helper.appendChild(oh_followup_buttons);
     oh_followup_div_helper.appendChild(oh_followup_display_container);
 
+/***************************************/
 
-var oh_div_helper = document.createElement('div');
-    oh_div_helper.appendChild(oh_div_helper_header);
-    oh_div_helper.appendChild(oh_div_helper_container);
+/***************************************/
+/*Conformance*/
+
+var oh_conformance_display_container = document.createElement('div'); //Div Container
+    oh_conformance_display_container.id = 'oh_conformance_display_container';
+    oh_conformance_display_container.style.background = '#A9FFEB'; //Append bgcolor
+    oh_conformance_display_container.style.display = 'block';
+    oh_conformance_display_container.innerHTML = '';
+
+var oh_check_button = document.createElement('button');
+    oh_check_button.id = 'oh_check_button';
+    oh_check_button.innerHTML = 'CHECK';
+    oh_check_button.addEventListener("click", function() {
+        var content = document.getElementById("oh_conformance_display_container");
+        var GM_payload = {
+            method: 'GET',
+            url: 'https://7oj9c9aikg.execute-api.ap-southeast-2.amazonaws.com/Prod/list/',
+            data: '',
+            headers: '',
+            onload: function(response) {
+                content.innerHTML = response.responseText;
+            }
+        };
+        GM.xmlHttpRequest(GM_payload);
+    });
 
 
 
+var oh_conformance_buttons = document.createElement('div'); //Div Container
+    oh_conformance_buttons.id = 'oh_conformance_buttons';
+    oh_conformance_buttons.style.display = 'none';
+    oh_conformance_buttons.appendChild(document.createElement("br"));
+    oh_conformance_buttons.appendChild(oh_check_button);
+    oh_conformance_buttons.appendChild(document.createElement("hr"));
+    //oh_conformance_buttons.style.background = '#FFFFCC'; //Append bgcolor
+
+var oh_conformance_div_helper_header = document.createElement('button');
+    oh_conformance_div_helper_header.id = 'oh_conformance_div_helper_header';
+    oh_conformance_div_helper_header.innerHTML = 'Conformance ▼';
+    oh_conformance_div_helper_header.addEventListener("click", function() {
+        var button = document.getElementById("oh_conformance_buttons");
+        console.log(button);
+        var content = document.getElementById("oh_conformance_display_container");
+        var header = document.getElementById("oh_conformance_div_helper_header");
+        if(content.style.display == 'none'){
+            content.style.display = 'block';
+            button.style.display = 'block';
+            header.innerHTML = 'Conformance ▲';
+        }
+        else {
+            content.style.display = 'none';
+            button.style.display = 'none';
+            header.innerHTML = 'Conformance ▼';
+        }
+    });
+
+var oh_conformance_div_helper = document.createElement('div');
+    oh_conformance_div_helper.appendChild(oh_conformance_div_helper_header);
+    oh_conformance_div_helper.appendChild(oh_conformance_buttons);
+    oh_conformance_div_helper.appendChild(oh_conformance_display_container);
+
+
+
+/***************************************/
+
+/***************************************/
 /* DOM Handling */
 /* Find the Question location and append a Div */
 /* Append the objective content right after Question */
 function DOM_Append_Helper_Container_Div() {
     if(OH_R_CONTAINER_DIV_READY) return;
 
-    var objs = document.getElementsByClassName("awsui-util-action-stripe");
+    var objs = document.getElementsByClassName("awsui-form-field awsui-form-field-stretch");
     DOM_Container_flush();
-
+    objs[0].appendChild(document.createElement("br"));
     objs[0].appendChild(oh_div_helper);
+    objs[0].appendChild(document.createElement("br"));
     objs[0].appendChild(oh_followup_div_helper);
+    //objs[0].appendChild(document.createElement("br"));
+    //objs[0].appendChild(oh_conformance_div_helper);
     OH_R_CONTAINER_DIV_READY = true;
 }
 
@@ -273,7 +340,7 @@ function JSON_format_handler(JSON_key, JSON_value){
 
 /* Default, do nothing only +p */
 function JSON_format_default(JSON_key, JSON_value){
-    DOM_Container_append_text(JSON_key + '<p>' + JSON_value + '</p><hr />');
+    DOM_Container_append_text('<h2>' + JSON_key + '</h2>' + '<p>' + JSON_value + '</p><hr />');
 }
 
 /* convert text list with auto <br/> */
@@ -378,7 +445,7 @@ function debug(msg){
 function OH_bootstrap() {
     /* Main entry point for the scripts */
     EXT_Get_Objective_Helper_JSON();
-    setInterval(DOM_Refresh_Check, 1000);
+    setInterval(DOM_Refresh_Check, 3000);
 }
 
 OH_bootstrap();
