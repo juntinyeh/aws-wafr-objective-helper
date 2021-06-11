@@ -10,11 +10,11 @@
 **Context-Helper for New Language support**
 ***Branch Naming Convention***
  - Please branch out from master anytime you want
- - branch name --> JSON/\<**LANG**\> 
+ - branch name --> JSON/\<**LANG**\> (ISO 639-1 LANG Code)
  - ex: ```git checkout -b JSON/zh\_TW``` or ```git checkout -b JSON/id```
  - Copy from objective-helper.en.json to objective-helper.\<**LANG**\>.json
  - Keep ongoing translation staying in your new branch
- 
+
 ***File Structure*** (v0.2.1)
 ```
 .
@@ -46,7 +46,6 @@
 │		│		 		├── __init__.py
 │		│		 		└── test_handler.py
 │		└── y
-- Keep ongoing translation staying in JSON/\<**LANG**\> , ex: JSON/zh\_TW, JSON/id
 └── objective-helper.en.json to objective-helper.\<**LANG**\>.json
                //dir for context module
 		├── objective-helper.Wookiee.json
