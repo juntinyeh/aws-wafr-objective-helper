@@ -54,7 +54,8 @@ var OH_QUESTION_KEY_CHANGED = false; // incase page fly
 
 /***************************************/
 /*CONTEXT*/
-
+var oh_div_context_helper = document.createElement('div');
+    oh_div_context_helper.id = 'oh_div_context_helper'
 
 var oh_div_context_helper_container = document.createElement('div'); //Div Container
     oh_div_context_helper_container.id = 'oh_div_context_helper_container';
