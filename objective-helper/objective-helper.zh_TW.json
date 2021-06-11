@@ -187,11 +187,31 @@
     "如果有些高敏感度的資料，保存的週期跟時限目前是怎麼設定？"],
     "目標人員":["技術研發團隊","維運團隊"]},
 "SEC 8":{
-  "目標":["Gain understanding on how they are securing their data that is stored in their mid / long term storage. This could be in S3 or their Database instance. ","How are they implement multiple controls to reduce risk of un-authorized access and mishandling."]},
+  "範例問題":["目前所有的靜態資料是怎麼保護的？",
+    "目前放在S3上面的資料是怎麼經由應用層(AP)讓授權過的使用者存取？",
+    "如何確定使用者不會未經網站認証直接存取S3上的檔案？",
+    "如果沒有使用presign URL，在S3上的檔案因為簡單的命名規則發生未經授權的存取？"
+    "如果有些高敏感度的資料，在內部人員的存取控管是如何執行？",
+    "目前有做任何機制來紀錄資料存取的日誌？"],
+    "目標人員":["技術研發團隊","維運團隊"]}  
+
+},
 "SEC 9":{
-  "目標":["Gain understanding on how they are securing their data during transit. This could be in data that is transfered across network, or through communication services such as Gateway / Messaging. ","How do they implement multiple controls to reduce risk of un-authorized access and mishandling."]},
+  "目標":["確認客戶對於網路上資料傳輸加密的認知程度"],
+  "範例問題":["目前網站以及Mobile App的服務是否有啟用HTTPS/TLS加密",
+    "目前網站的HTTPS certificate是如何生成？外部購買？",
+    "在公司有遠端存取資料庫/ElasticSearch/mongodb的操作，是否有設置TLS加密？",
+    "如果有些高敏感度的資料，保存的週期跟時限目前是怎麼設定？"],
+    "目標人員":["技術研發團隊","維運團隊"]
+},
 "SEC 10":{
-  "目標":["Gain understanding on what are the things they implement in Preparation to security incidents. ","How can they in a timely manner, runs an effective investigation, response to to the event/incident , and recovery from it to minimize disruption to your organization."]},
+  "目標":["瞭解目前客戶對於安全性事件的準備及認知",
+    "確認客戶在安全性事件上的維運流程及演練"],
+  "範例問題":["如果被通知正式環境網站被入侵，團隊的反應流程為何？",
+    "如果被通知開發環境有異常操作，例如被開機器挖礦，開發團隊會如何處理？",
+    "如果因為應用層(AP)的漏洞讓資料庫資料全部外洩或刪除，團隊會如何反應？",
+    "請問以上這些安全性事件的設想是否有作過演練？"],
+  "關聯問題":["OPS 2","OPS 10"]},
 "REL 1":{
   "目標":["Gain understanding around their awareness about the concept of Service Quote, and why that concept exist to protect them from accidental provisioning. ","Gain understanding also on how they are now managing their workload to address this."]},
 "REL 2":{
