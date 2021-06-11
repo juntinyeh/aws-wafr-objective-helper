@@ -109,7 +109,7 @@ function OH_Context_Helper_Append_Div(){
 /* Find the Question location and append a Div */
 /* Append the objective content right after Question */
 /* Check the JSON and load all the content into Container Div */
-function DOM_Append_Helper_Content() {
+function DOM_Context_Helper_Append_Content() {
     if(OH_CONTENT == false) return;
     if(OH_QUESTION_KEY == false) return;
     if(OH_QUESTION_KEY_CHANGED == false) return;

@@ -49,7 +49,7 @@ function DOM_Append_Helper_Div() {
 
     var objs = document.getElementsByClassName("awsui-form-field awsui-form-field-stretch");
 
-    objs.appendChild(oh_div_helper);
+    objs[0].appendChild(oh_div_helper);
     DOM_Helper_reset();
 
     //Append the enable module switch flag, then call the Append_Div in Module
