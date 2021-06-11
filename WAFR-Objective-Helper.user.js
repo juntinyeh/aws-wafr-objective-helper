@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         (AWS WAFR OH!) Amazon Web Services Well-Architected Framework Review Objective Helper
+// @name         Amazon Web Services Well-Architected Framework Review Helper
 // @namespace    http://tampermonkey.net/
 // @version      0.1.1
 // @description  To append useful message for WAFR host.
@@ -105,7 +105,7 @@ var oh_list_button = document.createElement('button');
         var content = document.getElementById("oh_followup_display_container");
         var GM_payload = {
             method: 'GET',
-            url: 'https://7oj9c9aikg.execute-api.ap-southeast-2.amazonaws.com/Prod/list/',
+            url: 'https://.execute-api.ap-southeast-2.amazonaws.com/Prod/list/',
             data: '',
             headers: '',
             onload: function(response) {
@@ -124,11 +124,12 @@ var oh_add_button = document.createElement('button');
         var content = document.getElementById("oh_followup_display_container");
         var GM_payload = {
             method: 'POST',
-            url: 'https://7oj9c9aikg.execute-api.ap-southeast-2.amazonaws.com/Prod/add/',
+            url: 'https://.execute-api.ap-southeast-2.amazonaws.com/Prod/add/',
             data: '',
             headers: '',
             onload: function(response) {
-                content.innerHTML = response.responseText;
+                content.innerHTML = '';
+                content.appendChild(oh_new_followup_form_container);
             }
         };
         GM.xmlHttpRequest(GM_payload);
@@ -172,6 +173,100 @@ var oh_followup_div_helper = document.createElement('div');
 
 /***************************************/
 
+
+/***************************************/
+/*FOLLOW UP - NEW Form*/
+
+var oh_new_followup_form_submit = document.createElement('button');
+    oh_new_followup_form_submit.id = 'oh_new_followup_form_submit';
+    oh_new_followup_form_submit.innerHTML = '&nbsp&nbspSUBMIT&nbsp&nbsp';
+    oh_new_followup_form_submit.addEventListener("click", function() {
+        var content = document.getElementById("oh_followup_display_container");
+        var GM_payload = {
+            method: 'GET',
+            url: 'https://.execute-api.ap-southeast-2.amazonaws.com/Prod/list/',
+            data: '',
+            headers: '',
+            onload: function(response) {
+                console.log("Submitted");
+            }
+        };
+        GM.xmlHttpRequest(GM_payload);
+    });
+
+var oh_new_followup_deepdive_type = document.createElement('option');
+    oh_new_followup_deepdive_type.text = 'Deep dive';
+    oh_new_followup_deepdive_type.id = 'oh_new_followup_deepdive_type';
+
+var oh_new_followup_general_type = document.createElement('option');
+    oh_new_followup_general_type.text = 'General';
+    oh_new_followup_general_type.id = 'oh_new_followup_general_type';
+
+var oh_new_followup_type_select = document.createElement("select");
+    oh_new_followup_type_select.id = 'oh_new_followup_form_type_select';
+    oh_new_followup_type_select.appendChild(oh_new_followup_deepdive_type);
+    oh_new_followup_type_select.appendChild(oh_new_followup_general_type);
+
+var oh_new_followup_type_label = document.createElement('label');
+    oh_new_followup_type_label.id = 'oh_new_followup_type_label';
+    oh_new_followup_type_label.innerHTML = 'Followup type :';
+
+var oh_new_followup_note_field = document.createElement('textarea');
+    oh_new_followup_note_field.maxLength = "5000";
+    oh_new_followup_note_field.cols = "80";
+    oh_new_followup_note_field.rows = "5";
+    oh_new_followup_note_field.id = 'oh_new_followup_note_field';
+
+var oh_new_followup_contact_field = document.createElement('input');
+    oh_new_followup_contact_field.setAttribute('type', 'text');
+    oh_new_followup_contact_field.id = 'oh_new_followup_contact_field';
+
+var oh_new_followup_note_label = document.createElement('label');
+    oh_new_followup_note_label.id = 'oh_new_followup_note_label';
+    oh_new_followup_note_label.innerHTML = 'Note :';
+
+var oh_new_followup_contact_label = document.createElement('label');
+    oh_new_followup_contact_label.id = 'oh_new_followup_contact_label';
+    oh_new_followup_contact_label.innerHTML = 'Contact :';
+
+var oh_new_followup_form_table ;
+    oh_new_followup_form_table = document.createElement('table');
+
+//Type Cell
+var oh_new_followup_form_row_0 = oh_new_followup_form_table.insertRow(0);
+var oh_new_followup_form_cell_0_0 = oh_new_followup_form_row_0.insertCell(0);
+    oh_new_followup_form_cell_0_0.appendChild(oh_new_followup_type_label);
+var oh_new_followup_form_cell_0_1 = oh_new_followup_form_row_0.insertCell(1);
+    oh_new_followup_form_cell_0_1.appendChild(oh_new_followup_type_select);
+
+//NOTE Cell
+var oh_new_followup_form_row_1 = oh_new_followup_form_table.insertRow(1);
+var oh_new_followup_form_cell_1_0 = oh_new_followup_form_row_1.insertCell(0);
+    oh_new_followup_form_cell_1_0.appendChild(oh_new_followup_note_label);
+var oh_new_followup_form_cell_1_1 = oh_new_followup_form_row_1.insertCell(1);
+    oh_new_followup_form_cell_1_1.appendChild(oh_new_followup_note_field);
+
+//Contact Cell
+var oh_new_followup_form_row_2 = oh_new_followup_form_table.insertRow(2);
+var oh_new_followup_form_cell_2_0 = oh_new_followup_form_row_2.insertCell(0);
+    oh_new_followup_form_cell_2_0.appendChild(oh_new_followup_contact_label);
+var oh_new_followup_form_cell_2_1 = oh_new_followup_form_row_2.insertCell(1);
+    oh_new_followup_form_cell_2_1.appendChild(oh_new_followup_contact_field);
+
+    oh_new_followup_form_table.id = 'oh_new_followup_form_table';
+
+var oh_new_followup_form_container = document.createElement('div'); //Div Container
+    oh_new_followup_form_container.id = 'oh_followup_display_container';
+    oh_new_followup_form_container.style.background = '#e6ffe6'; //Append bgcolor
+    oh_new_followup_form_container.style.display = 'block';
+    oh_new_followup_form_container.appendChild(document.createElement("br"));
+    oh_new_followup_form_container.appendChild(oh_new_followup_form_table);
+    oh_new_followup_form_container.appendChild(document.createElement("br"));
+    oh_new_followup_form_container.appendChild(oh_new_followup_form_submit);
+
+/***************************************/
+
+
 /***************************************/
 /*Conformance*/
 
@@ -197,8 +292,6 @@ var oh_check_button = document.createElement('button');
         };
         GM.xmlHttpRequest(GM_payload);
     });
-
-
 
 var oh_conformance_buttons = document.createElement('div'); //Div Container
     oh_conformance_buttons.id = 'oh_conformance_buttons';
@@ -250,8 +343,8 @@ function DOM_Append_Helper_Container_Div() {
     objs[0].appendChild(oh_div_helper);
     objs[0].appendChild(document.createElement("br"));
     objs[0].appendChild(oh_followup_div_helper);
-    //objs[0].appendChild(document.createElement("br"));
-    //objs[0].appendChild(oh_conformance_div_helper);
+    objs[0].appendChild(document.createElement("br"));
+    objs[0].appendChild(oh_conformance_div_helper);
     OH_R_CONTAINER_DIV_READY = true;
 }
 
