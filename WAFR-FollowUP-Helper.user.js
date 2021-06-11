@@ -5,7 +5,7 @@
 // @description  To append useful message for WAFR host.
 // @author       ssslim@amazon.com (github:stephensalim)
 // @match        https://*.console.aws.amazon.com/wellarchitected/*
-// @include      https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/master/
+// @include      https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/
 // @grant        GM.xmlHttpRequest
 // @run-at       document-end
 // ==/UserScript==

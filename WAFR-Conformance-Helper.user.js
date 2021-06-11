@@ -6,7 +6,7 @@
 // @author       teratim@amazon.com (github:)
 // @match        https://*.console.aws.amazon.com/wellarchitected/*
 // @grant        GM.xmlHttpRequest
-// @include      https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/master/
+// @include      https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/
 // @run-at       document-end
 // ==/UserScript==
 
