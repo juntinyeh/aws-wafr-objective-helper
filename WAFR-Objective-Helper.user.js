@@ -1,3 +1,12 @@
+// ==** deprecated **==
+//
+// DO NOT USE this userscripts. 
+//
+// Please install the WAFR-Review-Helper.user.js
+// 
+// This file is deprecated since we already split the userscript from all-in-one
+// into one major userscript loader and module scripts. 
+// ==** deprecated **==
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper
 // @namespace    http://tampermonkey.net/

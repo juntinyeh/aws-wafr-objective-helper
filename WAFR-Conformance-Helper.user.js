@@ -102,6 +102,15 @@ function OH_Conformance_Helper_Append_Div(){
 }
 
 /* 
+Mandatory function OH_<Help-Module-Name>_reload()
+function OH_Context_Helper_reload() {
+*/
+function OH_Conformance_Helper_reload()
+{
+    console.log("Conformance Helper reload Here");
+}
+
+/* 
 Mandatory function OH_<Help-Module-Name>_init()
 function OH_Context_Helper_init() {
     // Main entry point for the scripts 
@@ -110,5 +119,5 @@ function OH_Context_Helper_init() {
 
 function OH_Conformance_Helper_init() {
     /* Main entry point for the scripts */
-    console.log("Conformance Help Init Here");
+    console.log("Conformance Helper Init Here");
 }
