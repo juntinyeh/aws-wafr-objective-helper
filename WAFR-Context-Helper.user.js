@@ -7,6 +7,8 @@
 // @match        https://*.console.aws.amazon.com/wellarchitected/*
 // @include      https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/
 // @grant        GM.xmlHttpRequest
+// @grant        GM.getValue
+// @grant        GM.setValue
 // @run-at       document-end
 // ==/UserScript==
 
@@ -24,6 +26,13 @@ todo: will append a new dragdown selection list for override language.
 */
 var JSON_language = document.documentElement.lang;
 
+var supported_language = {
+    "English": "en",
+    "Bahasa Indonesia": "id",
+    "한국어":"kr",
+    "中文(繁體)": "zh_TW",
+    "中文(简体)": "zh_CN"
+};
 /*
 var arr_Objective = ['Objective','Uhrrr'];
 Append the translation of the Objective in your own language here, which we created a simple layout readability handler for ' * ' and '\n'.
@@ -81,7 +90,22 @@ var oh_div_context_helper_header = document.createElement('button');
         }
     });
 
+var oh_div_context_helper_language = document.createElement('select');
+    oh_div_context_helper_language.id = 'oh_div_context_helper_language';
 
+    for (const [key, value] of Object.entries(JSON_value))
+        {
+            var opt = document.createElement("option");
+            opt.text = key;
+            opt.value = value;
+            oh_div_context_helper_language.sel.add(opt, null);
+        }
+
+    oh_div_context_helper_language.addEventListener("change", function() {
+        var sel_lang = document.getElementById("oh_div_context_helper_language");
+        console.log(sel_lang);
+        GM.setValue("WAFR_CONTEXT_HELPER_LANG", sel_lang);
+    });
 
     oh_div_context_helper.appendChild(oh_div_context_helper_header);
     oh_div_context_helper.appendChild(oh_div_context_helper_container);
@@ -253,9 +277,15 @@ function JSON_HttpReq_Handler(JSON_value, callback){
 /* Fetch the JSON file by language from github */
 function EXT_Get_Objective_Helper_JSON(){
     if(OH_R_CONTENT_READY) return;
+
+    var lang = JSON_language;
+    var lang_override = GM.getValue("WAFR_CONTEXT_HELPER_LANG");
+    if(lang_override != undefined)
+        lang = lang_override;
+
     GM.xmlHttpRequest({
         method: "GET",
-        url: "https://raw.githubusercontent.com/stephensalim/aws-wafr-objective-helper/main/objective-helper/objective-helper." + JSON_language + ".json",
+        url: "https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/objective-helper/objective-helper." + lang + ".json",
         onload: function(response) {
             try {
                 OH_CONTENT = JSON.parse(response.responseText);
