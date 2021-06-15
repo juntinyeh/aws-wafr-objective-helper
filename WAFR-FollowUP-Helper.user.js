@@ -221,7 +221,11 @@ function OH_FH_HttpReq_Handler(method, url, data, headers, callback){
     GM.xmlHttpRequest(GM_payload);
 }
 
+function OH_FollowUp_Helper_reload{
+    onsole.log("FollowUp Helper reload Here");
+}
+
 function OH_FollowUp_Helper_init() {
     /* init from here */
-    console.log("Nothing");
+    console.log("FollowUp Helper init Here");
 }
