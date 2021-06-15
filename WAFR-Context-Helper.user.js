@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper - Context Module
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.3.0
-// @description  0.3.0 change the page reload from setInterval to EventListener Triggered. Follow the setting of Review-Helper.
+// @version      0.3.1
+// @description  0.3.1 fix error
 // @author       bobyeh@amazon.com (github:juntinyeh)
 // @match        https://*.console.aws.amazon.com/wellarchitected/*
 // @include      https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/
@@ -303,44 +303,41 @@ function EXT_Get_Objective_Helper_JSON(...args){
     if(args.length == 1) lang = args[0];
 
     try{
-                debug(315);
-                debug("lang",lang);
-                console.log(OH_CONTENT);
-                     debug(317);
-                     OH_QUESTION_KEY = "";
-                     OH_QUESTION_KEY_CHANGED = true;
-                     lang = lang_override;
-                     var url = "https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/objective-helper/objective-helper." + lang + ".json";
-                     debug("url",url);
-                     GM.xmlHttpRequest({
-                         method: "GET",
-                         url: url,
-                         onload: function(response) {
-                             try {
-                                 OH_CONTENT = JSON.parse(response.responseText);
+        debug("lang",lang);
+        console.log(OH_CONTENT);
+        OH_QUESTION_KEY = "";
+        OH_QUESTION_KEY_CHANGED = true;
+        var url = "https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/objective-helper/objective-helper." + lang + ".json";
+        debug("url",url);
+        GM.xmlHttpRequest({
+            method: "GET",
+            url: url,
+            onload: function(response) {
+                try {
+                    OH_CONTENT = JSON.parse(response.responseText);
 
-                                 if(OH_CONTENT === undefined)
-                                 {
-                                     debug('Unable to load the Objective Helper JSON, Please feed your monkey with proper privilege.');
-                                     JSON_language = 'en';
-                                     setTimeout(EXT_Get_Objective_Helper_JSON,3000);
-                                 }
-                                 else
-                                 {
-                                     OH_R_CONTENT_READY = true;
-                                     DOM_Context_Helper_Refresh_Check();
-                                     JSON_language = lang;
-                                     debug("EXT_Get_Objective_Helper_JSON ready");
-                                 }
-                             }
-                             catch(err) {
-                                 OH_R_CONTENT_READY = false;
-                                 debug(err.message);
-                                 JSON_language = 'en';
-                                 setTimeout(EXT_Get_Objective_Helper_JSON,3000);
-                             }
-                         }
-                     });
+                    if(OH_CONTENT === undefined)
+                    {
+                         debug('Unable to load the Objective Helper JSON, Please feed your monkey with proper privilege.');
+                         JSON_language = 'en';
+                         setTimeout(EXT_Get_Objective_Helper_JSON,3000);
+                    }
+                    else
+                    {
+                        OH_R_CONTENT_READY = true;
+                        DOM_Context_Helper_Refresh_Check();
+                        JSON_language = lang;
+                        debug("EXT_Get_Objective_Helper_JSON ready");
+                    }
+                }
+                catch(err) {
+                    OH_R_CONTENT_READY = false;
+                    debug(err.message);
+                    JSON_language = 'en';
+                    setTimeout(EXT_Get_Objective_Helper_JSON,3000);
+                }
+            }
+        });
 
     }
     catch(err) {
