@@ -1,10 +1,9 @@
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper - Context Module
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.2.0
-// @description  Handle multi language, list content
+// @version      0.0.0
+// @description  0.3.0 change the page reload from setInterval to EventListener Triggered. Follow the setting of Review-Helper.
 // @author       bobyeh@amazon.com (github:juntinyeh)
-// @author       ssslim@amazon.com (github:stephensalim)
 // @match        https://*.console.aws.amazon.com/wellarchitected/*
 // @include      https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/
 // @grant        GM.xmlHttpRequest
@@ -20,6 +19,8 @@ language. Check the github directory to make sure the target file existed.
 
 ex: A Wookiee language for Chewbacca is not yet support by AWS frontned, then
 you can contribute content in file:objective-helper/objective-helper.Wookiee.json and set JSON_language = 'Wookiee'
+
+todo: will append a new dragdown selection list for override language. 
 */
 var JSON_language = document.documentElement.lang;
 
@@ -287,6 +288,15 @@ function debug(msg){
 }
 
 /* 
+Mandatory function OH_<Help-Module-Name>_reload()
+function OH_Context_Helper_reload() {
+*/
+function OH_Context_Helper_reload()
+{
+    DOM_Context_Helper_Refresh_Check();
+}
+
+/* 
 Mandatory function OH_<Help-Module-Name>_init()
 function OH_Context_Helper_init() {
     // Main entry point for the scripts 
@@ -296,5 +306,5 @@ function OH_Context_Helper_init() {
 function OH_Context_Helper_init() {
     /* Main entry point for the scripts */
     EXT_Get_Objective_Helper_JSON();
-    setInterval(DOM_Context_Helper_Refresh_Check, 5000);
+    DOM_Context_Helper_Refresh_Check();
 }

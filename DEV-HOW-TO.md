@@ -7,6 +7,12 @@
 **Module Related Files and Sub-Dir Naming Convention**
  - Mod_\<Module-Name\>\_Helper or some dir name easy to understand
 
+**How to Enable/Disable the module**
+Check the configuration setting in main WAFR-Review-Helper.user.js 
+var OH_ENABLE_CONTEXT_HELPER = true;
+var OH_ENABLE_FOLLOWUP_HELPER = false;
+var OH_ENABLE_CONFORMANCE_HELPER = false;
+
 **Context-Helper for New Language support**
 ***Branch Naming Convention***
  - Please branch out from master anytime you want
