@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper - FollowUp Module
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.2.0
+// @version      0.2.1
 // @description  To append useful message for WAFR host.
 // @author       ssslim@amazon.com (github:stephensalim)
 // @match        https://*.console.aws.amazon.com/wellarchitected/*
@@ -221,7 +221,7 @@ function OH_FH_HttpReq_Handler(method, url, data, headers, callback){
     GM.xmlHttpRequest(GM_payload);
 }
 
-function OH_FollowUp_Helper_reload{
+function OH_FollowUp_Helper_reload() {
     onsole.log("FollowUp Helper reload Here");
 }
 
