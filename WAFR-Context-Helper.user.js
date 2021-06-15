@@ -93,7 +93,7 @@ var oh_div_context_helper_header = document.createElement('button');
 var oh_div_context_helper_language = document.createElement('select');
     oh_div_context_helper_language.id = 'oh_div_context_helper_language';
 
-    for (const [key, value] of Object.entries(JSON_value))
+    for (const [key, value] of Object.entries(supported_language))
         {
             var opt = document.createElement("option");
             opt.text = key;
