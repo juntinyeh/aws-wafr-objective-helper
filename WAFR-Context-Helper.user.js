@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper - Context Module
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.0.0
+// @version      0.3.0
 // @description  0.3.0 change the page reload from setInterval to EventListener Triggered. Follow the setting of Review-Helper.
 // @author       bobyeh@amazon.com (github:juntinyeh)
 // @match        https://*.console.aws.amazon.com/wellarchitected/*
@@ -21,8 +21,6 @@ language. Check the github directory to make sure the target file existed.
 
 ex: A Wookiee language for Chewbacca is not yet support by AWS frontned, then
 you can contribute content in file:objective-helper/objective-helper.Wookiee.json and set JSON_language = 'Wookiee'
-
-todo: will append a new dragdown selection list for override language. 
 */
 var JSON_language = document.documentElement.lang;
 
@@ -33,13 +31,6 @@ var supported_language = {
     "中文(繁體)": "zh_TW",
     "中文(简体)": "zh_CN"
 };
-/*
-var arr_Objective = ['Objective','Uhrrr'];
-Append the translation of the Objective in your own language here, which we created a simple layout readability handler for ' * ' and '\n'.
-var arr_Objective = ['Objective'];
-
-v0.1.2 Disable this setting from v0.1.2, simplify the code logic. Change the readability to default text handling, in case we have different language and key/value combination coming in.
-*/
 
 /*
 var arr_Click_Req = ['Click_Req','Grrrrrrr'];
@@ -98,16 +89,18 @@ var oh_div_context_helper_language = document.createElement('select');
             var opt = document.createElement("option");
             opt.text = key;
             opt.value = value;
-            oh_div_context_helper_language.sel.add(opt, null);
+            if(value == JSON_language) opt.selected = true;
+            oh_div_context_helper_language.add(opt, null);
         }
 
     oh_div_context_helper_language.addEventListener("change", function() {
         var sel_lang = document.getElementById("oh_div_context_helper_language");
-        console.log(sel_lang);
-        GM.setValue("WAFR_CONTEXT_HELPER_LANG", sel_lang);
+        //GM.setValue("WAFR_CONTEXT_HELPER_LANG", sel_lang.value);
+        EXT_Get_Objective_Helper_JSON(sel_lang.value);
     });
 
     oh_div_context_helper.appendChild(oh_div_context_helper_header);
+    oh_div_context_helper.appendChild(oh_div_context_helper_language);
     oh_div_context_helper.appendChild(oh_div_context_helper_container);
 
 
@@ -139,6 +132,7 @@ function DOM_Context_Helper_Append_Content() {
     if(OH_QUESTION_KEY == false) return;
     if(OH_QUESTION_KEY_CHANGED == false) return;
 
+    debug("Ready to refresh JSON content to div");
     var JSON_value;
     if(OH_CONTENT.hasOwnProperty(OH_QUESTION_KEY))
     {
@@ -161,37 +155,64 @@ function DOM_Context_Helper_append_child(element) {
 }
 
 function DOM_Identify_Current_Pillar_Question(){
-
-    /* Find and parse the Question Text, get the Questions key */
+    // Find and parse the Question Text, get the Questions key
     var has_help_button = document.getElementsByClassName("has-help-button");
+    debug("has_help_button",has_help_button);
     if(has_help_button.length>0)
     {
+        debug("has_help_button.length>0", has_help_button[0]);
         var key_index = has_help_button[0].innerHTML.search(/^\S+\s\d+/g);
+        debug("key_index",key_index);
         if( key_index == 0)
         {
             var current_question_key = String(has_help_button[0].innerHTML.match(/^\S+\s\d+/g));
+            debug("current_question_key",current_question_key);
+            debug("OH_QUESTION_KEY",OH_QUESTION_KEY);
             if(current_question_key != OH_QUESTION_KEY)
             {
                 OH_QUESTION_KEY = current_question_key;
                 OH_QUESTION_KEY_CHANGED = true;
                 DOM_Context_Helper_Container_flush();
                 DOM_Context_Helper_Append_Content();
+                debug("flush content");
             }
             else
             {
                 OH_QUESTION_KEY_CHANGED = false;
             }
         }
+        else
+        {
+            debug("retry in 3s");
+            setTimeout(DOM_Identify_Current_Pillar_Question, 3000);
+        }
+    }
+    else{
+        debug("document.getElementsByClassName(has-help-button) failed");
+        setTimeout(DOM_Identify_Current_Pillar_Question, 3000);
     }
 }
+
 
 function DOM_Context_Helper_Container_flush(){
     oh_div_context_helper_container.innerHTML = '';
 }
 
 function DOM_Context_Helper_Refresh_Check(){
-    if(DOM_Check_Helper_Existed() == true) DOM_Identify_Current_Pillar_Question();
+    debug("DOM_Check_Helper_Existed-->",DOM_Check_Helper_Existed());
+    if(DOM_Check_Helper_Existed() == true){
+        DOM_Identify_Current_Pillar_Question();}
     //Append language change trigger here
+
+    /*
+    let p = new Promise(function (resolve, reject) {
+            (function Wait_For_Helper_Existed(){
+                if (DOM_Check_Helper_Existed()) return DOM_Identify_Current_Pillar_Question();
+                setTimeout(Wait_For_Helper_Existed, 100);
+            })();
+    });
+    */
+
 }
 
 /* JSON Data Handling */
@@ -263,7 +284,7 @@ function JSON_HttpReq_Handler(JSON_value, callback){
         data: '',
         headers: '',
         onload: function(response) {
-            console.log(response.responseText);
+            debug(response.responseText);
             callback(response);
         }
     };
@@ -275,49 +296,66 @@ function JSON_HttpReq_Handler(JSON_value, callback){
 }
 
 /* Fetch the JSON file by language from github */
-function EXT_Get_Objective_Helper_JSON(){
-    if(OH_R_CONTENT_READY) return;
+function EXT_Get_Objective_Helper_JSON(...args){
+    //if(OH_R_CONTENT_READY) return;
 
     var lang = JSON_language;
-    var lang_override = GM.getValue("WAFR_CONTEXT_HELPER_LANG");
-    if(lang_override != undefined)
-        lang = lang_override;
+    if(args.length == 1) lang = args[0];
 
-    GM.xmlHttpRequest({
-        method: "GET",
-        url: "https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/objective-helper/objective-helper." + lang + ".json",
-        onload: function(response) {
-            try {
-                OH_CONTENT = JSON.parse(response.responseText);
+    try{
+                debug(315);
+                debug("lang",lang);
+                console.log(OH_CONTENT);
+                     debug(317);
+                     OH_QUESTION_KEY = "";
+                     OH_QUESTION_KEY_CHANGED = true;
+                     lang = lang_override;
+                     var url = "https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/objective-helper/objective-helper." + lang + ".json";
+                     debug("url",url);
+                     GM.xmlHttpRequest({
+                         method: "GET",
+                         url: url,
+                         onload: function(response) {
+                             try {
+                                 OH_CONTENT = JSON.parse(response.responseText);
 
-                if(OH_CONTENT === undefined)
-                {
-                    console.log('Unable to load the Objective Helper JSON, Please feed your monkey with proper privilege.');
-                    JSON_language = 'en';
-                    setTimeout(EXT_Get_Objective_Helper_JSON,1000);
-                }
-                else
-                {
-                    OH_R_CONTENT_READY = true;
-                    setTimeout(DOM_Refresh_Check,3000);
-                }
-            }
-            catch(err) {
-                OH_R_CONTENT_READY = false;
-                console.log(err.message);
-                JSON_language = 'en';
-                setTimeout(EXT_Get_Objective_Helper_JSON,1000);
-            }
-        }
-    });
+                                 if(OH_CONTENT === undefined)
+                                 {
+                                     debug('Unable to load the Objective Helper JSON, Please feed your monkey with proper privilege.');
+                                     JSON_language = 'en';
+                                     setTimeout(EXT_Get_Objective_Helper_JSON,3000);
+                                 }
+                                 else
+                                 {
+                                     OH_R_CONTENT_READY = true;
+                                     DOM_Context_Helper_Refresh_Check();
+                                     JSON_language = lang;
+                                     debug("EXT_Get_Objective_Helper_JSON ready");
+                                 }
+                             }
+                             catch(err) {
+                                 OH_R_CONTENT_READY = false;
+                                 debug(err.message);
+                                 JSON_language = 'en';
+                                 setTimeout(EXT_Get_Objective_Helper_JSON,3000);
+                             }
+                         }
+                     });
+
+    }
+    catch(err) {
+        debug(err.message);
+    }
 }
 
-function debug(msg){
+function debug(...args){
     /* Oh, I deleted all the debug calling */
-    if(LOG_LEVEL === 'debug') {console.log("DEBUG>"+Date.now()+" ->" + msg);}
+    if(LOG_LEVEL == 'debug') {
+        for (let i=0; i<args.length; i++) console.log("----> " + args[i]);}
 }
 
-/* 
+
+/*
 Mandatory function OH_<Help-Module-Name>_reload()
 function OH_Context_Helper_reload() {
 */
@@ -326,11 +364,11 @@ function OH_Context_Helper_reload()
     DOM_Context_Helper_Refresh_Check();
 }
 
-/* 
+/*
 Mandatory function OH_<Help-Module-Name>_init()
 function OH_Context_Helper_init() {
-    // Main entry point for the scripts 
-    // All the step which need to load once at initial time. 
+    // Main entry point for the scripts
+    // All the step which need to load once at initial time.
 */
 
 function OH_Context_Helper_init() {

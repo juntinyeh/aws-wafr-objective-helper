@@ -2,11 +2,9 @@
 // @name         Amazon Web Services Well-Architected Framework Review Helper
 // @namespace    http://console.aws.amazon.com/wellarchitected/
 // @version      0.3.1
-// @description  move attr parser into separated lib files. 
+// @description  move attr parser into separated lib files.
 // @include      https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/
 // @require      WAFR-Context-Helper.user.js
-// @require      WAFR-FollowUP-Helper.user.js
-// @require      WAFR-Conformance-Helper.user.js
 // @require      WAFR-Helper-Libs.user.js
 // @author       bobyeh@amazon.com (github:juntinyeh)
 // @author       ssslim@amazon.com (github:stephensalim)
@@ -17,20 +15,24 @@
 
 /*
 set Log_Level = 'debug' if you want to try something new and use the debug(log_message) it will help you to dump the timestamp and message on browser console.
+// @require      WAFR-FollowUP-Helper.user.js
+// @require      WAFR-Conformance-Helper.user.js
+
 */
+
 var LOG_LEVEL = '';
 
 var OH_ENABLE_CONTEXT_HELPER = true;
 var OH_ENABLE_FOLLOWUP_HELPER = false;
 var OH_ENABLE_CONFORMANCE_HELPER = false;
 /*
-Note: To append a new module into this helper chain, please append a switch flag here. 
+Note: To append a new module into this helper chain, please append a switch flag here.
 */
 
 
 /***************************************/
 /* CAUTION, HIGH VOLTAGE, DO NOT TOUCH */
-var OH_R_DIV_HELPER_CONTAINER_DIV_READY = false; 
+var OH_R_HELPER_CONTAINER_DIV_READY = false;
 // register flag for container div ready
 /***************************************/
 
@@ -45,15 +47,22 @@ function DOM_Append_Helper_Div() {
     if(OH_R_HELPER_CONTAINER_DIV_READY) return;
 
     var objs = document.getElementsByClassName("awsui-form-field awsui-form-field-stretch");
-    if(objs[0] != undefined) objs[0].appendChild(oh_div_helper);
-    DOM_Helper_reset();
+    if(objs[0] != undefined)
+    {
+        objs[0].appendChild(oh_div_helper);
+        DOM_Helper_reset();
 
     //Append the enable module switch flag, then call the Append_Div in Module
     if(OH_ENABLE_CONTEXT_HELPER) OH_Context_Helper_Append_Div();
     if(OH_ENABLE_FOLLOWUP_HELPER) OH_FollowUp_Helper_Append_Div();
     if(OH_ENABLE_CONFORMANCE_HELPER) OH_Conformance_Helper_Append_Div();
 
-    OH_R_HELPER_CONTAINER_DIV_READY = true; 
+    OH_R_HELPER_CONTAINER_DIV_READY = true;
+    }
+    else
+    {
+    setTimeout(DOM_Append_Helper_Div, 5000);
+    }
 }
 
 function DOM_Helper_reset()
@@ -70,14 +79,14 @@ function DOM_Check_Helper_Existed() {
 }
 
 function DOM_Refresh_Check(){
-    if(DOM_Check_Helper_Existed() == false) 
+    if(DOM_Check_Helper_Existed() == false)
         DOM_Append_Helper_Div();
 }
 
 function OH_bootstrap() {
     /* Main entry point for the scripts */
     /* Append any init function here in each module */
-
+    DOM_Append_Helper_Div();
     /* Load Context Helper */
     if(OH_ENABLE_CONTEXT_HELPER) OH_Context_Helper_init();
     /* Load FollowUp Helper */
@@ -90,8 +99,6 @@ function OH_bootstrap() {
 }
 
 function OH_Href_Changed_Listener(){
-    /* Include the */
-    console.log(OH_Get_Workload_Attr());
     DOM_Refresh_Check();
     /* Load Context Helper */
     if(OH_ENABLE_CONTEXT_HELPER) OH_Context_Helper_reload();
