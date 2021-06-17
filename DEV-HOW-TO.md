@@ -21,6 +21,17 @@ var OH_ENABLE_CONFORMANCE_HELPER = false;
  - Copy from objective-helper.en.json to objective-helper.\<**LANG**\>.json
  - Keep ongoing translation staying in your new branch
 
+***Setup Customized & Dedicated JSON***
+ - For specific usage or organization internal usage, you might want to point the Context Helper JSON into your own JSON file. 
+ - Or, your private network in organization does not allow external access, then you will need to clone the JSON file from github to your internal hosting. 
+ - Edit the var JSON_CUSTOMIZED in WAFR-Context-Helper.user.js
+ ```
+ var JSON_CUSTOMIZED = "https://abc.de/ef.json";
+ var JSON_CUSTOMIZED = "https://internal.hosting/Context-helper.json"
+ ```
+
+
+
 ***File Structure*** (v0.2.1)
 ```
 .
