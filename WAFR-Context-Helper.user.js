@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper - Context Module
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.3.2
-// @description  0.3.2 remove any extra dependency for Firefox context limitation
+// @version      0.3.3
+// @description  0.3.3 leverage awsui class for layout
 // @author       bobyeh@amazon.com (github:juntinyeh)
 // @match        https://*.console.aws.amazon.com/wellarchitected/*
 // @grant        GM.xmlHttpRequest
@@ -80,16 +80,19 @@ var OH_QUESTION_KEY_CHANGED = false; // incase page fly
 /*CONTEXT*/
 var oh_div_context_helper = document.createElement('div');
     oh_div_context_helper.id = 'oh_div_context_helper'
+    oh_div_context_helper.className = 'awsui-util-container-header';
+
 
 var oh_div_context_helper_container = document.createElement('div'); //Div Container
     oh_div_context_helper_container.id = 'oh_div_context_helper_container';
-    oh_div_context_helper_container.style.background = '#FFFFCC'; //Append bgcolor
+    oh_div_context_helper_container.className = 'awsui-util-container-header';
     oh_div_context_helper_container.style.display = 'none';
     oh_div_context_helper_container.innerHTML = '';
 
 
 var oh_div_context_helper_header = document.createElement('button');
     oh_div_context_helper_header.id = 'oh_div_context_helper_header';
+    oh_div_context_helper_header.className = "awsui-button awsui-button-variant-primary";
     oh_div_context_helper_header.innerHTML = 'Context ▼';
     oh_div_context_helper_header.addEventListener("click", function() {
         var content = document.getElementById("oh_div_context_helper_container");
