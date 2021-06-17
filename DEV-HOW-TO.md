@@ -1,3 +1,4 @@
+*For Module Developing*
 **Module Naming Convention**
  - \<Mobule-Name\>\_Helper
 
@@ -13,6 +14,20 @@ var OH_ENABLE_CONTEXT_HELPER = true;
 var OH_ENABLE_FOLLOWUP_HELPER = false;
 var OH_ENABLE_CONFORMANCE_HELPER = false;
 
+**Module logic**
+ - There are 3 mandatory methods you should have in each module
+ - init: whatever you need to preload
+ - reload: it can helps to reload/refresh the content inside your div
+ - Append_Div: you will return the Div which contains all the element/content you want to show
+
+**I need workload information in this review**
+ - Check with Helper-Libs
+
+**General Frontend Tips**
+ - Create Div and use className = awsui-util-container-header
+ - Create Button and use className = awsui-button awsui-button-variant-primary
+
+*For Context Helper Modification/Customization*
 **Context-Helper for New Language support**
 ***Branch Naming Convention***
  - Please branch out from master anytime you want
