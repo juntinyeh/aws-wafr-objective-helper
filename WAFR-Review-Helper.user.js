@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.3.2
+// @version      0.3.3
 // @description  change behavior on DOM_Append_Helper_Div, handle the return object from module which can help to remove the circular dependency
 // @include      https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/
 // @require      WAFR-Context-Helper.user.js
@@ -24,7 +24,7 @@ var LOG_LEVEL = 'debug';
 
 var OH_ENABLE_CONTEXT_HELPER = true;
 var OH_ENABLE_FOLLOWUP_HELPER = false;
-var OH_ENABLE_CONFORMANCE_HELPER = false;
+var OH_ENABLE_CONFORMANCE_HELPER = true;
 /*
 Note: To append a new module into this helper chain, please append a switch flag here.
 */
@@ -59,8 +59,15 @@ function DOM_Append_Helper_Div() {
         //append the div returned from module Context Helper
       }
 
-    if(OH_ENABLE_FOLLOWUP_HELPER) OH_FollowUp_Helper_Append_Div();
-    if(OH_ENABLE_CONFORMANCE_HELPER) OH_Conformance_Helper_Append_Div();
+    if(OH_ENABLE_FOLLOWUP_HELPER){
+        oh_div_helper.appendChild(document.createElement("br"));
+        oh_div_helper.appendChild(OH_FollowUp_Helper_Append_Div());
+    }
+
+    if(OH_ENABLE_CONFORMANCE_HELPER){
+        oh_div_helper.appendChild(document.createElement("br"));
+        oh_div_helper.appendChild(OH_Conformance_Helper_Append_Div());
+    }
 
     OH_R_HELPER_CONTAINER_DIV_READY = true;
     }
