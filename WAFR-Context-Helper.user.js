@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper - Context Module
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.4.0
-// @description  0.4.0 change the language code of Korean JSON, user need to upgrade to 0.4.0 or the ko.JSON will not be correctly loaded. 
+// @version      0.4.1
+// @description  0.4.1 leverage GM.get/set to cache downloaded JSON
 // @author       bobyeh@amazon.com (github:juntinyeh)
 // @match        https://*.console.aws.amazon.com/wellarchitected/*
 // @grant        GM.xmlHttpRequest
@@ -10,6 +10,7 @@
 // @grant        GM.setValue
 // @run-at       document-end
 // ==/UserScript==
+
 
 /*
 var JSON_CUSTOMIZED = "https://somewhere-you-place-your-json-file"
@@ -64,7 +65,7 @@ var arr_Click_Req = ['Click_Req'];
 /*
 set Log_Level = 'debug' if you want to try something new and use the debug(log_message) it will help you to dump the timestamp and message on browser console.
 */
-var LOG_LEVEL = 'debug';
+var LOG_LEVEL = '';
 
 /***************************************/
 /* CAUTION, HIGH VOLTAGE, DO NOT TOUCH */
@@ -183,17 +184,12 @@ function DOM_Context_Helper_append_child(element) {
 function DOM_Identify_Current_Pillar_Question(){
     // Find and parse the Question Text, get the Questions key
     var has_help_button = document.getElementsByClassName("has-help-button");
-    debug("has_help_button",has_help_button);
     if(has_help_button.length>0)
     {
-        debug("has_help_button.length>0", has_help_button[0]);
         var key_index = has_help_button[0].innerHTML.search(/^\S+\s\d+/g);
-        debug("key_index",key_index);
         if( key_index == 0)
         {
             var current_question_key = String(has_help_button[0].innerHTML.match(/^\S+\s\d+/g));
-            debug("current_question_key",current_question_key);
-            debug("OH_QUESTION_KEY",OH_QUESTION_KEY);
             if(current_question_key != OH_QUESTION_KEY)
             {
                 OH_QUESTION_KEY = current_question_key;
@@ -208,12 +204,10 @@ function DOM_Identify_Current_Pillar_Question(){
         }
         else
         {
-            debug("retry in 3s");
             setTimeout(DOM_Identify_Current_Pillar_Question, 3000);
         }
     }
     else{
-        debug("document.getElementsByClassName(has-help-button) failed");
         setTimeout(DOM_Identify_Current_Pillar_Question, 3000);
     }
 }
@@ -261,7 +255,6 @@ function JSON_format_default(JSON_key, JSON_value){
 
 /* convert text list with auto <br/> */
 function JSON_format_text_list(JSON_key, JSON_value){
-    debug("JSON_format_text_list");
     var JSON_value_text = '';
     JSON_value.forEach(append_to_text);
     function append_to_text(item, index){
@@ -320,47 +313,52 @@ function JSON_HttpReq_Handler(JSON_value, callback){
     GM.xmlHttpRequest(GM_payload);
 }
 
-/* Fetch the JSON file by language from github */
+/*
+ By input language, check if target JSON already been downloaded. Use GM.setValue & GM.getValue to enable the cache mechanism. 
+*/
 function EXT_Get_Objective_Helper_JSON(...args){
     //if(OH_R_CONTENT_READY) return;
     if(args.length == 1) JSON_LANG = args[0];
     var url = JSON_get_url();
-
-    try{
-        OH_QUESTION_KEY = "";
-        OH_QUESTION_KEY_CHANGED = true;        
-        GM.xmlHttpRequest({
-            method: "GET",
-            url: url,
-            onload: function(response) {
-                try {
-                    console.log(url);
-                    console.log(response.responseText);
-                    OH_CONTENT = JSON.parse(response.responseText);
-
-                    if(OH_CONTENT === undefined)
-                    {
-                        alert("Invalid Context Helper JSON");
-                        //setTimeout(EXT_Get_Objective_Helper_JSON,3000);
+  
+    (async () => {
+        var cached_json = await GM.getValue(url, -1);
+  
+        if(cached_json == -1)
+        {
+            console.log("No cached value, fetch remote:", url);
+            try{
+                OH_QUESTION_KEY = "";
+                OH_QUESTION_KEY_CHANGED = true;        
+                GM.xmlHttpRequest({
+                    method: "GET",
+                    url: url,
+                    onload: function(response) {
+                        try {                    
+                            OH_CONTENT = JSON.parse(response.responseText);
+                            
+                            OH_R_CONTENT_READY = true;
+                            DOM_Context_Helper_Refresh_Check();
+                            GM.setValue(url, OH_CONTENT);                        
+                        }
+                        catch(err) {
+                            OH_R_CONTENT_READY = false;
+                            console.log(err.message);
+                        }
                     }
-                    else
-                    {
-                        OH_R_CONTENT_READY = true;
-                        DOM_Context_Helper_Refresh_Check();
-                    }
-                }
-                catch(err) {
-                    OH_R_CONTENT_READY = false;
-                    console.log(OH_CONTENT);
-                    alert(err.message);
-                }
+                });
+
             }
-        });
-
-    }
-    catch(err) {
-        debug(err.message);
-    }
+            catch(err) {
+                console.log(err.message);
+            }
+        }
+        else
+        {
+            console.log("Target JSON existed, use cached --> ",url);
+            OH_CONTENT = cached_json;
+        }
+    })();
 }
 
 function debug(...args){

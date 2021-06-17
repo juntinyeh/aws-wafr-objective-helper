@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.3.3
-// @description  change behavior on DOM_Append_Helper_Div, handle the return object from module which can help to remove the circular dependency
+// @version      0.3.4
+// @description  grant GM.get/set for modules 
 // @include      https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/
 // @require      WAFR-Context-Helper.user.js
 // @require      WAFR-Helper-Libs.user.js
@@ -12,6 +12,8 @@
 // @author       ssslim@amazon.com (github:stephensalim)
 // @match        https://*.console.aws.amazon.com/wellarchitected/*
 // @grant        GM.xmlHttpRequest
+// @grant        GM.getValue
+// @grant        GM.setValue
 // @run-at       document-end
 // ==/UserScript==
 
@@ -20,7 +22,7 @@ set Log_Level = 'debug' if you want to try something new and use the debug(log_m
 
 */
 
-var LOG_LEVEL = 'debug';
+var LOG_LEVEL = '';
 
 var OH_ENABLE_CONTEXT_HELPER = true;
 var OH_ENABLE_FOLLOWUP_HELPER = false;
