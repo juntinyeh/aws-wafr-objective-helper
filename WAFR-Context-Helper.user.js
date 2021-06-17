@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper - Context Module
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.4.1
-// @description  0.4.1 leverage GM.get/set to cache downloaded JSON
+// @version      0.4.2
+// @description  0.4.2 leverage GM.get/set to cache downloaded JSON
 // @author       bobyeh@amazon.com (github:juntinyeh)
 // @match        https://*.console.aws.amazon.com/wellarchitected/*
 // @grant        GM.xmlHttpRequest
@@ -338,8 +338,9 @@ function EXT_Get_Objective_Helper_JSON(...args){
                             OH_CONTENT = JSON.parse(response.responseText);
                             
                             OH_R_CONTENT_READY = true;
+                            GM.setValue(url, OH_CONTENT);
                             DOM_Context_Helper_Refresh_Check();
-                            GM.setValue(url, OH_CONTENT);                        
+                                                    
                         }
                         catch(err) {
                             OH_R_CONTENT_READY = false;
@@ -355,8 +356,9 @@ function EXT_Get_Objective_Helper_JSON(...args){
         }
         else
         {
-            console.log("Target JSON existed, use cached --> ",url);
             OH_CONTENT = cached_json;
+            DOM_Context_Helper_Refresh_Check();
+            console.log("Target JSON existed, use cached --> ",url);
         }
     })();
 }
