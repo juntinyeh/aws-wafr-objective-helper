@@ -1,13 +1,18 @@
 
 # AWS Well Architected Review helper.
 
-The AWS Well Architected Review helper is a compilation of open-source browser user scripts and aws services solution to assist conducting effective well architected review. Currently AWS Well Architected Review helper has below capabilities:
+The AWS Well Architected Review helper is a compilation of open-source browser user scripts and aws services solution to assist conducting effective well architected review. 
 
-* **Context Helper** - 
-* **Conformance Checks**
+Currently AWS Well Architected Review helper has below capabilities:
+
+| CAPABILITY | Description | User Guide |
+| ------------- | ------------- | ------------- |
+| Context  | Show additional context into Well Architected Questions. (Objectives, Domain, Question connections, Local Language )  | [Click](CONTEXT-HOW-TO.md) | 
+| Conformance | Display AWS Config Conformance check results related to the question   | [Click](CONFROMANCE-HOW-TO.md) |
+
 
 ---
-## License
+## License & Usage guide
 
 
 
@@ -15,12 +20,11 @@ The AWS Well Architected Review helper is a compilation of open-source browser u
 
 ## Getting Started
 
-To get started with AWS Well Architected Review helper you will need the following:
+To get started with AWS Well Architected Review helper you will need to install the **Tempermonkey** browser extension / add-on:
 
-1. Install Tempermonkey extension in your web browser.
+1. Click on one of the link below to download **Tempermonkey** and install in your browser.
     - [Firefox](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/).
     - [Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo).
-
 
 2. Click [here](https://github.com/stephensalim/aws-wafr-objective-helper/raw/main/WAFR-Review-Helper.user.js) to install the user script into your browser. 
 
@@ -42,14 +46,24 @@ To get started with AWS Well Architected Review helper you will need the followi
 
     ![Always_Allow_Domain](images/capability_enabled.png)
 
+9. Review the **User guide** guide for each capability:
 
+    - [Context](CONTEXT-HOW-TO.md). - Guide to use and extend **Context** capability.
+    - [Conformance](CONFORMANCE-HOW-TO.md). - Guide to use and extend **Conformance** capability.
+    - [Modification](DEV-HOW-TO.md). - Guide to extend and modify **AWS Well Architected Review Helper** user script.
 ---
 
 
 
 ## What is this Github repository? 💻
 
+TBA
+
 ## How do i contribute ? 
 
+TBA
+
 ## Join the Community on Slack
+
+TBA
 
