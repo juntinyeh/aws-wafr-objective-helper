@@ -1,9 +1,10 @@
 {
   "_comment":{
-    "_version":"0.0.2",
+    "_version":"0.0.3",
     "_date":"2021-06-17",
     "_contributor":["bobyeh@ - github:juntinyeh","hclo@"],
     "_update_note":[
+      "0.0.3 - fix missing , which break main line",
       "0.0.2 - Merge content and update OPS/SEC pillars", 
       "0.0.1 - Change the text fields from \\n to string list/array.",
       "0.0.0 - Translate from .en.json, OPS pillar accomplished."]
@@ -205,7 +206,7 @@
     "S3上的資料是如何做存取控管？有IAM的同仁都能存取？",
     "目前放在S3上面的資料是怎麼經由應用層(AP)讓授權過的使用者存取？",
     "對於資料庫裡的資料有做怎樣的存取控管？",
-    "正式環境與測試環境的資料庫跟S3有沒有不同的權限控管？"    
+    "正式環境與測試環境的資料庫跟S3有沒有不同的權限控管？",  
     "如何確定使用者不會未經網站認証直接存取S3上的檔案？",
     "如果沒有使用presign URL，在S3上的檔案因為簡單的命名規則發生未經授權的存取？"
     "如果有些高敏感度的資料，在內部人員的存取控管是如何執行？",
