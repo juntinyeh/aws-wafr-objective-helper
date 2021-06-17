@@ -8,7 +8,7 @@ Currently AWS Well Architected Review helper has below capabilities:
 | CAPABILITY | Description | User Guide |
 | ------------- | ------------- | ------------- |
 | Context  | Show additional context into Well Architected Questions. (Objectives, Domain, Question connections, Local Language )  | [Click](CONTEXT-HOW-TO.md) | 
-| Conformance | Display AWS Config Conformance check results related to the question   | [Click](CONFROMANCE-HOW-TO.md) |
+| Conformance | Display AWS Config Conformance check results related to the question   | [Click](CONFORMANCE-HOW-TO.md) |
 
 
 ---
