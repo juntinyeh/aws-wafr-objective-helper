@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper - Context Module
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.3.3
-// @description  0.3.3 leverage awsui class for layout
+// @version      0.4.0
+// @description  0.4.0 change the language code of Korean JSON, user need to upgrade to 0.4.0 or the ko.JSON will not be correctly loaded. 
 // @author       bobyeh@amazon.com (github:juntinyeh)
 // @match        https://*.console.aws.amazon.com/wellarchitected/*
 // @grant        GM.xmlHttpRequest
@@ -50,7 +50,7 @@ var JSON_SUPPORTED_LANG = {
     "": JSON_LANG,
     "English": "en",
     "Bahasa Indonesia": "id",
-    "한국어":"kr",
+    "한국어":"ko",
     "中文(繁體)": "zh_TW",
     "中文(简体)": "zh_CN"
 };
