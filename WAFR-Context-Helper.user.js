@@ -1,13 +1,15 @@
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper - Context Module
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.4.2
-// @description  0.4.2 leverage GM.get/set to cache downloaded JSON
+// @version      0.4.3
+// @description  0.4.3 add new feature to clear cached JSON.
 // @author       bobyeh@amazon.com (github:juntinyeh)
 // @match        https://*.console.aws.amazon.com/wellarchitected/*
 // @grant        GM.xmlHttpRequest
 // @grant        GM.getValue
 // @grant        GM.setValue
+// @grant        GM.listValues
+// @grant        GM.deleteValue
 // @run-at       document-end
 // ==/UserScript==
 
@@ -106,6 +108,7 @@ var oh_div_context_helper_header = document.createElement('button');
             content.style.display = 'none';
             header.innerHTML = 'Context ▼';
         }
+        DOM_Context_Helper_Refresh_Check();
     });
 
 var oh_div_context_helper_language = document.createElement('select');
@@ -122,14 +125,20 @@ var oh_div_context_helper_language = document.createElement('select');
 
     oh_div_context_helper_language.addEventListener("change", function() {
         var sel_lang = document.getElementById("oh_div_context_helper_language");
-        //GM.setValue("WAFR_CONTEXT_HELPER_LANG", sel_lang.value);
         EXT_Get_Objective_Helper_JSON(sel_lang.value);
     });
 
+var oh_div_context_helper_reload = document.createElement('a');
+    oh_div_context_helper_reload.id = "oh_div_context_helper_reload";
+    oh_div_context_helper_reload.innerHTML = '×';
+    oh_div_context_helper_reload.addEventListener("click", function(){
+        JSON_clear_cache();
+    })
+
     oh_div_context_helper.appendChild(oh_div_context_helper_header);
     oh_div_context_helper.appendChild(oh_div_context_helper_language);
+    oh_div_context_helper.appendChild(oh_div_context_helper_reload);
     oh_div_context_helper.appendChild(oh_div_context_helper_container);
-
 
 /***************************************/
 
@@ -361,6 +370,19 @@ function EXT_Get_Objective_Helper_JSON(...args){
             console.log("Target JSON existed, use cached --> ",url);
         }
     })();
+}
+
+
+function JSON_clear_cache()
+{
+    (async () => {
+        let keys = await GM.listValues();
+        for (let key of keys) {
+          GM.deleteValue(key);
+        }
+        console.log("Clear cached JSON");
+    })();
+
 }
 
 function debug(...args){

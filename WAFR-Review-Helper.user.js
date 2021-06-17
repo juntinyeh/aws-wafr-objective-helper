@@ -1,25 +1,26 @@
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.3.4
-// @description  grant GM.get/set for modules 
+// @version      0.3.5
+// @description  grant GM.deleteValue & listValues
 // @include      https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/
 // @require      WAFR-Context-Helper.user.js
-// @require      WAFR-Helper-Libs.user.js
 // @require      WAFR-FollowUP-Helper.user.js
 // @require      WAFR-Conformance-Helper.user.js
+// @require      WAFR-Helper-Libs.user.js
 // @author       bobyeh@amazon.com (github:juntinyeh)
 // @author       ssslim@amazon.com (github:stephensalim)
 // @match        https://*.console.aws.amazon.com/wellarchitected/*
 // @grant        GM.xmlHttpRequest
 // @grant        GM.getValue
 // @grant        GM.setValue
+// @grant        GM.listValues
+// @grant        GM.deleteValue
 // @run-at       document-end
 // ==/UserScript==
 
 /*
 set Log_Level = 'debug' if you want to try something new and use the debug(log_message) it will help you to dump the timestamp and message on browser console.
-
 */
 
 var LOG_LEVEL = '';
