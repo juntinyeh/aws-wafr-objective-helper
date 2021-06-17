@@ -44,7 +44,7 @@ To get started with AWS Well Architected Review helper you will need to install 
 
 8. Once you arrive in the question page, you should see the additional capability added into the tool.
 
-    ![Always_Allow_Domain](images/capability_enabled.png)
+    ![Always_Allow_Domain](images/show_capability_enabled.png)
 
 9. Review the **User guide** guide for each capability:
 
