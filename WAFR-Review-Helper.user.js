@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.3.4
-// @description  grant GM.get/set for modules 
+// @version      0.3.5
+// @description  grant GM.deleteValue & listValues
 // @include      https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/
 // @require      WAFR-Context-Helper.user.js
 // @require      WAFR-FollowUP-Helper.user.js
@@ -14,6 +14,8 @@
 // @grant        GM.xmlHttpRequest
 // @grant        GM.getValue
 // @grant        GM.setValue
+// @grant        GM.listValues
+// @grant        GM.deleteValue
 // @run-at       document-end
 // ==/UserScript==
 
