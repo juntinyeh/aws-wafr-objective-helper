@@ -1,7 +1,7 @@
 {
   "_comment":{
-    "_version":"0.0.1",
-    "_date":"2021-06-09",
+    "_version":"0.0.2",
+    "_date":"2021-06-17",
     "_contributor":["bobyeh@ - github:juntinyeh","hclo@"],
     "_update_note":[
       "0.0.1 - Change the text fields from \\n to string list/array.",
@@ -112,12 +112,14 @@
   "目標人員":["商業團隊經理","業務團隊經理","專案經理","維運團隊經理","維運技術人員"]
 },
 "SEC 1":{
-  "目標":["瞭解目前客戶對於安全性的實際演練以及實施的狀態",
+  "目標":[
+    "瞭解目前客戶對於安全性的實際演練以及實施的狀態",
     "並依照運維卓越支柱的定義，確認是否有參照改善並且延伸到安全性操作",
     "確認客戶如何確保所有安全性操作為最新而且符合業界要求及法規認証",
     "了解客戶如何認知及面對安全性的威脅",
   "確認客戶如何將安全性相關操作利用自動化流程改善、測試及驗証"],
-  "範例問題":["請問目前研發及維運團隊是如何操作AWS的帳號？混合雲或地端機房？",
+  "範例問題":[
+    "請問目前研發及維運團隊是如何操作AWS的帳號？混合雲或地端機房？",
     "請問目前這些重要的環境帳號，是如何保護？單純的帳號密碼或是有多因子MFA認証？",
     "請問目前技術團隊如何能確認所有的環境安全性是否有資安漏洞？",
     "請問有專門的管道或專職人員在關注資安相關的訊息，例如CVE？",
@@ -125,9 +127,11 @@
   "目標人員":["技術研發團隊","維運團隊"]
 },
 "SEC 2":{
-  "目標":["了解目前客戶對於人員身份的管理，不論是公司組織內部或是外部",
+  "目標":[
+    "了解目前客戶對於人員身份的管理，不論是公司組織內部或是外部",
     "了解目前客戶在軟體應用執行時所需要的身份管理"],
-  "範例問題":["目前在研發團隊，有需要操作AWS環境的同仁有多少？",
+  "範例問題":[
+    "目前在研發團隊，有需要操作AWS環境的同仁有多少？",
     "請問研發同仁的AWS帳號是怎麼做管理？分別派發還是共用帳號密碼？",
     "在帳號管理上是否有使用多因子認証MFA?",
     "帳號的權限設定上是否有分別？每一個同仁都直接派發Administrator的權限？",
@@ -139,7 +143,8 @@
   "目標人員":["技術研發團隊","維運團隊"]
 },
 "SEC 3":{
-  "範例問題":["請問研發或維運團隊在不同的環境中有不同的權限嗎？",
+  "範例問題":[
+    "請問研發或維運團隊在不同的環境中有不同的權限嗎？",
     "請問在測試環境是每一個同仁都有開啟所有AWS服務資源的權限？",
     "有設定資源上限或是所在區域嗎？",
     "維運團隊在正式環境(Prod)每個人的權限設定是如何區分？",
@@ -149,7 +154,8 @@
   "目標人員":["技術研發團隊","維運團隊"]
 },
 "SEC 4":{
-    "範例問題":["請問目前是否有在基礎建設(Infra)層收集相關的日誌紀錄(Log)",
+    "範例問題":[
+      "請問目前是否有在基礎建設(Infra)層收集相關的日誌紀錄(Log)",
       "請問在應用(AP)層是否也有收集相關的日誌紀錄 - 例如不正常訪問？",
       "目前的Linux Server的Port 22是全開，請問有定期去看secure.log嗎？",
       "目前這些日誌紀錄是分別放在預設的位置還是有集中存放？",
@@ -159,25 +165,27 @@
     "目標人員":["技術研發團隊","維運團隊"]
 },
 "SEC 5":{
-  "範例問題":["目前帳號裡面的VPC是怎麼設置？",
-      "不同帳號之前的VPC Peering的策略是什麼？",
-      "在Public Subnet/Private Subnet中間的設定跟區分目前是怎麼做的？",
-      "目前是怎麼連接存取到VPC內部的EC2？",
-      "如何經由連接跳板機(Bastion)來存取正式環境的RDS？",
-      "跳板機是經由公網配合Security Group來限制存取，但來源IP網段有多少人共用？",
-      "目前是怎麼利用VPC flow log來確認所有的操作安全？"],
-    "目標人員":["技術研發團隊","維運團隊"]
+  "範例問題":[
+    "目前帳號裡面的VPC是怎麼設置？",
+    "不同帳號之前的VPC Peering的策略是什麼？",
+    "在Public Subnet/Private Subnet中間的設定跟區分目前是怎麼做的？",
+    "目前是怎麼連接存取到VPC內部的EC2？",
+    "如何經由連接跳板機(Bastion)來存取正式環境的RDS？",
+    "跳板機是經由公網配合Security Group來限制存取，但來源IP網段有多少人共用？",
+    "目前是怎麼利用VPC flow log來確認所有的操作安全？"],
+  "目標人員":["技術研發團隊","維運團隊"]
 },
 "SEC 6":{
-  "範例問題":["請問在應用(AP)層有用到任何外部的函式庫(lib)嗎？",
-      "在什麼情況下會知目前用到的函式庫可能有安全性問題？",
-      "請問外包廠商提供的是執行檔(binary)還是原始碼(source code)？",
-      "目前怎麼確定應用層沒有任何安全性漏洞？",
-      "目前在ECS用的base image是從外部來的，有作過任何驗証或掃描嗎？",
-      "目前這些Windows Server是怎麼做security patch？",
-      "Ops團隊使用Ansible來批次操作Linux Server，那中間怎麼確定所有操作的安全性？",
-      "線上支付的相關功能有經過弱點掃描嗎？"],
-    "目標人員":["技術研發團隊","維運團隊"]
+  "範例問題":[
+    "請問在應用(AP)層有用到任何外部的函式庫(lib)嗎？",
+    "在什麼情況下會知目前用到的函式庫可能有安全性問題？",
+    "請問外包廠商提供的是執行檔(binary)還是原始碼(source code)？",
+    "目前怎麼確定應用層沒有任何安全性漏洞？",
+    "目前在ECS用的base image是從外部來的，有作過任何驗証或掃描嗎？",
+    "目前這些Windows Server是怎麼做security patch？",
+    "Ops團隊使用Ansible來批次操作Linux Server，那中間怎麼確定所有操作的安全性？",
+    "線上支付的相關功能有經過弱點掃描嗎？"],
+  "目標人員":["技術研發團隊","維運團隊"]
 },
 "SEC 7":{
   "範例問題":["目前是所有的資料都放在同一個資料庫，還是有分開保存",
@@ -187,102 +195,131 @@
     "如果有些高敏感度的資料，保存的週期跟時限目前是怎麼設定？"],
     "目標人員":["技術研發團隊","維運團隊"]},
 "SEC 8":{
-  "範例問題":["目前所有的靜態資料是怎麼保護的？",
-    "目前放在S3上面的資料是怎麼經由應用層(AP)讓授權過的使用者存取？",
-    "如何確定使用者不會未經網站認証直接存取S3上的檔案？",
-    "如果沒有使用presign URL，在S3上的檔案因為簡單的命名規則發生未經授權的存取？"
-    "如果有些高敏感度的資料，在內部人員的存取控管是如何執行？",
-    "目前有做任何機制來紀錄資料存取的日誌？"],
-    "目標人員":["技術研發團隊","維運團隊"]}  
-
+  "目標":[
+    "了解他們如何保護存儲在中/長期存儲中的靜態資料",
+    "在S3、資料庫、EBS、EMR、或自己架設的資料庫存儲",
+    "客戶如何實施授權訪問和錯誤處理來降低風險？"],
+  "範例問題":[
+    "請問目前的靜態資料是如何做存取控管？",
+    "S3上的資料是如何做存取控管？有IAM的同仁都能存取？",
+    "對於資料庫裡的資料有做怎樣的存取控管？",
+    "正式環境與測試環境的資料庫跟S3有沒有不同的權限控管？"],
+  "目標人員":["技術研發團隊","維運團隊"]
 },
 "SEC 9":{
-  "目標":["確認客戶對於網路上資料傳輸加密的認知程度"],
-  "範例問題":["目前網站以及Mobile App的服務是否有啟用HTTPS/TLS加密",
-    "目前網站的HTTPS certificate是如何生成？外部購買？",
-    "在公司有遠端存取資料庫/ElasticSearch/mongodb的操作，是否有設置TLS加密？",
-    "如果有些高敏感度的資料，保存的週期跟時限目前是怎麼設定？"],
-    "目標人員":["技術研發團隊","維運團隊"]
-},
+  "目標":[
+    "了解客戶如何在傳輸過程中保護資料安全",
+    "跨網路傳輸的資料、或通過網路匣道、外部通信服務等等",
+    "如何減少未經授權的訪問和處理不當造成資料外洩的風險"],
+  "範例問題":[
+    "目前的資料傳輸都有加密嗎？",
+    "目前網站都有HTTPS，那有沒有任何其他資料交換的管道？",
+    "外站目前都用上傳檔案的方式送資料回總部，有沒有考慮將FTP換成SFTP？"],
+  "目標人員":["技術研發團隊","維運團隊"]
+  },
 "SEC 10":{
-  "目標":["瞭解目前客戶對於安全性事件的準備及認知",
-    "確認客戶在安全性事件上的維運流程及演練"],
-  "範例問題":["如果被通知正式環境網站被入侵，團隊的反應流程為何？",
-    "如果被通知開發環境有異常操作，例如被開機器挖礦，開發團隊會如何處理？",
-    "如果因為應用層(AP)的漏洞讓資料庫資料全部外洩或刪除，團隊會如何反應？",
-    "請問以上這些安全性事件的設想是否有作過演練？"],
-  "關聯問題":["OPS 2","OPS 10"]},
+  "目標":[
+    "了解在準備安全事件時反應的流程",
+    "如何及時、進行有效的調查、對事件/事件做出響應",
+    "如何在恢復的過程盡量減少對組織以及服務上的干擾"],
+  "範例問題":[
+    "如果現在購物網站被發現有安全性漏洞，會怎麼處理",
+    "有沒有固定的人員以及流程來處理安全性事件",
+    "人員的權限是否足夠？",
+    "如果目前某一些服務被外部入侵，是否有辦法將該環境隔離，並且起一組新的服務來確保服務是能夠繼續的？"],
+  "目標人員":["技術研發團隊","維運團隊"]},
 "REL 1":{
-  "目標":["Gain understanding around their awareness about the concept of Service Quote, and why that concept exist to protect them from accidental provisioning. ","Gain understanding also on how they are now managing their workload to address this."]},
+  "目標":["了解他們對服務報價概念的認識，以及為什麼存在該概念以保護他們免受意外供應的影響。","還了解他們現在如何管理工作負載以解決此問題。"] },
 "REL 2":{
-  "目標":["Gain understanging on their approach on planning and implementing their network topology from. ","What are the things, they consider when are they planning their network topology which includes, intra- and inter-system connectivity, public IP address management, private IP address management, domain name resolution."]},
+  "目標":["從他們規劃和實施網絡拓撲的方法中獲得理解。","他們在規劃網絡拓撲時考慮的是什麼，包括系統內和系統間連接、公共 IP地址管理、私有IP地址管理、域名解析。"]},
 "REL 3":{
-  "目標":["Gain understanding on their approch in implementing a Service-oritented Architecture ? ","On how they are segmenting their workload, and if each of the serment focuses on a certain functionality or business domain. ","Is the workload currently runs as a single or multiple monoliths ? or are they running the application as a Mircoservice model."]},
+  "目標":["了解他們在實現面向服務的架構中的方法？","關於他們如何劃分工作負載，以及每個服務是否專注於某個功能或業務領域。","是工作負載目前作為單個或多個單體運行？或者它們是否將應用程序作為 Mircoservice 模型運行。"]},
 "REL 4":{
-  "目標":["Gain understanding on their approach to design interactions between parts of their distributed system, or other system that interacts / relies on this workload. ","When disruption / failure occur to the system your workload interacting with or vice versa , what are the impacts to your workload and that other connecting system ? ","And how are they handling it ?"]},
+  "目標":["了解他們設計分佈式系統各部分之間交互的方法，或其他交互/依賴此工作負載的系統。","當系統發生中斷/故障時，您的工作負載與之交互，反之亦然, 對您的工作負載和其他連接系統有何影響？","他們是如何處理的？"]},
 "REL 5":{
-  "目標":["Gain understanding on what are the things / approach they have implemented when designing interactions in a distributed system to manage failures, or allow the system to widhstand it."]},
+  "目標":["了解他們在分佈式系統中設計交互以管理故障或允許系統處理故障時實施的事物/方法是什麼。"]},
 "REL 6":{
-  "目標":["Gain understanding on how are they monitoring their workload resources ? ","What are the things in their workload that they are monitoring, and how are they treating those data to allow better reliability in the workload"],
+  "目標":[
+    "了解他們如何監控他們的工作負載資源？",
+    "他們正在監控的工作負載中有哪些內容",
+    "他們如何處理這些數據以提高工作負載的可靠性"],
   "關聯問題":["OPS 8", "OPS 9", "REL 6"]},
 "REL 7":{
-  "目標":["Gain understanding on the approach of their design for their workload to allow the workload to adapt to change in demand. ","Find out, on how they are implementing this ability to adapt ? gather high level technical details around their approach"],
+  "目標":[
+    "了解他們的工作負載設計方法，使工作負載能夠適應需求的變化。",
+    "找出他們如何實現這種適應能力？",
+    "收集周圍的高級技術細節他們的方法"],
   "關聯問題":"COST 9"},
 "REL 8":{
-  "目標":["Gain understanding on their process to implement change in the workload, at application and infrastructure level. ","What are the things that they do to be able reliably implement changes like patch / software / config change to ensure that it is done in a controlled manner ? ","If changes are not done in a controlled manner, it can become difficult for them to predict effect of these changes, and to decide the appropriate follow up question."]},
+  "目標":[
+    "了解他們在應用程序和基礎架構級別實施工作負載更改的過程。",
+    "他們做了哪些事情才能可靠地實施補丁/軟件/配置更改等更改，以確保它是以受控方式完成的嗎？",
+  "如果變更沒有以受控方式完成，他們就很難預測這些變更的影響，並決定適當的後續問題。"]},
 "REL 9":{
-  "目標":["Gain understanding on how they are backing up their data. ","Have they defined and have business agreed on the RTO / RPO ? ","If there is no direction from the business, do they know what is their RTO / RPO at their current strategy they implemented ? "],
+  "目標":[
+    "了解他們如何備份他們的數據。",
+    "他們是否定義並就 RTO/RPO 達成一致？",
+    "如果沒有來自業務的指示，他們是否知道什麼是他們實施的當前戰略中的 RTO/RPO？"],
   "關聯問題":"REL 13"},
 "REL 10":{
-  "目標":["Gain understanding on their approach / strategies in isolating the impact when failure occured in the workload so that the effect to other services are managed / reduced ","This is particularly prominent if their workload is distributed accross multiple components. ","If the workload is a monolith, look at surrounding services that interconnects with the workload, e.g: billing system, crm, etc. What strategy are they implementing to reduce the impact on other services that relies on the service."]},
+  "目標":[
+  "了解他們在工作負載中發生故障時隔離影響的方法/策略，以便管理/減少對其他服務的影響",
+  "如果他們的工作負載分佈在多個組件中，這一點尤為突出。 ",
+  "如果工作負載是單體應用，請查看與工作負載互連的周圍服務，例如:計費系統、crm 等",
+  "他們正在實施什麼策略來減少對依賴該服務的其他服務的影響。"]} ,
 "REL 11":{
-  "目標":["Gain understanding on what is their strategy / approach to lower the Mean time to Recovery should an issue occur in the system. ","What is their current mean time to recovery ? ","What are the approach / process / implementation they have to handle this reduction of Mean time to Recovery ( The Average time it takes from the time issue is reported until it get's resolved)"]},
+  "目標":[
+    "了解他們在系統中出現問題時降低平均恢復時間的策略/方法是什麼。",
+    "他們當前的平均恢復時間是多少？",
+    "有哪些方法/流程/實施，他們必須處理這種平均恢復時間的減少",
+    "（從報告時間問題到解決問題所花費的平均時間）"]},
 "REL 12":{
-  "目標":" Gain understanding on how they are testing all of the strategies they have to improve reliability on the workload "},
+  "目標":"了解他們如何測試所有策略以提高工作負載的可靠性"},
 "REL 13":{
-  "目標":["Gain understanding on their plan for Disaster recovery ","Have they got this plan documented and tested ? ","Have they defined the RTO / RPO?"],
+  "目標":["了解他們的災難恢復計劃","他們是否記錄並測試了該計劃？","他們是否定義了 RTO/RPO？"],
   "關聯問題":"REL 9"},
 "PERF 1":{
-  "目標":[" Gain understanding / insight on what are their approach in making sure that they have the most optimal architecture model for their workload."]},
+  "目標":["了解/洞察他們的方法是什麼，以確保他們擁有最適合其工作負載的架構模型。"]},
 "PERF 2":{
-  "目標":" Gain understanding on what are the strategy / approach they took to make sure they are selecting the right compute solution for their workload."},
+  "目標":"了解他們為確保為自己的工作負載選擇正確的計算解決方案而採取的策略/方法。"},
 "PERF 3":{
-  "目標":" Gain understanding on what are the strategy / approach they took to make sure they are selecting the right storage solution for their workload."},
-"PERF 4":{  
-  "目標":" Gain understanding on what are the strategy / approach they took to make sure they are selecting the right database solution for their workload."},
+  "目標":"了解他們採取了哪些策略/方法來確保為他們的工作負載選擇正確的存儲解決方案。"},
+"PERF 4":{
+  "目標":"了解他們採取了哪些策略/方法來確保為他們的工作負載選擇正確的數據庫解決方案。"},
 "PERF 5":{
-  "目標":" Gain understanding on what are the strategy / approach they took to make sure they have the most optimal network configuration based on their needs and constrains."},
+  "目標":"了解他們採取了哪些策略/方法，以確保根據他們的需求和限制擁有最佳的網絡配置。"},
 "PERF 6":{
-  "目標":["Gain understanding on their approach to keep up to day with new resources and services. ","Do they have a process to defined to improve the workload performance ? ","What mechanism do employ to ensure their workload continuously evolves towards improvement?"]},
+  "目標":["了解他們的方法來跟上新的資源和服務的步伐。","他們是否有定義的流程來提高工作負載性能？","使用什麼機制來確保他們的工作負載持續不斷朝著改進的方向發展？"]},
 "PERF 7":{
-  "目標":["Gain understanding on their approach to record the performance metrics of all the resources they monitor, establish benchmark, and set up appropriate alerting to take action upon indication of performance degardation"]},
+  "目標":["了解他們記錄他們監控的所有資源的性能指標的方法，建立基準，並設置適當的警報以根據性能下降的跡象採取行動"]},
 "PERF 8":{
-  "目標":["Gain insight on customer's understanding around areas in the workload that they consider critical from performance perspective. ","Determine which aspect they can trade off to achieve that, and what will be the impact to their customer , and efficiency they are achieving. ","How are they tracking /measuring these impact. ","And what strategy do they use to mitigate those tradeoffs?"]},
+  "目標":["深入了解客戶對他們從性能角度認為關鍵的工作負載領域的理解。","確定他們可以權衡哪些方面來實現這一目標，以及對客戶和效率的影響他們正在實現。","他們如何跟踪/衡量這些影響。","他們使用什麼策略來減輕這些權衡？"]},
 "COST 1":{
-  "目標":["Gain understanding around what practice does the customer have in terms of managing thier cloud expenditures. ","Have they established a dedicated function to handle the management ? ","What is their general strategy, and what are the things that they implement to handle their Cloud Financial Management."]},
+  "目標":["了解客戶在管理他們的雲支出方面有哪些實踐。","他們是否建立了專門的職能來處理管理？","他們的總體戰略是什麼，以及他們為處理雲財務管理而實施的東西。"]},
 "COST 2":{
-  "目標":["Gain insights on what are the things they implemenet in their workload to govern usage of the workload. ","What are the strategies and things implemented to ensure the cost are appropriately incurred while making sure the 目標s are stillachieved."],
+  "目標":["深入了解他們在他們的工作負載中實施哪些事情來管理工作負載的使用。","為確保在確保目標仍然實現的同時適當地產生成本而實施的策略和事情是什麼."],
   "關聯問題":"SEC 3"},
 "COST 3":{
-  "目標":" Gain insights on what are the things implemented to monitor the usage of the resources used and what mechanism do they use to create attrobution of the cost for that particular category",
+  "目標":
+  "深入了解為監控所用資源的使用情況而實施的事物以及它們使用什麼機制來為該特定類別創建成本歸因",
   "關聯問題":"OPS 8, REL 1, REL 6"},
 "COST 4":{
-  "目標":" What are their approach when decomissioning resources to ensure that they are reducing waste.",
+  "目標":"在退役資源以確保減少浪費時，他們的方法是什麼。",
   "關聯問題":"REL 6"},
 "COST 5":{
-  "目標":["Gain insights, on their approach and strategies to evaluate cost when they select their services as their building block for the workload."]},
+  "目標":["在他們選擇服務作為工作負載的構建塊時，深入了解他們評估成本的方法和策略。"]},
 "COST 6":{
-  "目標":" Gain insight on their effort when choosing resource size and the quantity to ensure it can accomodate the task at hand while minimizing wastage.",
+  "目標":"在選擇資源大小和數量時深入了解他們的努力，以確保它能夠適應手頭的任務，同時最大限度地減少浪費。",
   "關聯問題":"PERF 2, PERF 3, PERF 4"},
 "COST 7":{
-  "目標":["Gain insights on their understanding about AWS cloud cost model, and if they are utilizing the right pricing model for the workload. ","Have they levaraged, Reserved Instance Pricing ?, Saving Plans ?"],
+  "目標":["深入了解他們對 AWS 云成本模型的理解，以及他們是否為工作負載使用了正確的定價模型。","他們是否調整了，預留實例定價？，節省計劃？"],
   "關聯問題":"OPS 1, OPS 4"},
 "COST 8":{
-  "目標":["Gain insights on their understanding of data transfer charges in their workload, and what stratefy have they implemented to manage / prepare for this?"],
+  "目標":["深入了解他們對工作負載中數據傳輸費用的理解，以及他們實施了哪些策略來管理/準備？"],
   "關聯問題":"REL 2, PERF 5"},
 "COST 9":{
-  "目標":" Gain understanding on what is their approach to be able to manage the demand and supply of resources. While making sure wastage is kept minimum.",
+  "目標":"了解他們管理資源需求和供應的方法是什麼。同時確保將浪費保持在最低限度。",
   "關聯問題":"REL 6"},
 "COST 10":{
-  "目標":["Gain understanding on their process / approach in keeping up with AWS new services, features that would improve their workload cost optimization."]}
+  "目標":["了解他們的流程/方法以跟上 AWS 新服務的步伐，這些功能將改善他們的工作負載成本優化。"]}
 }
