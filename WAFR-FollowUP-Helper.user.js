@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper - FollowUp Module
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.2.1
-// @description  To append useful message for WAFR host.
+// @version      0.3.0
+// @description  Change the codebase for followup-helper. Do not access oh_div_helper any more, which will violate the context scope in FireFox. Change to return div and handled the frontend merge in Review Helper.
 // @author       ssslim@amazon.com (github:stephensalim)
 // @match        https://*.console.aws.amazon.com/wellarchitected/*
 // @include      https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/
@@ -197,8 +197,7 @@ function OH_<Help-Module-Name>_Append_Div(){
 */
 
 function OH_FollowUp_Helper_Append_Div(){
-    oh_div_helper.appendChild(document.createElement("br"));
-    oh_div_helper.appendChild(oh_followup_div_helper); //append the div of module
+    return oh_followup_div_helper; //return the div of module
 }
 
 

@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper - Conformance Module
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.2.0
-// @description  Integration for Conformance Pack WA.
+// @version      0.3.0
+// @description  Change the codebase for conformance-helper. Do not access oh_div_helper any more, which will violate the context scope in FireFox. Change to return div and handled the frontend merge in Review Helper.
 // @author       teratim@amazon.com (github:)
 // @match        https://*.console.aws.amazon.com/wellarchitected/*
 // @grant        GM.xmlHttpRequest
@@ -97,8 +97,7 @@ function OH_<Help-Module-Name>_Append_Div(){
 }
 */
 function OH_Conformance_Helper_Append_Div(){
-    oh_div_helper.appendChild(document.createElement("br"));
-    oh_div_helper.appendChild(oh_conformance_div_helper);
+    return oh_conformance_div_helper;
 }
 
 /* 
