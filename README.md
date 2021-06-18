@@ -7,20 +7,20 @@ Currently AWS Well Architected Review helper has below capabilities:
 
 | CAPABILITY | Description | User Guide |
 | ------------- | ------------- | ------------- |
-| Context  | Show additional context into Well Architected Questions. (Objectives, Domain, Question connections, Local Language )  | [Click](CONTEXT-HOW-TO.md) | 
+| Context  | Display additional context into Well Architected Questions. (Objectives, Domain, Question connections, Local Language )  | [Click](CONTEXT-HOW-TO.md) | 
 | Conformance | Display AWS Config Conformance check results related to the question   | [Click](CONFORMANCE-HOW-TO.md) |
 
 
 ---
-## License & Usage guide
+## License & Terms of use
 
-
+TBA
 
 ---
 
 ## Getting Started
 
-To get started with AWS Well Architected Review helper you will need to install the **Tempermonkey** browser extension / add-on:
+To get started with AWS Well Architected Review helper you will need to install the **Tempermonkey** browser extension or add-on:
 
 1. Click on one of the link below to download **Tempermonkey** and install in your browser.
     - [Firefox](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/).
