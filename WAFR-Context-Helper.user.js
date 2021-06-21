@@ -5,7 +5,7 @@
 // @description  0.3.1 fix error
 // @author       bobyeh@amazon.com (github:juntinyeh)
 // @match        https://*.console.aws.amazon.com/wellarchitected/*
-// @include      https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/
+// @include      https://raw.githubusercontent.com/stephensalim/aws-wafr-objective-helper/main/
 // @grant        GM.xmlHttpRequest
 // @grant        GM.getValue
 // @grant        GM.setValue

@@ -3,7 +3,7 @@
 // @namespace    http://console.aws.amazon.com/wellarchitected/
 // @version      0.3.1
 // @description  move attr parser into separated lib files.
-// @include      https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/
+// @include      https://raw.githubusercontent.com/stephensalim/aws-wafr-objective-helper/main/
 // @require      WAFR-Context-Helper.user.js
 // @require      WAFR-FollowUP-Helper.user.js
 // @require      WAFR-Conformance-Helper.user.js
