@@ -1,4 +1,3 @@
-*For Module Developing*
 **Module Naming Convention**
  - \<Mobule-Name\>\_Helper
 
@@ -14,20 +13,6 @@ var OH_ENABLE_CONTEXT_HELPER = true;
 var OH_ENABLE_FOLLOWUP_HELPER = false;
 var OH_ENABLE_CONFORMANCE_HELPER = false;
 
-**Module logic**
- - There are 3 mandatory methods you should have in each module
- - init: whatever you need to preload
- - reload: it can helps to reload/refresh the content inside your div
- - Append_Div: you will return the Div which contains all the element/content you want to show
-
-**I need workload information in this review**
- - Check with Helper-Libs
-
-**General Frontend Tips**
- - Create Div and use className = awsui-util-container-header
- - Create Button and use className = awsui-button awsui-button-variant-primary
-
-*For Context Helper Modification/Customization*
 **Context-Helper for New Language support**
 ***Branch Naming Convention***
  - Please branch out from master anytime you want
@@ -35,17 +20,6 @@ var OH_ENABLE_CONFORMANCE_HELPER = false;
  - ex: ```git checkout -b JSON/zh\_TW``` or ```git checkout -b JSON/id```
  - Copy from objective-helper.en.json to objective-helper.\<**LANG**\>.json
  - Keep ongoing translation staying in your new branch
-
-***Setup Customized & Dedicated JSON***
- - For specific usage or organization internal usage, you might want to point the Context Helper JSON into your own JSON file. 
- - Or, your private network in organization does not allow external access, then you will need to clone the JSON file from github to your internal hosting. 
- - Edit the var JSON_CUSTOMIZED in WAFR-Context-Helper.user.js
- ```
- var JSON_CUSTOMIZED = "https://abc.de/ef.json";
- var JSON_CUSTOMIZED = "https://internal.hosting/Context-helper.json"
- ```
-
-
 
 ***File Structure*** (v0.2.1)
 ```
