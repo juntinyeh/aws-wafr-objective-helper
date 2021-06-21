@@ -292,7 +292,7 @@ function EXT_Get_Objective_Helper_JSON(...args){
         console.log(OH_CONTENT);
         OH_QUESTION_KEY = "";
         OH_QUESTION_KEY_CHANGED = true;
-        var url = "https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/objective-helper/objective-helper." + lang + ".json";
+        var url = "https://raw.githubusercontent.com/stephensalim/aws-wafr-objective-helper/main/objective-helper/objective-helper." + lang + ".json";
         debug("url",url);
         GM.xmlHttpRequest({
             method: "GET",
