@@ -40,4 +40,62 @@
 
 ## How to customize metadata
 
+
+
+1. Create a new github repository, follow github documentation [page](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository) 
+
+2. On the GitHub website, click on you repository you created.
+
+3. Locate the green button named Code and click on it. 
+
+4. The GitHub URL will appear.
+
+5. Copy this  GitHub URL.
+
+     ![chrome](images/tempermonkey_github_repo.png)
+
+6. Run below command to clone the github repo to you local machine. 
+
+     ```
+     git clone <the url you copied in previous step>
+     ```
+
+7. Change directory to the folder that has been created by the above command.
+
+8. Run below command 
+
+     ```
+     git remote add wafr-helper-repo https://github.com/stephensalim/aws-wafr-objective-helper.git
+     git pull wafr-helper-repo main
+     ```
+
+9. Once you see the files populated, open file `WAFR-Review-Helper.user.js`,then change the url in @include section ( line 6 .) 
+Replace the value from `https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/` to `https://raw.githubusercontent.com/<Your github username>/<Your github repo name>/main/`. 
+     
+10. Save the file change once you are done.
+
+11. Open file `WAFR-Context-Helper.user.js`. Locate variable called **JSON_BASE_DIR** ( line 36).
+Replace the value from `https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/objective-helper/` to `https://raw.githubusercontent.com/<Your github username>/<Your github repo name>/main/objective-helper/` 
+     
+12. Save the file change once you are done.
+
+11. Run bellow commands to commit the change
+
+     ```
+     git add WAFR-Review-Helper.user.js
+     git add WAFR-Context-Helper.user.js
+     git commit -m "Modified Repo"
+     git push origin main
+     ```
+12. Once you have completed the task copy and paste below url in your browser, replacing the value in <> with your own.
+    `https://github.com/<Your github username>/<Your github repo name>/raw/main/WAFR-Review-Helper.user.js`
+
+13. This will prompt you to install the **Tempermonkey** script if you have it installed.
+
+     ![Install](images/install.png)
+
+14. You should then see another prompt from **Tempermonkey** asking you to allow access to the url. Click on **Always Allow Domain**.
+
+    ![Always_Allow_Domain](images/always_allow_domain.png)
+
 ## How to create new language metadata
