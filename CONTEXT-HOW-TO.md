@@ -6,10 +6,9 @@
 | Help | Link | 
 | ------------- | ------------- | 
 | 1. How to confirm you have the script ready | [Click](#-How-to-confirm-script-is-ready) | 
-| 2. How to use | [Click](#-How-to-use) | 
-| 3. How to customize metadata | [Click](#How-to-customize-metadata) |
-| 4. How to create new language metadata | [Click](#How-to-create-new-language-metadata) |
-
+| 2. How to customize metadata | [Click](#How-to-customize-metadata) |
+| 3. How to create new language metadata | [Click](#How-to-create-new-language-metadata) |
+| 4. Context Metadata | [Click](#Context-metadata-structure) |
 ## How to confirm script is ready
 
 1. Ensure you have installed the AWS Well Architected Review helper user script. If you have not, follow the **Getting Started** question of the main README file [here](README.md)
@@ -41,7 +40,6 @@
      ![chrome](images/tempermonkey_OH_ENABLE_CONTEXT_HELPER_variable_true.png)
 
 ## How to customize metadata
-
 
 
 1. Create a new github repository, follow github documentation [page](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository) 
@@ -81,7 +79,11 @@ Replace the value from `https://raw.githubusercontent.com/juntinyeh/aws-wafr-obj
      
 12. Save the file change once you are done.
 
-11. Run bellow commands to commit the change
+13. Open the corresponding `objective-helper.*.json` under the `objective-helper/` folder, update the metadata accordingly. Refer to [Context metadata structure](#Context-metadata-structure) for details on supported syntax and structures.
+
+14. Save the file under `objective-helper.<language code>.json` name, replacing the <language code> with [ISO 639-1 Code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for the language. 
+
+15. Run bellow commands to commit the change
 
      ```
      git add WAFR-Review-Helper.user.js
@@ -89,15 +91,32 @@ Replace the value from `https://raw.githubusercontent.com/juntinyeh/aws-wafr-obj
      git commit -m "Modified Repo"
      git push origin main
      ```
-12. Once you have completed the task copy and paste below url in your browser, replacing the value in <> with your own.
+16. Once you have completed the task copy and paste below url in your browser, replacing the value in <> with your own.
     `https://github.com/<Your github username>/<Your github repo name>/raw/main/WAFR-Review-Helper.user.js`
 
-13. This will prompt you to install the **Tempermonkey** script if you have it installed.
+17. This will prompt you to install the **Tempermonkey** script if you have it installed.
 
      ![Install](images/install.png)
 
-14. You should then see another prompt from **Tempermonkey** asking you to allow access to the url. Click on **Always Allow Domain**.
+18. You should then see another prompt from **Tempermonkey** asking you to allow access to the url. Click on **Always Allow Domain**.
 
     ![Always_Allow_Domain](images/always_allow_domain.png)
 
+
+
 ## How to create new language metadata
+
+1. Follow the steps to customize your own metadata [here](#How-to-customize-metadata)
+
+2. Once completed, open `WAFR-Context-Helper.user.js` and ensure that **JSON_MULTI_LANG_ENABLE** variable ( line 51 ) is set to `true`
+
+     ![Multi_Lang](images/tempermonkey_multilang_true.png)
+
+3. Append **JSON_SUPPORTED_LANG** json variable with the new language you created. Use the language name as the key, and the corresponding [ISO 639-1 Code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) as it's value.
+
+     ![Multi_Lang](images/tempermonkey_langlist.png)
+
+
+## Context metadata structure
+
+TBA
