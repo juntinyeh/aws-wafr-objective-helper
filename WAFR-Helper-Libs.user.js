@@ -43,3 +43,18 @@ function OH_Get_Workload_Attr()
        return attr;
     }
 }
+
+function OH_Get_Question_Ref(){
+    // Find and parse the Question Text, get the Questions key
+    var current_question_key;
+    var has_help_button = document.getElementsByClassName("has-help-button");
+    if(has_help_button.length>0)
+    {
+        var key_index = has_help_button[0].innerHTML.search(/^\S+\s\d+/g);
+        if( key_index == 0)
+        {
+            current_question_key = String(has_help_button[0].innerHTML.match(/^\S+\s\d+/g));
+        }
+    }
+    return current_question_key;
+}
