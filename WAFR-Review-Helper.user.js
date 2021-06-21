@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.3.5
+// @version      0.3.6
 // @description  grant GM.deleteValue & listValues
 // @include      https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/
 // @require      WAFR-Context-Helper.user.js
@@ -58,7 +58,7 @@ function DOM_Append_Helper_Div() {
     //Append the enable module switch flag, then call the Append_Div in Module
     if(OH_ENABLE_CONTEXT_HELPER){
         oh_div_helper.appendChild(document.createElement("br"));
-        oh_div_helper.appendChild(OH_Context_Helper_Append_Div()); 
+        oh_div_helper.appendChild(OH_Context_Helper_Append_Div());
         //append the div returned from module Context Helper
       }
 
@@ -99,6 +99,56 @@ function DOM_Refresh_Check(){
         DOM_Append_Helper_Div();
 }
 
+function OH_Href_Changed_Listener(){
+    DOM_Refresh_Check();
+    /* Load Context Helper */
+    if(OH_ENABLE_CONTEXT_HELPER) OH_Context_Helper_reload();
+    /* Load FollowUp Helper */
+    if(OH_ENABLE_FOLLOWUP_HELPER) OH_FollowUp_Helper_reload();
+    /* Load Conformance Helper */
+    if(OH_ENABLE_CONFORMANCE_HELPER)
+    { console.log("*");OH_Conformance_Helper_reload();}
+
+};
+
+function OH_Bind_Href_Changed_Listener(){
+    window.addEventListener('popstate', OH_Href_Changed_Listener);
+    const pushUrl = (href) => {
+        history.pushState({}, '', href);
+        window.dispatchEvent(new Event('popstate'));
+    };
+}
+
+function OH_Bind_Left_Links_Listener(){
+
+    function wait_for_element(){
+        return new Promise(resolve => {
+            var links = document.getElementsByClassName("wizard-question-text");
+            if(links.length > 0){
+                console.log(links);
+                for(var i=0; i < links.length; i++){
+                   var t = links[i];
+                     t.addEventListener("click", function(){
+                    console.log("call OH_Href_Changed_Listener()");
+                    OH_Href_Changed_Listener();
+                    });
+                }
+                return links;
+            }else
+            {
+                setTimeout(wait_for_element, 3000);
+            }
+        }, reject => {
+            console.log("promise reject");
+        })
+    }
+
+    (async () => {
+        let links = await wait_for_element();
+
+    })();
+}
+
 function OH_bootstrap() {
     /* Main entry point for the scripts */
     /* Append any init function here in each module */
@@ -112,22 +162,8 @@ function OH_bootstrap() {
     /*
     Note: To append a new module into this helper chain, append a init procedure call for each module "if the module require some default action like remote data fetch."
     */
+    OH_Bind_Left_Links_Listener();
+    OH_Bind_Href_Changed_Listener();
 }
-
-function OH_Href_Changed_Listener(){
-    DOM_Refresh_Check();
-    /* Load Context Helper */
-    if(OH_ENABLE_CONTEXT_HELPER) OH_Context_Helper_reload();
-    /* Load FollowUp Helper */
-    if(OH_ENABLE_FOLLOWUP_HELPER) OH_FollowUp_Helper_reload();
-    /* Load Conformance Helper */
-    if(OH_ENABLE_CONFORMANCE_HELPER) OH_Conformance_Helper_reload();
-};
-
-window.addEventListener('popstate', OH_Href_Changed_Listener);
-const pushUrl = (href) => {
-  history.pushState({}, '', href);
-  window.dispatchEvent(new Event('popstate'));
-};
 
 OH_bootstrap();
