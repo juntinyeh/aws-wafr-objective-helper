@@ -192,4 +192,4 @@ AWS Well Architected Helper context user script will parse all JSON keys values 
 
      A JSON structure above will result on the information to be displayed like below 
 
-          ![Context Mapping](images/tempermonkey_context_meta_structure_additional_example.png)
+     ![Context Mapping](images/tempermonkey_context_meta_structure_additional_example.png)
