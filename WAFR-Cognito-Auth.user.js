@@ -11,23 +11,24 @@
 // ==/UserScript==
 
 /*
-var JSON_language = document.documentElement.lang;
-//remvoed from conformance module, keep it here for ref.
-*/
-
-/*
 set Log_Level = 'debug' if you want to try something new and use the debug(log_message) it will help you to dump the timestamp and message on browser console.
 */
 var LOG_LEVEL = '';
 
 var OH_AUTH_APIGW = '';
+var OH_AUTH_DEFAULT_USERNAME = '';
+var OH_AUTH_DEFAULT_PASSWORD = '';
+var OH_AUTH_DEFAULT_POOLID = '';
+var OH_AUTH_DEFAULT_CLIENTID = '';
+
+
 
 
 /***************************************/
 /*Cognito Auth*/
 
 var oh_auth_container = document.createElement('div'); //Div Container
-    oh_auth_container.id = 'oh_auth_display_container';
+    oh_auth_container.id = 'oh_auth_container';
     oh_auth_container.style.display = 'block';
     oh_auth_container.className = 'awsui-util-container-header'; 
 
@@ -40,6 +41,7 @@ var oh_auth_input_username = document.createElement('input');
     oh_auth_input_username.id = 'oh_auth_input_username';
     oh_auth_input_username.type = 'text';
     oh_auth_input_username.className = 'awsui-input';
+    oh_auth_input_username.value = OH_AUTH_DEFAULT_USERNAME;
 
     oh_auth_div_username.appendChild(oh_auth_input_username);
 
@@ -49,8 +51,9 @@ var oh_auth_div_password = document.createElement('div');
 
 var oh_auth_input_password = document.createElement('input');
     oh_auth_input_password.id = 'oh_auth_input_password';
-    oh_auth_input_password.className.type = 'password';
+    oh_auth_input_password.type = 'password';
     oh_auth_input_password.className = 'awsui-input awsui-input-type-password';
+    oh_auth_input_password.value = OH_AUTH_DEFAULT_PASSWORD;
 
     oh_auth_div_password.appendChild(oh_auth_input_password);
 
@@ -62,6 +65,7 @@ var oh_auth_input_poolid = document.createElement('input');
     oh_auth_input_poolid.id = 'oh_auth_input_poolid';
     oh_auth_input_poolid.type = 'password';
     oh_auth_input_poolid.className = 'awsui-input awsui-input-type-password';
+    oh_auth_input_poolid.value = OH_AUTH_DEFAULT_POOLID;
 
     oh_auth_div_poolid.appendChild(oh_auth_input_poolid);
 
@@ -71,22 +75,26 @@ var oh_auth_div_clientid = document.createElement('div');
 
 var oh_auth_input_clientid = document.createElement('input');
     oh_auth_input_clientid.id = 'oh_auth_input_clientid';
-    oh_auth_input_clientid.type = 'text';
-    oh_auth_input_clientid.className = 'awsui-input  awsui-input-type-password';
+    oh_auth_input_clientid.type = 'password';
+    oh_auth_input_clientid.className = 'awsui-input awsui-input-type-password';
+    oh_auth_input_clientid.value = OH_AUTH_DEFAULT_CLIENTID;
 
     oh_auth_div_clientid.appendChild(oh_auth_input_clientid);
 
 
 var oh_auth_submit = document.createElement('button');
     oh_auth_submit.id = 'oh_auth_submit';
+    oh_auth_submit.innerHTML = 'Cognito Authentication'
     oh_auth_submit.addEventListener("click", function() {        
         OH_auth_post_to_cognito();
     });
+    oh_auth_submit.className = "awsui-button awsui-button-variant-primary";
 
     oh_auth_container.appendChild(oh_auth_div_username);
     oh_auth_container.appendChild(oh_auth_div_password);
     oh_auth_container.appendChild(oh_auth_div_poolid);
     oh_auth_container.appendChild(oh_auth_div_clientid);
+    oh_auth_container.appendChild(document.createElement('br'));
     oh_auth_container.appendChild(oh_auth_submit);
 
 /***************************************/
@@ -108,6 +116,11 @@ function OH_Auth_check_id_token(){
         if(id_token == -1 || id_token_ts == -1){
             console.log("Token not exited");
         }
+        else if( Math.floor(Date.now() / 1000) - id_token_ts >86400 )
+        {
+            console.log("Token expired");
+            div_append_text('oh_auth_container','Token expired');
+        }
         else
         {
             div_reset_innerHTML('oh_auth_container');
@@ -127,12 +140,19 @@ function OH_auth_post_to_cognito(JSON_value, callback){
         }
 
     var GM_payload = {
-        method: '',
+        method: 'POST',
         url: OH_AUTH_APIGW,
         data: JSON.stringify(data),
         headers: {"Content-Type":"application/json"},
         onload: function(response) {
-            console.log(response.responseText);
+            var data = JSON.parse(response.responseText);
+            if(data.hasOwnProperty("id_token"))
+            {
+                console.log("id_token",data["id_token"]);
+                GM.setValue("id_token",data["id_token"]);
+                GM.setValue("id_token_ts",Math.floor(Date.now() / 1000)),
+                OH_Auth_check_id_token();
+            }
         }
     };
     GM.xmlHttpRequest(GM_payload);
