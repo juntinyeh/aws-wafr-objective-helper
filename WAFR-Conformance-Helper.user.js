@@ -149,6 +149,7 @@ function OH_Context_Helper_reload() {
 */
 function OH_Conformance_Helper_reload()
 {
+    div_reset_innerHTML("oh_conformance_display_container");
     OH_Conformance_Helper_collpase();
     console.log("Conformance Helper reload Here");
 }

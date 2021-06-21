@@ -8,6 +8,7 @@
 // @require      WAFR-FollowUP-Helper.user.js
 // @require      WAFR-Conformance-Helper.user.js
 // @require      WAFR-Helper-Libs.user.js
+// @require      WAFR-Helper-DOM-Libs.user.js
 // @author       bobyeh@amazon.com (github:juntinyeh)
 // @author       ssslim@amazon.com (github:stephensalim)
 // @match        https://*.console.aws.amazon.com/wellarchitected/*
@@ -53,7 +54,7 @@ function DOM_Append_Helper_Div() {
     if(objs[0] != undefined)
     {
         objs[0].appendChild(oh_div_helper);
-        DOM_Helper_reset();
+        div_reset_innerHTML("oh_div_helper");
 
     //Append the enable module switch flag, then call the Append_Div in Module
     if(OH_ENABLE_CONTEXT_HELPER){
@@ -79,11 +80,6 @@ function DOM_Append_Helper_Div() {
     OH_R_HELPER_CONTAINER_DIV_READY = false;
     setTimeout(DOM_Append_Helper_Div, 5000);
     }
-}
-
-function DOM_Helper_reset()
-{
-    oh_div_helper.innerHTML = '';
 }
 
 function DOM_Check_Helper_Existed() {
