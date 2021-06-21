@@ -9,7 +9,16 @@
 		"Audience Context": [
 			"Business Devlopment.",
 			"Business Process."
-		]
+		],
+		"Sample Probing Questions": [
+			"What are the business department relying on this application ?",
+			"Is there any specific standard / requirement mandated by organization ( org policy ) ?",
+			"Is the workload subject to any Audit from any regulatory body / Industry standards ?",
+			"Make sure that you are aware of the guidelines / mandated around this.",
+			"And always good to identify key stakeholders in the business that owns this responsibility.",
+			"Is there any business risk / liabilities that the workload has ?",
+			"Was there any past experience / significant operational / security incident that occurred ?"
+	   ] 		
 	},
 	"OPS 2": {
 		"Objective": [
