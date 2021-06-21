@@ -17,10 +17,12 @@
 2. Once you have done the above step, locate the **Tempermonkey** icon from the extension or add-on list of your browser. This is  located on the right hand side of your browser address bar.
 
     **Firefox:** 
-        ![firefox](images/tempermonkey_icon_firefox.png)
+
+     ![firefox](images/tempermonkey_icon_firefox.png)
     
     **Chrome:**
-        ![chrome](images/tempermonkey_icon_chrome.png)
+     
+     ![chrome](images/tempermonkey_icon_chrome.png)
 
 3. Click on the icon, and select **Dashboard**
 
