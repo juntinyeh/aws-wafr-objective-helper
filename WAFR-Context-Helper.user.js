@@ -246,7 +246,7 @@ function JSON_format_default(JSON_key, JSON_value){
 
 /* convert text list with auto <br/> */
 function JSON_format_text_list(JSON_key, JSON_value){
-    JSON_format_default(JSON_key,div_format_value_list_to_text(JSON_value_text);
+    JSON_format_default(JSON_key,div_format_value_list_to_text(JSON_value));
 }
 
 
