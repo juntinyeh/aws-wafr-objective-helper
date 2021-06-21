@@ -97,17 +97,8 @@ var oh_div_context_helper_header = document.createElement('button');
     oh_div_context_helper_header.id = 'oh_div_context_helper_header';
     oh_div_context_helper_header.className = "awsui-button awsui-button-variant-primary";
     oh_div_context_helper_header.innerHTML = 'Context ▼';
-    oh_div_context_helper_header.addEventListener("click", function() {
-        var content = document.getElementById("oh_div_context_helper_container");
-        var header = document.getElementById("oh_div_context_helper_header");
-        if(content.style.display == 'none'){
-            content.style.display = 'block';
-            header.innerHTML = 'Context ▲';
-        }
-        else {
-            content.style.display = 'none';
-            header.innerHTML = 'Context ▼';
-        }
+    oh_div_context_helper_header.addEventListener("click", function() {        
+        div_ani_click_toggle('oh_div_context_helper_header','oh_div_context_helper_container');
         DOM_Context_Helper_Refresh_Check();
     });
 
@@ -181,15 +172,6 @@ function DOM_Context_Helper_Append_Content() {
     }
 }
 
-
-function DOM_Context_Helper_append_text(text)
-{
-    oh_div_context_helper_container.innerHTML += text;
-}
-function DOM_Context_Helper_append_child(element) {
-    oh_div_context_helper_container.appendChild(element);
-}
-
 function DOM_Identify_Current_Pillar_Question(){
     // Find and parse the Question Text, get the Questions key
     var has_help_button = document.getElementsByClassName("has-help-button");
@@ -259,17 +241,12 @@ function JSON_format_handler(JSON_key, JSON_value){
 
 /* Default, do nothing only +p */
 function JSON_format_default(JSON_key, JSON_value){
-    DOM_Context_Helper_append_text('<h2>' + JSON_key + '</h2>' + '<p>' + JSON_value + '</p><hr />');
+    div_append_text('oh_div_context_helper_container',div_format_key_value_to_text(JSON_key, JSON_value));
 }
 
 /* convert text list with auto <br/> */
 function JSON_format_text_list(JSON_key, JSON_value){
-    var JSON_value_text = '';
-    JSON_value.forEach(append_to_text);
-    function append_to_text(item, index){
-        JSON_value_text += " - " + item + "<br />";
-    }
-    return JSON_format_default(JSON_key, JSON_value_text);
+    JSON_format_default(JSON_key,div_format_value_list_to_text(JSON_value));
 }
 
 
@@ -300,8 +277,8 @@ function JSON_format_click_req(JSON_key, JSON_value){
         httpRequest.open(httpPayload['method'], httpPayload['url'], true);
         httpRequest.send(httpPayload['data']);
     }, false);
-    DOM_Context_Helper_append_text(JSON_key+"<br>");
-    DOM_Context_Helper_append_child(j);
+    div_append_text('oh_div_context_helper_container',JSON_key+"<br>");
+    div_append_child('oh_div_context_helper_container',j);
 }
 
 /* HTTP Request Handler */
