@@ -160,27 +160,6 @@ AWS Well Architected Helper context user script will parse all JSON keys values 
 
     ![Context Mapping](images/tempermonkey_context_meta_structure_example.png)
 
-* Under each question id, the json object can contain multiple key value items that represents the information you would like to display. 
-  The key name will become the header of the section, and the value will become the bullet points item of the section. The value of the item must be represented with a list of strings.
-
-     ```
-     {
-     	"OPS 1": {
-               "Objective": [
-                    "Gain understanding on what is the business objective of the workload. ",
-                    "How does the workload impact the overall business ? ",
-                    "Gain understanding around internal and external requirements the business have. ",
-                    "Understand their current priority, and which areas they are willing to trade off"
-               ],
-               "Audience Context": [
-                    "Business Developement.",
-                    "Business Process."
-               ]
-          }
-          ...
-     }
-     ```
-
 * You can add additional section into the metadata by appending another key value items under the question item.
   When doing so, the value of the key must be a list of strings.
 
@@ -210,3 +189,7 @@ AWS Well Architected Helper context user script will parse all JSON keys values 
                ...
           }
      ```
+
+     A JSON structure above will result on the information to be displayed like below 
+
+          ![Context Mapping](images/tempermonkey_context_meta_structure_additional_example.png)

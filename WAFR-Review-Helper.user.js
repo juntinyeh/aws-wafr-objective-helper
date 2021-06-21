@@ -19,7 +19,7 @@
 set Log_Level = 'debug' if you want to try something new and use the debug(log_message) it will help you to dump the timestamp and message on browser console.
 */
 
-var LOG_LEVEL = '';
+var LOG_LEVEL = 'debug';
 
 var OH_ENABLE_CONTEXT_HELPER = true;
 var OH_ENABLE_FOLLOWUP_HELPER = false;
