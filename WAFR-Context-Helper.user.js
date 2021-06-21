@@ -97,17 +97,8 @@ var oh_div_context_helper_header = document.createElement('button');
     oh_div_context_helper_header.id = 'oh_div_context_helper_header';
     oh_div_context_helper_header.className = "awsui-button awsui-button-variant-primary";
     oh_div_context_helper_header.innerHTML = 'Context ▼';
-    oh_div_context_helper_header.addEventListener("click", function() {
-        var content = document.getElementById("oh_div_context_helper_container");
-        var header = document.getElementById("oh_div_context_helper_header");
-        if(content.style.display == 'none'){
-            content.style.display = 'block';
-            header.innerHTML = 'Context ▲';
-        }
-        else {
-            content.style.display = 'none';
-            header.innerHTML = 'Context ▼';
-        }
+    oh_div_context_helper_header.addEventListener("click", function() {        
+        div_ani_click_toggle('oh_div_context_helper_header','oh_div_context_helper_container');
         DOM_Context_Helper_Refresh_Check();
     });
 
