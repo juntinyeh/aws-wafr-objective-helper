@@ -32,18 +32,23 @@ function div_format_key_value_to_text(key, value)
     return '<h2>' + key + '</h2>' + '<p>' + value + '</p><hr />';
 }
 
-function div_ani_click_toggle(click_ele, toggle_ele)
+function div_ani_click_toggle(...args)
 {
+    var click_ele  = args[0];
+    var toggle_ele = args[1];
+    var text = "";
+    if(args.length==3)
+        text = args[2];
 
     var header = document.getElementById(click_ele);
     var content = document.getElementById(toggle_ele);
     if(content.style.display == 'none'){
         content.style.display = 'block';
-        header.innerHTML = '▲';
+        header.innerHTML = text + '▲';
     }
     else {
         content.style.display = 'none';
-        header.innerHTML = '▼';
+        header.innerHTML = text + '▼';
     }
 }
 

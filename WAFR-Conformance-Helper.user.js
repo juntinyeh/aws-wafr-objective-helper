@@ -34,7 +34,7 @@ var OH_R_CONTAINER_DIV_READY = false;
 
 var oh_conformance_display_container = document.createElement('div'); //Div Container
     oh_conformance_display_container.id = 'oh_conformance_display_container';
-    oh_conformance_display_container.style.display = 'block';
+    oh_conformance_display_container.style.display = 'none';
     oh_conformance_display_container.innerHTML = '';
 
 
@@ -46,23 +46,20 @@ var oh_check_button = document.createElement('button');
         OH_Conformance_Get_Noncompliant();
     });
 
-var oh_conformance_buttons = document.createElement('div'); //Div Container
-    oh_conformance_buttons.id = 'oh_conformance_buttons';
-    oh_conformance_buttons.style.display = 'none';
-    oh_conformance_buttons.appendChild(document.createElement("hr"));
+    oh_conformance_display_container.appendChild(oh_check_button);
 
 var oh_conformance_div_helper_header = document.createElement('button');
     oh_conformance_div_helper_header.className = "awsui-button awsui-button-variant-primary";
     oh_conformance_div_helper_header.id = 'oh_conformance_div_helper_header';
     oh_conformance_div_helper_header.innerHTML = '▼';
     oh_conformance_div_helper_header.addEventListener("click", function() {
-        div_ani_click_toggle('oh_conformance_div_helper_header','oh_conformance_display_container');
+        div_ani_click_toggle('oh_conformance_div_helper_header','oh_conformance_display_container', 'Conformance ');
     });
 
 
 var oh_conformance_div_helper = document.createElement('div');
     oh_conformance_div_helper.className = 'awsui-util-container-header';
-    oh_conformance_div_helper.appendChild(oh_check_button);
+    //oh_conformance_div_helper.appendChild(oh_check_button);
     oh_conformance_div_helper.appendChild(oh_conformance_div_helper_header);
     oh_conformance_div_helper.appendChild(oh_conformance_display_container);
 
