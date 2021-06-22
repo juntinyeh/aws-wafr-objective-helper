@@ -83,11 +83,8 @@ function OH_Conformance_Helper_Append_Div(){
 
 function OH_Conformance_Get_Noncompliant()
 {
-    console.log("OH_Conformance_Get_Noncompliant");
     var QuestionRef = OH_Get_Question_Ref();
-    console.log(QuestionRef);
     var data = JSON.stringify({"questionRef":QuestionRef});
-    console.log(data);
     var url = OH_CONFORMANCE_APIGW;
     var content = document.getElementById("oh_conformance_display_container");
     var GM_payload = {
@@ -96,16 +93,15 @@ function OH_Conformance_Get_Noncompliant()
         data: data,
         headers: {"Content-Type":"application/json"},
         onload: function(response) {
-            console.log("on load", url, response);
             try{
                 var res = JSON.parse(response.responseText);
-                console.log(res);
-
-                document.getElementById("oh_conformance_display_container").innerHTML = "- " + QuestionRef + "<pre>" + response.responseText + "</pre>";
+                OH_Conformance_Helper_Append_Content(res);
+                //document.getElementById("oh_conformance_display_container").innerHTML = "- " + QuestionRef + "<pre>" + response.responseText + "</pre>";
             }
             catch(err)
             {
-                console.log(err.message);
+                console.log(err.message, response.responseText);
+
             }
 
         },
@@ -115,6 +111,33 @@ function OH_Conformance_Get_Noncompliant()
         }
     };
     GM.xmlHttpRequest(GM_payload);
+}
+
+function OH_Conformance_Helper_Append_Content(res)
+{
+    var item = "Findings";
+    if(res.hasOwnProperty(item)){
+        let JSON_value = res[item];
+        if(typeof(JSON_value) == 'object' && Array.isArray(JSON_value) && JSON_value.length > 0)
+        {
+            let findings_key = ["ConfigRuleName","ResourceType","ResourceId"];
+            for(var i=0; i< JSON_value.length; i++)
+            {
+                let div = document.createElement('div');
+                let finding_text = '';
+                if(typeof(JSON_value[i]) == 'object')
+                {
+                    for (const [key, value] of Object.entries(JSON_value[i]))
+                    {
+                        if(findings_key.includes(key))
+                            finding_text += key +" : "+value +"<br />";
+                    }
+                }
+                div.innerHTML = div_format_key_value_to_text(" ",finding_text);
+                oh_conformance_display_container.appendChild(div);
+            }
+        }
+    }
 }
 
 /*
