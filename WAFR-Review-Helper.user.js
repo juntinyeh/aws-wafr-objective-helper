@@ -43,7 +43,23 @@ var OH_R_HELPER_CONTAINER_DIV_READY = false;
 
 var oh_div_helper = document.createElement('div');
     oh_div_helper.id = 'oh_div_helper';
+    oh_div_helper.style.display = 'none';
 
+var oh_div_helper_header = document.createElement('div');
+    oh_div_helper_header.id = 'oh_div_helper_header';
+    oh_div_helper_header.className = 'awsui-util-container-header';
+    oh_div_helper_header.style.float = 'right';
+
+var oh_div_helper_button = document.createElement('button');
+    oh_div_helper_button.id = 'oh_div_helper_button';
+    oh_div_helper_button.className = "awsui-button";
+    oh_div_helper_button.innerHTML = 'WA Insight ▼';
+    oh_div_helper_button.addEventListener("click", function() {        
+        div_ani_click_toggle('oh_div_helper_button','oh_div_helper', 'WA Insight ');
+        DOM_Context_Helper_Refresh_Check();
+    });
+
+    oh_div_helper_header.appendChild(oh_div_helper_button);
 
 /***************************************/
 /* DOM Handling */
@@ -55,6 +71,7 @@ function DOM_Append_Helper_Div() {
     var objs = document.getElementsByClassName("awsui-form-field awsui-form-field-stretch");
     if(objs[0] != undefined)
     {
+        objs[0].appendChild(oh_div_helper_header);
         objs[0].appendChild(oh_div_helper);
         ele_reset_innerHTML(oh_div_helper);
 

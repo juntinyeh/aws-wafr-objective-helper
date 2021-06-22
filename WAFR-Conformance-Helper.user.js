@@ -41,17 +41,18 @@ var oh_conformance_display_container = document.createElement('div'); //Div Cont
 var oh_check_button = document.createElement('button');
     oh_check_button.id = 'oh_check_button';
     oh_check_button.className = "awsui-button awsui-button-variant-primary";
-    oh_check_button.innerHTML = 'Conformance Check';
+    oh_check_button.innerHTML = 'Check';
     oh_check_button.addEventListener("click", function() {
         OH_Conformance_Get_Noncompliant();
     });
 
+    oh_conformance_display_container.appendChild(document.createElement('hr'));
     oh_conformance_display_container.appendChild(oh_check_button);
 
 var oh_conformance_div_helper_header = document.createElement('button');
     oh_conformance_div_helper_header.className = "awsui-button awsui-button-variant-primary";
     oh_conformance_div_helper_header.id = 'oh_conformance_div_helper_header';
-    oh_conformance_div_helper_header.innerHTML = '▼';
+    oh_conformance_div_helper_header.innerHTML = 'Conformance ▼';
     oh_conformance_div_helper_header.addEventListener("click", function() {
         div_ani_click_toggle('oh_conformance_div_helper_header','oh_conformance_display_container', 'Conformance ');
     });
