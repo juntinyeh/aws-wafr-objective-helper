@@ -123,11 +123,9 @@ function OH_Bind_Left_Links_Listener(){
         return new Promise(resolve => {
             var links = document.getElementsByClassName("wizard-question-text");
             if(links.length > 0){
-                console.log(links);
                 for(var i=0; i < links.length; i++){
                    var t = links[i];
                      t.addEventListener("click", function(){
-                    console.log("call OH_Href_Changed_Listener()");
                     OH_Href_Changed_Listener();
                     });
                 }
@@ -143,7 +141,6 @@ function OH_Bind_Left_Links_Listener(){
 
     (async () => {
         let links = await wait_for_element();
-
     })();
 }
 
