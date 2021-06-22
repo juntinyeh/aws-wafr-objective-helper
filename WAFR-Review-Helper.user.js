@@ -1,14 +1,15 @@
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.3.8
-// @description  grant GM.deleteValue & listValues
+// @version      0.3.9
+// @description  Fix Auth Module init & reload mechansim
 // @include      https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/
 // @require      WAFR-Context-Helper.user.js
 // @require      WAFR-FollowUP-Helper.user.js
 // @require      WAFR-Conformance-Helper.user.js
 // @require      WAFR-Helper-Libs.user.js
 // @require      WAFR-Helper-DOM-Libs.user.js
+// @require      WAFR-Cognito-Auth.user.js
 // @author       bobyeh@amazon.com (github:juntinyeh)
 // @author       ssslim@amazon.com (github:stephensalim)
 // @match        https://*.console.aws.amazon.com/wellarchitected/*
@@ -54,11 +55,10 @@ function DOM_Append_Helper_Div() {
     if(objs[0] != undefined)
     {
         objs[0].appendChild(oh_div_helper);
-        div_reset_innerHTML("oh_div_helper");
+        ele_reset_innerHTML(oh_div_helper);
 
     //Append the enable module switch flag, then call the Append_Div in Module
     if(OH_ENABLE_CONTEXT_HELPER){
-        oh_div_helper.appendChild(document.createElement("br"));
         oh_div_helper.appendChild(OH_Context_Helper_Append_Div());
         //append the div returned from module Context Helper
       }
@@ -104,9 +104,9 @@ function OH_Href_Changed_Listener(){
     /* Load FollowUp Helper */
     if(OH_ENABLE_FOLLOWUP_HELPER) OH_FollowUp_Helper_reload();
     /* Load Conformance Helper */
-    if(OH_ENABLE_CONFORMANCE_HELPER)
-    { console.log("*");OH_Conformance_Helper_reload();}
-
+    if(OH_ENABLE_CONFORMANCE_HELPER) OH_Conformance_Helper_reload();
+    /* Load Auth module */
+    if(OH_ENABLE_FOLLOWUP_HELPER || OH_ENABLE_CONFORMANCE_HELPER) OH_Auth_reload();
 };
 
 function OH_Bind_Href_Changed_Listener(){
@@ -157,6 +157,8 @@ function OH_bootstrap() {
     if(OH_ENABLE_FOLLOWUP_HELPER) OH_FollowUp_Helper_init();
     /* Load Conformance Helper */
     if(OH_ENABLE_CONFORMANCE_HELPER) OH_Conformance_Helper_init();
+    /* Load Auth module */
+    if(OH_ENABLE_FOLLOWUP_HELPER || OH_ENABLE_CONFORMANCE_HELPER) OH_Auth_init();
     /*
     Note: To append a new module into this helper chain, append a init procedure call for each module "if the module require some default action like remote data fetch."
     */

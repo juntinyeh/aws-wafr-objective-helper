@@ -70,7 +70,7 @@ function div_format_value_list_to_text(value)
 {
 
     var value_text = '';
-    JSON_value.forEach(append_to_text);
+    value.forEach(append_to_text);
     function append_to_text(item, index){
         value_text += " - " + item + "<br />";
     }
