@@ -121,7 +121,7 @@ var oh_div_context_helper_language = document.createElement('select');
 
 var oh_div_context_helper_reload = document.createElement('a');
     oh_div_context_helper_reload.id = "oh_div_context_helper_reload";
-    oh_div_context_helper_reload.innerHTML = '×';
+    oh_div_context_helper_reload.innerHTML = '<p>clear cache</p>';
     oh_div_context_helper_reload.addEventListener("click", function(){
         JSON_clear_cache();
     })
