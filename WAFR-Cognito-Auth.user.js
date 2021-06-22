@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper - Conformance Module
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.0.1
-// @description  Frontend Layout for Cognito Sign In.
+// @version      0.1.0
+// @description  Change the Cognito integration with latest version d36c02bd56, which only require username & password. ClientID & PoolID been removed from user input. 
 // @author       bobyeh@amazon.com (github:juntinyeh)
 // @match        https://*.console.aws.amazon.com/wellarchitected/*
 // @grant        GM.xmlHttpRequest
@@ -20,9 +20,6 @@ var OH_AUTH_DEFAULT_USERNAME = '';
 var OH_AUTH_DEFAULT_PASSWORD = '';
 var OH_AUTH_DEFAULT_POOLID = '';
 var OH_AUTH_DEFAULT_CLIENTID = '';
-
-
-
 
 /***************************************/
 /*Cognito Auth*/
@@ -108,8 +105,8 @@ function OH_Auth_Show_Signin_form(){
     oh_auth_container.innerHTML = '';
     oh_auth_container.appendChild(oh_auth_div_username);
     oh_auth_container.appendChild(oh_auth_div_password);
-    oh_auth_container.appendChild(oh_auth_div_poolid);
-    oh_auth_container.appendChild(oh_auth_div_clientid);
+    //oh_auth_container.appendChild(oh_auth_div_poolid);
+    //oh_auth_container.appendChild(oh_auth_div_clientid);
     oh_auth_container.appendChild(document.createElement('br'));
     oh_auth_container.appendChild(oh_auth_submit);
 }
@@ -140,9 +137,9 @@ function OH_Auth_check_id_token(){
 function OH_auth_post_to_cognito(JSON_value, callback){
     var data = {
             "username": oh_auth_input_username.value,
-            "password": oh_auth_input_password.value,
+            "password": oh_auth_input_password.value/*,
             "userpoolid": oh_auth_input_poolid.value,
-            "clientid": oh_auth_input_clientid.value
+            "clientid": oh_auth_input_clientid.value*/
         }
 
     var GM_payload = {
