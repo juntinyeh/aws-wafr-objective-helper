@@ -25,7 +25,7 @@ function div_append_text(id, text)
 
 function div_append_child(id, ele)
 {
-    var div = document.getElementsById(id);
+    var div = document.getElementById(id);
     if(div != undefined && ele != undefined)
     div.appendChild(ele);
 }
