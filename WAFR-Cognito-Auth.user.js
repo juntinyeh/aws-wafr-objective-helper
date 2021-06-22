@@ -90,12 +90,7 @@ var oh_auth_submit = document.createElement('button');
     });
     oh_auth_submit.className = "awsui-button awsui-button-variant-primary";
 
-    oh_auth_container.appendChild(oh_auth_div_username);
-    oh_auth_container.appendChild(oh_auth_div_password);
-    oh_auth_container.appendChild(oh_auth_div_poolid);
-    oh_auth_container.appendChild(oh_auth_div_clientid);
-    oh_auth_container.appendChild(document.createElement('br'));
-    oh_auth_container.appendChild(oh_auth_submit);
+    
 
 /***************************************/
 /* Mandatory function : OH_<Help-Module-Name>_Append_Div()
@@ -109,30 +104,41 @@ function OH_Auth_Append_Div(){
     return oh_auth_container;
 }
 
+function OH_Auth_Show_Signin_form(){
+    oh_auth_container.innerHTML = '';
+    oh_auth_container.appendChild(oh_auth_div_username);
+    oh_auth_container.appendChild(oh_auth_div_password);
+    oh_auth_container.appendChild(oh_auth_div_poolid);
+    oh_auth_container.appendChild(oh_auth_div_clientid);
+    oh_auth_container.appendChild(document.createElement('br'));
+    oh_auth_container.appendChild(oh_auth_submit);
+}
+
 function OH_Auth_check_id_token(){
     (async () => {
         let id_token = await GM.getValue("id_token",-1);
         let id_token_ts = await GM.getValue("id_token_ts", -1);
         if(id_token == -1 || id_token_ts == -1){
+            OH_Auth_Show_Signin_form();
             console.log("Token not exited");
         }
         else if( Math.floor(Date.now() / 1000) - id_token_ts >86400 )
         {
             console.log("Token expired");
+            OH_Auth_Show_Signin_form();
             div_append_text('oh_auth_container','Token expired');
         }
         else
         {
             div_reset_innerHTML('oh_auth_container');
-            div_append_text('oh_auth_container','Cognito Authenticated');
-            console.log(id_token);
+            oh_auth_container.innerHTML = 'Cognito Authenticated';
         }
     })();
 }
 
 
 function OH_auth_post_to_cognito(JSON_value, callback){
-    data = {
+    var data = {
             "username": oh_auth_input_username.value,
             "password": oh_auth_input_password.value,
             "userpoolid": oh_auth_input_poolid.value,
