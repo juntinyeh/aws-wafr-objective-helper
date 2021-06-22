@@ -12,18 +12,21 @@
 function div_reset_innerHTML(id)
 {
     var div = document.getElementById(id);
+    if(div != undefined)
     div.innerHTML = '';
 }
 
 function div_append_text(id, text)
 {
     var div = document.getElementById(id);
+    if(div != undefined)
     div.innerHTML += text;
 }
 
 function div_append_child(id, ele)
 {
     var div = document.getElementsById(id);
+    if(div != undefined && ele != undefined)
     div.appendChild(ele);
 }
 
@@ -34,6 +37,8 @@ function div_format_key_value_to_text(key, value)
 
 function div_ani_click_toggle(...args)
 {
+    if(args.length<2) return false;
+
     var click_ele  = args[0];
     var toggle_ele = args[1];
     var text = "";
@@ -54,8 +59,10 @@ function div_ani_click_toggle(...args)
 
 function div_ani_click_collapse(...args)
 {
+    if(args.length<2) return false;
+
     var click_ele  = args[0];
-    var toggle_ele = args[1];
+    var collapse_ele = args[1];
     var text = "";
     if(args.length==3)
         text = args[2];
@@ -64,14 +71,16 @@ function div_ani_click_collapse(...args)
     var content = document.getElementById(collapse_ele);
 
     content.style.display = 'none';
-    header.innerHTML = '▼';
+    header.innerHTML = text + '▼';
 
 }
 
 function div_ani_click_expend(...args)
 {
+    if(args.length<2) return false;
+
     var click_ele  = args[0];
-    var toggle_ele = args[1];
+    var expend_ele = args[1];
     var text = "";
     if(args.length==3)
         text = args[2];
@@ -80,7 +89,7 @@ function div_ani_click_expend(...args)
     var content = document.getElementById(expend_ele);
     
     content.style.display = 'block';
-    header.innerHTML = '▲';
+    header.innerHTML = text + '▲';
 }
 
 function div_format_value_list_to_text(value)
@@ -96,15 +105,18 @@ function div_format_value_list_to_text(value)
 
 function ele_reset_innerHTML(ele)
 {
+    if(ele != undefined)
     ele.innerHTML = '';
 }
 
 function ele_append_text(ele, text)
 {
+    if(ele != undefined)
     ele.innerHTML += text;
 }
 
 function ele_append_child(ele, child)
 {
+    if(ele != undefined && chile != undefined)
     div.appendChild(child);
 }
