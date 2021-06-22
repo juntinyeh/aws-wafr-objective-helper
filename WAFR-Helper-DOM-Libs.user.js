@@ -76,3 +76,18 @@ function div_format_value_list_to_text(value)
     }
     return value_text;
 }
+
+function ele_reset_innerHTML(ele)
+{
+    ele.innerHTML = '';
+}
+
+function ele_append_text(ele, text)
+{
+    ele.innerHTML += text;
+}
+
+function ele_append_child(ele, child)
+{
+    div.appendChild(child);
+}
