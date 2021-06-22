@@ -2,7 +2,7 @@
 	"_comment": {
 		"_version": "0.0.1",
 		"_date": "2021-06-09",
-		"_contributor": ["sssalim@ - github:stephensalim",],
+		"_contributor": ["sssalim@ - github:stephensalim"],
 		"_update_note": [
 			"0.0.1 - Change the text fields from \\n to string list/array.",
 			"0.0.0 - Translate from .en.json, OPS pillar accomplished."
