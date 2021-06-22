@@ -44,6 +44,7 @@ var oh_check_button = document.createElement('button');
     oh_check_button.innerHTML = 'Check';
     oh_check_button.addEventListener("click", function() {
         OH_Conformance_Get_Noncompliant();
+        oh_check_button.style.display = 'none';
     });
 
     oh_conformance_display_container.appendChild(document.createElement('hr'));
@@ -92,9 +93,9 @@ function OH_Conformance_Get_Noncompliant()
         headers: {"Content-Type":"application/json"},
         onload: function(response) {
             try{
+                console.log(url, data,response.responseText);
                 var res = JSON.parse(response.responseText);
-                OH_Conformance_Helper_Append_Content(res);
-                //document.getElementById("oh_conformance_display_container").innerHTML = "- " + QuestionRef + "<pre>" + response.responseText + "</pre>";
+                OH_Conformance_Helper_Append_Content(res);                
             }
             catch(err)
             {
@@ -116,22 +117,31 @@ function OH_Conformance_Helper_Append_Content(res)
     var item = "Findings";
     if(res.hasOwnProperty(item)){
         let JSON_value = res[item];
-        if(typeof(JSON_value) == 'object' && Array.isArray(JSON_value) && JSON_value.length > 0)
+        if(typeof(JSON_value) == 'object' && Array.isArray(JSON_value))
         {
-            let findings_key = ["ConfigRuleName","ResourceType","ResourceId"];
-            for(var i=0; i< JSON_value.length; i++)
+            if(JSON_value.length > 0)
+            {
+                let findings_key = ["ConfigRuleName","ResourceType","ResourceId"];
+                for(var i=0; i< JSON_value.length; i++)
+                {
+                    let div = document.createElement('div');
+                    let finding_text = '';
+                    if(typeof(JSON_value[i]) == 'object')
+                    {
+                        for (const [key, value] of Object.entries(JSON_value[i]))
+                        {
+                            if(findings_key.includes(key))
+                                finding_text += key +" : "+value +"<br />";
+                        }
+                    }
+                    div.innerHTML = div_format_key_value_to_text(" ",finding_text);
+                    oh_conformance_display_container.appendChild(div);
+                }
+            }
+            else
             {
                 let div = document.createElement('div');
-                let finding_text = '';
-                if(typeof(JSON_value[i]) == 'object')
-                {
-                    for (const [key, value] of Object.entries(JSON_value[i]))
-                    {
-                        if(findings_key.includes(key))
-                            finding_text += key +" : "+value +"<br />";
-                    }
-                }
-                div.innerHTML = div_format_key_value_to_text(" ",finding_text);
+                div.innerHTML = '<p>No record</p>';
                 oh_conformance_display_container.appendChild(div);
             }
         }
@@ -146,6 +156,10 @@ function OH_Conformance_Helper_reload()
 {
     div_reset_innerHTML('oh_conformance_display_container');
     div_ani_click_collapse('oh_conformance_div_helper_header','oh_conformance_display_container','Conformance ');
+    oh_conformance_display_container.appendChild(document.createElement('hr'));
+    oh_conformance_display_container.appendChild(oh_check_button);
+    oh_check_button.style.display = 'block';
+
     console.log("Conformance Helper reload Here");
 }
 
