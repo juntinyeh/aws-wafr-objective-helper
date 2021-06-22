@@ -128,7 +128,7 @@ function OH_Auth_check_id_token(){
         else
         {
             div_reset_innerHTML('oh_auth_container');
-            oh_auth_container.innerHTML = 'Cognito Authenticated';
+            oh_auth_container.innerHTML = '<p>Cognito Authenticated</p>';
         }
     })();
 }
