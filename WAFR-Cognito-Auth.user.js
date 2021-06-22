@@ -13,9 +13,9 @@
 /*
 set Log_Level = 'debug' if you want to try something new and use the debug(log_message) it will help you to dump the timestamp and message on browser console.
 */
-var LOG_LEVEL = '';
+var LOG_LEVEL = 'debug';
 
-var OH_AUTH_APIGW = '';
+var OH_AUTH_APIGW = 'https://nwc6xte3fh.execute-api.ap-southeast-2.amazonaws.com/Prod/auth';
 var OH_AUTH_DEFAULT_USERNAME = '';
 var OH_AUTH_DEFAULT_PASSWORD = '';
 var OH_AUTH_DEFAULT_POOLID = '';
