@@ -44,6 +44,7 @@ var OH_R_HELPER_CONTAINER_DIV_READY = false;
 var oh_div_helper = document.createElement('div');
     oh_div_helper.id = 'oh_div_helper';
 
+
 /***************************************/
 /* DOM Handling */
 /* Find the Question location and append a Div */
@@ -57,25 +58,26 @@ function DOM_Append_Helper_Div() {
         objs[0].appendChild(oh_div_helper);
         ele_reset_innerHTML(oh_div_helper);
 
-    //Append the enable module switch flag, then call the Append_Div in Module
-    if(OH_ENABLE_CONTEXT_HELPER){
-        oh_div_helper.appendChild(OH_Context_Helper_Append_Div());
-        //append the div returned from module Context Helper
-      }
 
-    if(OH_ENABLE_FOLLOWUP_HELPER || OH_ENABLE_CONFORMANCE_HELPER){
-        oh_div_helper.appendChild(OH_Auth_Append_Div());
-    }
+        if(OH_ENABLE_FOLLOWUP_HELPER || OH_ENABLE_CONFORMANCE_HELPER){
+            oh_div_helper.appendChild(OH_Auth_Append_Div());
+        }
 
-    if(OH_ENABLE_FOLLOWUP_HELPER){
-        oh_div_helper.appendChild(OH_FollowUp_Helper_Append_Div());
-    }
+        //Append the enable module switch flag, then call the Append_Div in Module
+        if(OH_ENABLE_CONTEXT_HELPER){
+            oh_div_helper.appendChild(OH_Context_Helper_Append_Div());
+            //append the div returned from module Context Helper
+        }
 
-    if(OH_ENABLE_CONFORMANCE_HELPER){
-        oh_div_helper.appendChild(OH_Conformance_Helper_Append_Div());
-    }
+        if(OH_ENABLE_CONFORMANCE_HELPER){
+            oh_div_helper.appendChild(OH_Conformance_Helper_Append_Div());
+        }
 
-    OH_R_HELPER_CONTAINER_DIV_READY = true;
+        if(OH_ENABLE_FOLLOWUP_HELPER){
+            oh_div_helper.appendChild(OH_FollowUp_Helper_Append_Div());
+        }
+
+        OH_R_HELPER_CONTAINER_DIV_READY = true;
     }
     else
     {
