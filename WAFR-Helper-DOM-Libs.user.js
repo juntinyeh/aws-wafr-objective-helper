@@ -52,8 +52,14 @@ function div_ani_click_toggle(...args)
     }
 }
 
-function div_ani_click_collapse(click_ele, collapse_ele)
+function div_ani_click_collapse(...args)
 {
+    var click_ele  = args[0];
+    var toggle_ele = args[1];
+    var text = "";
+    if(args.length==3)
+        text = args[2];
+
     var header = document.getElementById(click_ele);
     var content = document.getElementById(collapse_ele);
 
@@ -62,8 +68,14 @@ function div_ani_click_collapse(click_ele, collapse_ele)
 
 }
 
-function div_ani_click_expend(click_ele, expend_ele)
+function div_ani_click_expend(...args)
 {
+    var click_ele  = args[0];
+    var toggle_ele = args[1];
+    var text = "";
+    if(args.length==3)
+        text = args[2];
+
     var header = document.getElementById(click_ele);
     var content = document.getElementById(expend_ele);
     

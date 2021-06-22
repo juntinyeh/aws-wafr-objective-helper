@@ -145,7 +145,7 @@ function OH_Context_Helper_reload() {
 function OH_Conformance_Helper_reload()
 {
     div_reset_innerHTML('oh_conformance_display_container');
-    div_ani_click_collapse('oh_conformance_div_helper_header','oh_conformance_display_container');
+    div_ani_click_collapse('oh_conformance_div_helper_header','oh_conformance_display_container','Conformance ');
     console.log("Conformance Helper reload Here");
 }
 
