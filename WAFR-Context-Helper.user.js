@@ -327,7 +327,8 @@ function EXT_Get_Objective_Helper_JSON(...args){
   
     (async () => {
         var cached_json = await GM.getValue(url, -1);
-  
+        //force disable cache
+        cached_json = -1;
         if(cached_json == -1)
         {
             console.log("No cached value, fetch remote:", url);
