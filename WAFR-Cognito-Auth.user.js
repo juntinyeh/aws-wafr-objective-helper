@@ -87,6 +87,12 @@ var oh_auth_submit = document.createElement('button');
     });
     oh_auth_submit.className = "awsui-button awsui-button-variant-primary";
 
+var oh_auth_revoke = document.createElement('a');
+    oh_auth_revoke.id = "oh_auth_revoke";
+    oh_auth_revoke.innerHTML = '<p>sign out</p>';
+    oh_auth_revoke.addEventListener("click", function(){
+        OH_Auth_Revoke_Token();
+    })
     
 
 /***************************************/
@@ -129,6 +135,7 @@ function OH_Auth_check_id_token(){
         {
             div_reset_innerHTML('oh_auth_container');
             oh_auth_container.innerHTML = '<p>Cognito Authenticated</p>';
+            oh_auth_container.appendChild(oh_auth_revoke);
         }
     })();
 }
@@ -159,6 +166,16 @@ function OH_auth_post_to_cognito(JSON_value, callback){
         }
     };
     GM.xmlHttpRequest(GM_payload);
+}
+
+
+function OH_Auth_Revoke_Token()
+{
+    (async () => {
+        let keys = await GM.deleteValue("id_token");
+        OH_Auth_check_id_token();
+    })();
+
 }
 
 /*
