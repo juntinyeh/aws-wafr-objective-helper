@@ -213,5 +213,5 @@ function OH_Context_Helper_init() {
 function OH_Conformance_Helper_init() {
     /* Main entry point for the scripts */
     console.log("Conformance Helper Init Here");
-    OH_WORKLOAD_REGION = OH_Get_Workload_Attr()['region'];
+    //OH_WORKLOAD_REGION = OH_Get_Workload_Attr()['region'];
 }
