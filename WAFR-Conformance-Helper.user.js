@@ -57,6 +57,7 @@ var oh_conformance_div_helper_header = document.createElement('button');
     oh_conformance_div_helper_header.className = "awsui-button awsui-button-variant-primary";
     oh_conformance_div_helper_header.id = 'oh_conformance_div_helper_header';
     oh_conformance_div_helper_header.innerHTML = 'Conformance ▼';
+    oh_conformance_div_helper_header.style.width = '160px';
     oh_conformance_div_helper_header.addEventListener("click", function() {
         div_ani_click_toggle('oh_conformance_div_helper_header','oh_conformance_display_container', 'Conformance ');
     });
@@ -88,7 +89,8 @@ function OH_Conformance_Get_Noncompliant()
     (async () => {
         let id_token = await GM.getValue("id_token",-1);
         var QuestionRef = OH_Get_Question_Ref();
-        var data = JSON.stringify({"questionRef":QuestionRef});    
+        //var id_token = OH_get_id_token_async();
+        var data = JSON.stringify({"questionRef":QuestionRef});
         var url = OH_CONFORMANCE_APIGW;
         var content = document.getElementById("oh_conformance_display_container");
         var GM_payload = {
@@ -166,6 +168,12 @@ function OH_Conformance_Helper_Append_Content(res)
                 oh_conformance_display_container.appendChild(div);
             }
         }
+    }
+    else if(typeof(res) == 'string')
+    {
+        let div = document.createElement('div');
+                div.innerHTML = '<p>'+res+'</p>';
+                oh_conformance_display_container.appendChild(div);
     }
 }
 
