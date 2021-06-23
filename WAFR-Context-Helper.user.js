@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper - Context Module
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.4.3
-// @description  0.4.3 add new feature to clear cached JSON.
+// @version      0.4.4
+// @description  0.4.4 disable JSON cache
 // @author       bobyeh@amazon.com (github:juntinyeh)
 // @match        https://*.console.aws.amazon.com/wellarchitected/*
 // @grant        GM.xmlHttpRequest
@@ -126,7 +126,7 @@ var oh_div_context_helper_reload = document.createElement('a');
 
     oh_div_context_helper.appendChild(oh_div_context_helper_header);
     oh_div_context_helper.appendChild(oh_div_context_helper_language);
-    oh_div_context_helper.appendChild(oh_div_context_helper_reload);
+    //oh_div_context_helper.appendChild(oh_div_context_helper_reload);
     oh_div_context_helper.appendChild(oh_div_context_helper_container);
 
 /***************************************/
@@ -339,7 +339,7 @@ function EXT_Get_Objective_Helper_JSON(...args){
                             OH_CONTENT = JSON.parse(response.responseText);
                             
                             OH_R_CONTENT_READY = true;
-                            GM.setValue(url, OH_CONTENT);
+                            //GM.setValue(url, OH_CONTENT);
                             DOM_Context_Helper_Refresh_Check();
                                                     
                         }
