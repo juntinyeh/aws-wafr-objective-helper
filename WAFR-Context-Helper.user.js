@@ -95,6 +95,7 @@ var oh_div_context_helper_header = document.createElement('button');
     oh_div_context_helper_header.id = 'oh_div_context_helper_header';
     oh_div_context_helper_header.className = "awsui-button awsui-button-variant-primary";
     oh_div_context_helper_header.innerHTML = 'Context ▼';
+    oh_div_context_helper_header.style = 'text-align:center; width:160px';
     oh_div_context_helper_header.style.width = '160px';
     oh_div_context_helper_header.addEventListener("click", function() {        
         div_ani_click_toggle('oh_div_context_helper_header','oh_div_context_helper_container', 'Context ');
