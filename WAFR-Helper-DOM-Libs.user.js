@@ -47,6 +47,7 @@ function div_ani_click_toggle(...args)
 
     var header = document.getElementById(click_ele);
     var content = document.getElementById(toggle_ele);
+    if(header == null || content == null) return false;
     if(content.style.display == 'none'){
         content.style.display = 'block';
         header.innerHTML = text + '▲';
@@ -70,6 +71,7 @@ function div_ani_click_collapse(...args)
     var header = document.getElementById(click_ele);
     var content = document.getElementById(collapse_ele);
 
+    if(header == null || content == null) return false;
     content.style.display = 'none';
     header.innerHTML = text + '▼';
 
@@ -87,7 +89,7 @@ function div_ani_click_expend(...args)
 
     var header = document.getElementById(click_ele);
     var content = document.getElementById(expend_ele);
-    
+    if(header == null || content == null) return false;
     content.style.display = 'block';
     header.innerHTML = text + '▲';
 }
