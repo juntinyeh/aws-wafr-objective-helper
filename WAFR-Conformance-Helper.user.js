@@ -194,13 +194,13 @@ function OH_Context_Helper_reload() {
 */
 function OH_Conformance_Helper_reload()
 {
-    div_reset_innerHTML('oh_conformance_display_container');
+    while (oh_conformance_display_container.firstChild) {
+        oh_conformance_display_container.removeChild(oh_conformance_display_container.firstChild);
+    }
     div_ani_click_collapse('oh_conformance_div_helper_header','oh_conformance_display_container','Conformance ');
     oh_conformance_display_container.appendChild(document.createElement('hr'));
     oh_conformance_display_container.appendChild(oh_check_button);
     oh_check_button.style.display = 'block';
-
-    console.log("Conformance Helper reload Here");
 }
 
 /*
