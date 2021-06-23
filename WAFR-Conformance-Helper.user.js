@@ -22,6 +22,8 @@ var LOG_LEVEL = '';
 
 var OH_CONFORMANCE_APIGW = 'https://r8s81n58dg.execute-api.ap-southeast-2.amazonaws.com/dev/monkey/getNonComplianceByQuestionRef';
 
+var OH_WORKLOAD_REGION = '';
+
 /***************************************/
 /* CAUTION, HIGH VOLTAGE, DO NOT TOUCH */
 var OH_R_CONTAINER_DIV_READY = false;
@@ -36,6 +38,7 @@ var oh_conformance_display_container = document.createElement('div'); //Div Cont
     oh_conformance_display_container.id = 'oh_conformance_display_container';
     oh_conformance_display_container.style.display = 'none';
     oh_conformance_display_container.innerHTML = '';
+
 
 
 var oh_check_button = document.createElement('button');
@@ -121,6 +124,11 @@ function OH_Conformance_Helper_Append_Content(res)
         {
             if(JSON_value.length > 0)
             {
+                if(JSON_value.length > 3)
+                {
+                    oh_conformance_display_container.style.height = '350px';
+                    oh_conformance_display_container.style.overflow = 'auto';
+                }
                 let findings_key = ["ConfigRuleName","ResourceType","ResourceId"];
                 for(var i=0; i< JSON_value.length; i++)
                 {
@@ -131,7 +139,16 @@ function OH_Conformance_Helper_Append_Content(res)
                         for (const [key, value] of Object.entries(JSON_value[i]))
                         {
                             if(findings_key.includes(key))
+                            {
+                                if(key=="ConfigRuleName")
+                                {
+                                finding_text += key +" : " + OH_Conformance_deco_configrule(value) +"<br/>";
+                                }
+                                else
+                                {
                                 finding_text += key +" : "+value +"<br />";
+                                }
+                            }
                         }
                     }
                     div.innerHTML = div_format_key_value_to_text(" ",finding_text);
@@ -146,6 +163,17 @@ function OH_Conformance_Helper_Append_Content(res)
             }
         }
     }
+}
+
+function OH_Conformance_deco_configrule(rule_name)
+{
+
+    var url = "";
+    //if(rule_name != '' && OH_WORKLOAD_REGION != '')
+    //    url = "https://console.aws.amazon.com/config/home?region="+ OH_WORKLOAD_REGION +"#/rules/details?configRuleName="+rule_name;
+    //hard code for temp ConfigRule Location
+    url = "https://console.aws.amazon.com/config/home?region="+ "ap-southeast-2" + "#/rules/details?configRuleName="+rule_name;
+    return '<a href="' + url + '" target="_blank">' + rule_name + '</a>';
 }
 
 /*
@@ -173,4 +201,5 @@ function OH_Context_Helper_init() {
 function OH_Conformance_Helper_init() {
     /* Main entry point for the scripts */
     console.log("Conformance Helper Init Here");
+    OH_WORKLOAD_REGION = OH_Get_Workload_Attr()['region'];
 }
