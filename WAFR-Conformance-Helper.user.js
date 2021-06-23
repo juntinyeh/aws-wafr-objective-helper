@@ -85,34 +85,38 @@ function OH_Conformance_Helper_Append_Div(){
 
 function OH_Conformance_Get_Noncompliant()
 {
-    var QuestionRef = OH_Get_Question_Ref();
-    var data = JSON.stringify({"questionRef":QuestionRef});
-    var url = OH_CONFORMANCE_APIGW;
-    var content = document.getElementById("oh_conformance_display_container");
-    var GM_payload = {
-        method: 'POST',
-        url: url,
-        data: data,
-        headers: {"Content-Type":"application/json"},
-        onload: function(response) {
-            try{
-                console.log(url, data,response.responseText);
-                var res = JSON.parse(response.responseText);
-                OH_Conformance_Helper_Append_Content(res);                
-            }
-            catch(err)
-            {
-                console.log(err.message, response.responseText);
+    (async () => {
+        let id_token = await GM.getValue("id_token",-1);
+        var QuestionRef = OH_Get_Question_Ref();
+        var data = JSON.stringify({"questionRef":QuestionRef});    
+        var url = OH_CONFORMANCE_APIGW;
+        var content = document.getElementById("oh_conformance_display_container");
+        var GM_payload = {
+            method: 'POST',
+            url: url,
+            data: data,
+            headers: {"Content-Type":"application/json","Authentication":id_token},
+            onload: function(response) {
+                try{
+                    console.log(url, data,response.responseText);
+                    var res = JSON.parse(response.responseText);
+                    OH_Conformance_Helper_Append_Content(res);
+                }
+                catch(err)
+                {
+                    console.log(err.message, response.responseText);
 
-            }
+                }
 
-        },
-        onerror: function (response) {
-            // body...
-            console.log("on error", response.responseText);
-        }
-    };
-    GM.xmlHttpRequest(GM_payload);
+            },
+            onerror: function (response) {
+                // body...
+                console.log("on error", response.responseText);
+            }
+        };
+        console.log("GM_payload",GM_payload);
+        GM.xmlHttpRequest(GM_payload);
+    })();
 }
 
 function OH_Conformance_Helper_Append_Content(res)
