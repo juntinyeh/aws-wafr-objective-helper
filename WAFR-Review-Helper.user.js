@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.4.1
-// @description  Bug fix in Helper-DOM & add some frontend handling in conformance pack. Update bahasa (.id.json) for context helper. 
+// @version      0.4.2
+// @description  Append ConfigRuleName HyperLink for conformance pack. Fix DOM Lib error handling. 
 // @include      https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/
 // @require      WAFR-Context-Helper.user.js
 // @require      WAFR-FollowUP-Helper.user.js
