@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.4.4
-// @description  Fix the anchor shifting problem. Button Width fixed, JSON cache disabled. 
+// @version      0.4.5
+// @description  Create a template for developer
 // @include      https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/
 // @require      WAFR-Context-Helper.user.js
 // @require      WAFR-FollowUP-Helper.user.js
