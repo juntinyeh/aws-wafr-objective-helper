@@ -69,7 +69,7 @@ function DOM_Append_Helper_Div() {
     if(OH_R_HELPER_CONTAINER_DIV_READY) return;
 
     var objs = document.getElementsByClassName("awsui-form-field awsui-form-field-stretch");
-    if(objs[0] != undefined && objs.length > 1)
+    if(objs[0] != undefined && objs.length > 1 && OH_Get_Question_Ref() != undefined)
     {
         objs[0].appendChild(oh_div_helper_header);
         objs[0].appendChild(oh_div_helper);
