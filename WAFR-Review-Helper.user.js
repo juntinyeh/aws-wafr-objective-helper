@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.4.4
-// @description  Fix the anchor shifting problem. Button Width fixed, JSON cache disabled. 
+// @version      0.4.5
+// @description  Create a template for developer
 // @include      https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/
 // @require      WAFR-Context-Helper.user.js
 // @require      WAFR-FollowUP-Helper.user.js
@@ -30,6 +30,8 @@ var LOG_LEVEL = '';
 var OH_ENABLE_CONTEXT_HELPER = true;
 var OH_ENABLE_FOLLOWUP_HELPER = false;
 var OH_ENABLE_CONFORMANCE_HELPER = true;
+// a new flag for module developer ref.
+var OH_ENABLE_TEPLATE = false;
 /*
 Note: To append a new module into this helper chain, please append a switch flag here.
 */
@@ -69,7 +71,7 @@ function DOM_Append_Helper_Div() {
     if(OH_R_HELPER_CONTAINER_DIV_READY) return;
 
     var objs = document.getElementsByClassName("awsui-form-field awsui-form-field-stretch");
-    if(objs[0] != undefined && objs.length > 1)
+    if(objs[0] != undefined && objs.length > 1 && OH_Get_Question_Ref() != undefined)
     {
         objs[0].appendChild(oh_div_helper_header);
         objs[0].appendChild(oh_div_helper);
@@ -93,6 +95,11 @@ function DOM_Append_Helper_Div() {
         if(OH_ENABLE_FOLLOWUP_HELPER){
             oh_div_helper.appendChild(OH_FollowUp_Helper_Append_Div());
         }
+
+        // Load new module div here //
+        // if(OH_ENABLE_TEPLATE) oh_div_helper.appendChild(oh_template_Append_Div());
+        // Load new module div before here //
+
 
         OH_R_HELPER_CONTAINER_DIV_READY = true;
     }
