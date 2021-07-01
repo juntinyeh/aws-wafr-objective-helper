@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.4.5
-// @description  Create a template for developer
+// @version      0.4.6
+// @description  support different anchor point
 // @include      https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/
 // @require      WAFR-Context-Helper.user.js
+// @require      WAFR-Layout-Config.user.js
 // @require      WAFR-FollowUP-Helper.user.js
 // @require      WAFR-Conformance-Helper.user.js
 // @require      WAFR-Helper-Libs.user.js
@@ -43,6 +44,22 @@ var OH_R_HELPER_CONTAINER_DIV_READY = false;
 // register flag for container div ready
 /***************************************/
 
+var OH_VISUAL_ANCHOR_STYLE = "FLOAT"; //["CENTER","LEFT","FLOAT"]
+
+var oh_div_helper_float = document.createElement('div');
+    oh_div_helper_float.id = 'oh_div_helper_float';
+    oh_div_helper_float.style = 'max-width: 700px; max-height: 800px; overflow-y: auto;';
+    oh_div_helper_float.style.display = 'block';
+    oh_div_helper_float.style.position = 'absolute';
+    oh_div_helper_float.style.top = '100px';
+    oh_div_helper_float.style.left = '750px';
+    oh_div_helper_float.style.border = 'dashed';
+    oh_div_helper_float.style.padding = '10px';
+    oh_div_helper_float.style.witdh = '400px';
+    oh_div_helper_float.style.background = '#FFFFBB';
+    oh_div_helper_float.style.resize = 'both';
+    oh_div_helper_float.z_index = 10000;
+
 var oh_div_helper = document.createElement('div');
     oh_div_helper.id = 'oh_div_helper';
     oh_div_helper.style.display = 'none';
@@ -70,9 +87,56 @@ var oh_div_helper_button = document.createElement('button');
 function DOM_Append_Helper_Div() {
     if(OH_R_HELPER_CONTAINER_DIV_READY) return;
 
-    var objs = document.getElementsByClassName("awsui-form-field awsui-form-field-stretch");
+    var ojbs;
+
+    if(OH_VISUAL_ANCHOR_STYLE == "CENTER")
+    {
+        //original anchor
+        objs = document.getElementsByClassName("awsui-form-field awsui-form-field-stretch");
+    }
+    else if(OH_VISUAL_ANCHOR_STYLE == "LEFT")
+    {
+        //helpful resource anchor
+        objs = document.getElementsByClassName("signpost");
+    }
+    else if(OH_VISUAL_ANCHOR_STYLE == "FLOAT")
+    {
+        //float div
+        objs = document.getElementsByClassName("awsui-app-layout__content--scrollable");
+    }
+    else if(OH_VISUAL_ANCHOR_STYLE == "")
+    {
+        OH_Layout_Config();
+    }
+
     if(objs[0] != undefined && objs.length > 1 && OH_Get_Question_Ref() != undefined)
     {
+        if(OH_VISUAL_ANCHOR_STYLE == "CENTER")
+        {
+            //the original anchor point on the central area
+            objs[0].appendChild(oh_div_helper_header);
+            objs[0].appendChild(oh_div_helper);
+            //end of original anchor
+        }
+        else if(OH_VISUAL_ANCHOR_STYLE == "LEFT")
+        {
+            //anchor on helpful resource sheet
+            var helpful_resource = objs[0].firstElementChild;
+            objs[0].insertBefore(oh_div_helper_header, helpful_resource);
+            objs[0].insertBefore(oh_div_helper, helpful_resource);
+            //end of helpful resource anchor
+        }
+        else if(OH_VISUAL_ANCHOR_STYLE == "FLOAT")
+        {
+
+            //float div
+            oh_div_helper_float.appendChild(oh_div_helper_header);
+            oh_div_helper_float.appendChild(oh_div_helper);
+            objs[0].appendChild(oh_div_helper_float);
+            ele_draggable(oh_div_helper_float);
+            //end ov fload div
+        }
+
         objs[0].appendChild(oh_div_helper_header);
         objs[0].appendChild(oh_div_helper);
         ele_reset_innerHTML(oh_div_helper);
