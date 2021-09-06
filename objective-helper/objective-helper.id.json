@@ -1,0 +1,553 @@
+{
+	"_comment": {
+		"_version": "0.0.1",
+		"_date": "2021-06-22",
+		"_contributor": ["sssalim@ - github:stephensalim"],
+		"_update_note": []
+	},
+	"OPS 1": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang apa tujuan bisnis dari beban kerja.",
+			"Bagaimana beban kerja berdampak pada bisnis secara keseluruhan ?",
+			"Dapatkan pemahaman seputar persyaratan internal dan eksternal yang dimiliki bisnis.",
+			"Pahami prioritas mereka saat ini, dan area mana yang bisa mereka trade off."
+		],
+		"Konteks Audiens": [
+			"Pengembangan bisnis.",
+			"Proses bisnis."
+		]
+	},
+	"OPS 2": {
+		"Objektif": [
+			"Pahami bisnis & struktur tim mereka.",
+			"Siapa yang bertanggung jawab atas beban kerja mana dan domain mana.",
+			"Cari tahu seberapa baik didefinisikan (didokumentasikan dan dikomunikasikan) proses ini."
+		],
+		"Konteks Audiens": [
+			"Proses bisnis.",
+			"Operasi"
+		]
+	},
+	"OPS 3": {
+		"Objektif": [
+			"Pahami budaya organisasi mereka",
+			"Apakah mereka mekanisme untuk mendorong dan memberdayakan budaya Eskalasi, Bias untuk tindakan, Eksperimen. ?",
+			"Cari tahu bagaimana mereka melengkapi tim mendorong budaya di atas?."
+		],
+		"Konteks Audiens": [
+			"Proses bisnis. ",
+			"Operasi"
+		]
+	},
+	"OPS 4": {
+		"Objektif": [
+			"Dapatkan pemahaman, tentang seberapa baik mereka mengaktifkan visibilitas & ketertelusuran ke status beban kerja mereka.",
+			" ( Aplikasi, Beban Kerja, Aktivitas, dan Ketergantungan ) pada tingkat transaksi. ",
+			"Juga, tentang bagaimana hal ini berkaitan dengan tujuan bisnis mereka."
+		],
+		"Konteks Audiens": [
+			" Operasi"
+		]
+	},
+	"OPS 5": {
+		"Objektif": [
+			"Mendapatkan pemahaman tentang bagaimana mereka dapat menangani/mengelola perubahan beban kerja mereka",
+			"Apakah mereka melakukan itu sedemikian rupa sehingga memungkinkan mereka untuk mengurangi cacat, menilai, memperbaiki, dan meningkatkan alirannya ke dalam produksi. Mempercepat waktu mereka ke pasar?"
+		],
+		"Konteks Audiens": [
+			" Operasi"
+		]
+	},
+	"OPS 6": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang seberapa baik praktik / pendekatan operasional mereka dalam mengurangi risiko penerapan yang gagal"
+		],
+		"Konteks Audiens": [
+			" Operasi"
+		]
+	},
+	"OPS 7": {
+		"Objektif": [
+			"Dapatkan pemahaman seputar ketersediaan mekanisme / proses apa pun yang dimiliki tim untuk menilai kesiapan operasional suatu beban kerja."
+		],
+		"Konteks Audiens": [
+			" Operasi"
+		]
+	},
+	"OPS 8": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang apa KPI bisnis yang ditentukan untuk beban kerja, dan bagaimana menerjemahkannya ke apa yang sedang dipantau dalam beban kerja. (misalnya, tingkat pesanan, tingkat retensi pelanggan, dan laba versus biaya operasional) dan hasil pelanggan (untuk contoh, kepuasan pelanggan). ",
+			"Apakah data ditangkap dan dianalisis untuk mengidentifikasi baseline, tren, dan anomali ?",
+			"Seberapa banyak visibilitas yang dimiliki bisnis terhadap data ini?"
+		],
+		"Koneksi Pertanyaan": [
+			"OPS 8, OPS9, REL6"
+		],
+		"Konteks Audiens": [
+			"Proses bisnis.",
+			"Operasi"
+		]
+	},
+	"OPS 9": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang apa KPI bisnis yang ditentukan untuk operasi, dan bagaimana menerjemahkannya ke apa yang dipantau dalam operasi beban kerja (misalnya, fitur baru yang dikirimkan) dan hasil pelanggan (misalnya, kasus dukungan pelanggan) ",
+			"Apakah data ditangkap dan dianalisis untuk mengidentifikasi baseline, tren, dan anomali ?",
+			"Seberapa banyak visibilitas yang dimiliki bisnis terhadap data ini?"
+		],
+		"Koneksi Pertanyaan": [
+			"OPS 8, OPS9, REL6"
+		],
+		"Konteks Audiens": [
+			"Proses bisnis.",
+			"Operasi"
+		]
+	},
+	"OPS 10": {
+		"Objektif": [
+			"Peroleh pemahaman tentang bagaimana kemampuan operasional mereka untuk mengelola dan menangani kejadian/insiden operasional"
+		],
+		"Konteks Audiens": [
+			"Operasi"
+		]
+	},
+	"OPS 11": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang mekanisme yang mereka miliki untuk terus meningkatkan dan mengembangkan operasi mereka"
+		],
+		"Konteks Audiens": [
+			"Operasi"
+		]
+	},
+	"SEC 1": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang pendekatan keamanan umum mereka saat mengoperasikan beban kerja. Sudahkah mereka menerapkan proses yang mereka tetapkan dalam keunggulan operasional di tingkat organisasi dan beban kerja. dan menerapkannya di semua area.",
+			"Dapatkan pemahaman tentang bagaimana mereka selalu mengikuti perkembangan persyaratan industri & intelijen ancaman.",
+			"Dapatkan pemahaman tentang bagaimana mereka Mengotomatiskan pengujian proses Keamanan, validasi."
+		],
+		"Konteks Audiens": [
+			"Keamanan"
+		]
+	},
+	"SEC 2": {
+		"Objektif": [
+			"Dapatkan pemahaman seputar proses mereka untuk mengelola identitas yang digunakan oleh manusia dan digunakan antar sistem. ( di dalam atau di luar lingkungan Anda"
+		],
+		"Konteks Audiens": [
+			"Keamanan"
+		]
+	},
+	"SEC 3": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang cara mereka mengelola izin yang mengontrol akses ke orang dan identitas mesin yang memerlukan akses ke AWS dan beban kerja Anda.",
+			"Izin mengontrol siapa yang dapat mengakses apa, dan dalam kondisi apa."
+		],
+		"Konteks Audiens": [
+			"Keamanan"
+		]
+	},
+	"SEC 4": {
+		"Objektif": [
+			"Pahami cara mereka menangkap dan menganalisis peristiwa keamanan dari log, dan metrik.",
+			"Bagaimana mereka mendapatkan visibilitas ke log & peristiwa ini.",
+			"Tindakan apa yang mereka ambil pada peristiwa keamanan ini atau potensi ancaman untuk membantu mengamankannya?"
+		],
+		"Konteks Audiens": [
+			"Keamanan",
+			"Operasi"
+		]
+	},
+	"SEC 5": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang pendekatan mereka untuk mengamankan jaringan yang terkait dengan beban kerja mereka.",
+			"Bagaimana mereka melindungi konektivitas jaringan ke beban kerja mereka dari internet, ke internet, jaringan pribadi antar sistem"
+		],
+		"Konteks Audiens": [
+			"Keamanan",
+			"Operasi"
+		]
+	},
+	"SEC 6": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang cara mereka mengamankan sumber daya komputer dalam beban kerja mereka dari ancaman eksternal dan internal. Sumber daya komputasi adalah Instans EC2, Kontainer, Lambda, Layanan Basis Data, Perangkat IoT, dan lainnya, sumber daya yang biasanya menangani / menghosting aspek logika bisnis dalam beban kerja ."
+		],
+		"Konteks Audiens": [
+			"Keamanan",
+			"Operasi"
+		]
+	},
+	"SEC 7": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang strategi/metode yang mereka gunakan untuk mengkategorikan data mereka, berdasarkan kekritisan dan kepekaan.",
+			"Bagaimana mereka mengategorikan data ini, dan memahami pentingnya data ini bagi bisnis mereka, dan tindakan apa yang mereka ambil untuk melindungi/mengontrol akses. serta retensi yang mereka terapkan."
+		],
+		"Konteks Audiens": [
+			"Keamanan",
+			"Operasi"
+		]
+	},
+	"SEC 8": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang bagaimana mereka mengamankan data mereka yang disimpan di penyimpanan jangka menengah/panjang. Ini bisa di S3 atau instans Database mereka.",
+			"Bagaimana mereka menerapkan beberapa kontrol untuk mengurangi risiko akses yang tidak sah dan kesalahan penanganan."
+		],
+		"Konteks Audiens": [
+			"Keamanan",
+			"Operasi"
+		]
+	},
+	"SEC 9": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang bagaimana mereka mengamankan data mereka selama transit. Ini bisa berupa data yang ditransfer melalui jaringan, atau melalui layanan komunikasi seperti Gateway / Messaging.",
+			"Bagaimana mereka menerapkan beberapa kontrol untuk mengurangi risiko akses yang tidak sah dan kesalahan penanganan."
+		]
+	},
+	"SEC 10": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang apa saja yang mereka terapkan dalam Persiapan terhadap insiden keamanan.",
+			"Bagaimana mereka dapat secara tepat waktu, menjalankan penyelidikan yang efektif, menanggapi peristiwa/insiden, dan pemulihan darinya untuk meminimalkan gangguan pada organisasi Anda."
+		],
+		"Konteks Audiens": [
+			"Keamanan",
+			"Operasi"
+		]
+	},
+	"REL 1": {
+		"Objektif": [
+			"Dapatkan pemahaman seputar kesadaran mereka tentang konsep Penawaran Layanan, dan mengapa konsep itu ada untuk melindungi mereka dari penyediaan yang tidak disengaja.",
+			"Dapatkan pemahaman juga tentang bagaimana mereka sekarang mengelola beban kerja mereka untuk mengatasi ini."
+		],
+		"Konteks Audiens": [
+			"Desain dan arsitektur",
+			"Operasi"
+		]
+	},
+	"REL 2": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang pendekatan mereka dalam merencanakan dan mengimplementasikan topologi jaringan mereka dari.",
+			"Apa saja yang mereka pertimbangkan ketika mereka merencanakan topologi jaringan mereka yang meliputi, konektivitas intra dan antar-sistem, manajemen alamat IP publik, manajemen alamat IP pribadi, resolusi nama domain."
+		],
+		"Konteks Audiens": [
+			"Desain dan arsitektur",
+			"Operasi"
+		]
+	},
+	"REL 3": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang pendekatan mereka dalam menerapkan Arsitektur Berorientasi Layanan?",
+			"Tentang bagaimana mereka mengelompokkan beban kerja mereka, dan jika masing-masing layanan berfokus pada fungsi atau domain bisnis tertentu.",
+			"Apakah beban kerja saat ini berjalan sebagai monolit tunggal atau ganda? atau apakah mereka menjalankan aplikasi sebagai model layanan Mirco."
+		],
+		"Konteks Audiens": [
+			"Desain dan arsitektur",
+			"Operasi"
+		]
+	},
+	"REL 4": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang pendekatan mereka untuk merancang interaksi antara bagian dari sistem terdistribusi mereka, atau sistem lain yang berinteraksi / bergantung pada beban kerja ini.",
+			"Ketika terjadi gangguan/kegagalan pada sistem yang berinteraksi dengan beban kerja Anda atau sebaliknya, apa dampaknya terhadap beban kerja Anda dan sistem penghubung lainnya itu?",
+			"Dan bagaimana mereka menanganinya?"
+		],
+		"Konteks Audiens": [
+			"Desain dan arsitektur",
+			"Operasi"
+		]
+	},
+	"REL 5": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang hal/pendekatan apa yang telah mereka terapkan saat merancang interaksi dalam sistem terdistribusi untuk mengelola kegagalan, atau mengizinkan sistem untuk mempertahankannya."
+		],
+		"Konteks Audiens": [
+			"Desain dan arsitektur",
+			"Operasi"
+		]
+	},
+	"REL 6": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang bagaimana mereka memantau sumber daya beban kerja mereka?",
+			"Hal-hal apa saja dalam beban kerja mereka yang mereka pantau, dan bagaimana mereka memperlakukan data tersebut untuk memungkinkan keandalan yang lebih baik dalam beban kerja."
+		],
+		"Koneksi Pertanyaan": [
+			"OPS 8, OPS9, REL6"
+		],
+		"Konteks Audiens": [
+			"Desain dan arsitektur",
+			"Operasi"
+		]
+	},
+	"REL 7": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang pendekatan desain mereka untuk beban kerja mereka untuk memungkinkan beban kerja beradaptasi dengan perubahan permintaan.",
+			"Cari tahu, tentang bagaimana mereka menerapkan kemampuan beradaptasi ini? kumpulkan detail teknis tingkat tinggi seputar pendekatan mereka"
+		],
+		"Koneksi Pertanyaan": [
+			"COST 9"
+		],
+		"Konteks Audiens": [
+			"Desain dan arsitektur",
+			"Operasi"
+		]
+	},
+	"REL 8": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang proses mereka untuk menerapkan perubahan beban kerja, di tingkat aplikasi dan infrastruktur.",
+			"Hal-hal apa yang mereka lakukan untuk dapat mengimplementasikan perubahan secara andal seperti perubahan patch/software/config untuk memastikan bahwa itu dilakukan dengan cara yang terkendali?",
+			"Jika perubahan tidak dilakukan dengan cara yang terkendali, dapat menjadi sulit bagi mereka untuk memprediksi efek dari perubahan ini, dan untuk memutuskan pertanyaan tindak lanjut yang tepat."
+		],
+		"Konteks Audiens": [
+			"Desain dan arsitektur",
+			"Operasi"
+		]
+	},
+	"REL 9": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang bagaimana mereka mencadangkan data mereka.",
+			"Apakah mereka sudah mendefinisikan dan menyetujui bisnis RTO/RPO?",
+			"Kalau tidak ada arahan dari pelaku usaha, apakah mereka tahu apa RTO/RPO mereka pada strategi yang mereka terapkan saat ini?"
+		],
+		"Koneksi Pertanyaan": [
+			"REL 13"
+		],
+		"Konteks Audiens": [
+			"Desain dan arsitektur",
+			"Operasi"
+		]
+	},
+	"REL 10": {
+		"Objektif": [
+			"Mendapatkan pemahaman tentang pendekatan/strategi mereka dalam mengisolasi dampak ketika terjadi kegagalan dalam beban kerja sehingga pengaruhnya terhadap layanan lain dapat dikelola/dikurangi",
+			"Ini sangat menonjol jika beban kerja mereka didistribusikan ke beberapa komponen.",
+			"Jika beban kerja adalah monolit, lihat layanan di sekitarnya yang saling terhubung dengan beban kerja, misalnya: sistem penagihan, crm, dll. Strategi apa yang mereka terapkan untuk mengurangi dampak pada layanan lain yang bergantung pada layanan tersebut."
+		],
+		"Konteks Audiens": [
+			"Desain dan arsitektur",
+			"Operasi"
+		]
+	},
+	"REL 11": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang apa strategi/pendekatan mereka untuk menurunkan Mean time to Recovery jika terjadi masalah dalam sistem.",
+			"Berapa waktu rata-rata mereka saat ini untuk pemulihan?",
+			"Apa pendekatan/proses/implementasi yang mereka miliki untuk menangani pengurangan Mean time to Recovery ini (Waktu rata-rata yang dibutuhkan dari waktu masalah dilaporkan hingga diselesaikan)."
+		],
+		"Konteks Audiens": [
+			"Desain dan arsitektur",
+			"Operasi"
+		]
+	},
+	"REL 12": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang bagaimana mereka menguji semua strategi yang mereka miliki untuk meningkatkan keandalan pada beban kerja."
+		],
+		"Konteks Audiens": [
+			"Desain dan arsitektur",
+			"Operasi"
+		]
+	},
+	"REL 13": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang rencana mereka untuk pemulihan Bencana",
+			"Apakah mereka sudah membuat rencana ini didokumentasikan dan diuji?",
+			"Apakah mereka sudah mendefinisikan RTO/RPO?"
+		],
+		"Koneksi Pertanyaan": [
+			"REL 9"
+		],
+		"Konteks Audiens": [
+			"Desain dan arsitektur",
+			"Operasi"
+		]
+	},
+	"PERF 1": {
+		"Objektif": [
+			"Dapatkan pemahaman / wawasan tentang apa pendekatan mereka dalam memastikan bahwa mereka memiliki model arsitektur paling optimal untuk beban kerja mereka."
+		],
+		"Konteks Audiens": [
+			"Desain dan arsitektur",
+			"Operasi"
+		]
+	},
+	"PERF 2": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang strategi/pendekatan apa yang mereka ambil untuk memastikan mereka memilih solusi komputasi yang tepat untuk beban kerja mereka."
+		],
+		"Konteks Audiens": [
+			"Desain dan arsitektur",
+			"Operasi"
+		]
+	},
+	"PERF 3": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang strategi/pendekatan apa yang mereka ambil untuk memastikan mereka memilih solusi penyimpanan yang tepat untuk beban kerja mereka."
+		],
+		"Konteks Audiens": [
+			"Desain dan arsitektur",
+			"Operasi"
+		]
+	},
+	"PERF 4": {
+		"Objektif": [
+			" Gain understanding on what are the strategy / approach they took to make sure they are selecting the right database solution for their workload."
+		],
+		"Konteks Audiens": [
+			"Desain dan arsitektur",
+			"Operasi"
+		]
+	},
+	"PERF 5": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang strategi / pendekatan apa yang mereka ambil untuk memastikan mereka memilih solusi database yang tepat untuk beban kerja mereka."
+		],
+		"Konteks Audiens": [
+			"Desain dan arsitektur",
+			"Operasi"
+		]
+	},
+	"PERF 6": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang pendekatan mereka untuk mengikuti perkembangan sumber daya dan layanan baru.",
+			"Apakah mereka memiliki proses yang ditentukan untuk meningkatkan kinerja beban kerja?",
+			"Mekanisme apa yang diterapkan untuk memastikan beban kerja mereka terus berkembang menuju peningkatan?"
+		],
+		"Konteks Audiens": [
+			"Desain dan arsitektur",
+			"Operasi"
+		]
+	},
+	"PERF 7": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang pendekatan mereka untuk merekam metrik kinerja dari semua sumber daya yang mereka pantau, buat tolok ukur, dan siapkan peringatan yang tepat untuk mengambil tindakan atas indikasi penurunan kinerja"
+		],
+		"Konteks Audiens": [
+			"Desain dan arsitektur",
+			"Operasi"
+		]
+	},
+	"PERF 8": {
+		"Objektif": [
+			"Dapatkan wawasan tentang pemahaman pelanggan di sekitar area dalam beban kerja yang mereka anggap penting dari perspektif kinerja.",
+			"Tentukan aspek mana yang dapat mereka tukarkan untuk mencapainya, dan apa dampaknya bagi pelanggan mereka, dan efisiensi yang mereka capai.",
+			"Bagaimana mereka melacak/mengukur dampak ini.",
+			"Dan strategi apa yang mereka gunakan untuk mengurangi pengorbanan itu?"
+		],
+		"Konteks Audiens": [
+			"Desain dan arsitektur",
+			"Operasi"
+		]
+	},
+	"COST 1": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang praktik apa yang dimiliki pelanggan dalam hal mengelola pengeluaran cloud mereka.",
+			"Apakah mereka sudah membentuk fungsi khusus untuk menangani manajemen?",
+			"Apa strategi umum mereka, dan apa saja yang mereka terapkan untuk menangani Manajemen Keuangan Cloud mereka."
+		],
+		"Konteks Audiens": [
+			"Keuangan",
+			"Operasi"
+		]
+	},
+	"COST 2": {
+		"Objektif": [
+			"Dapatkan wawasan tentang hal-hal apa saja yang mereka terapkan dalam beban kerja mereka untuk mengatur penggunaan beban kerja.",
+			"Apa strategi dan hal-hal yang diterapkan untuk memastikan biaya yang dikeluarkan tepat sambil memastikan tujuan tetap tercapai."
+		],
+		"Koneksi Pertanyaan": [
+			"SEC 3"
+		],
+		"Konteks Audiens": [
+			"Keuangan",
+			"Operasi"
+		]
+	},
+	"COST 3": {
+		"Objektif": [
+			"Dapatkan wawasan tentang hal-hal apa saja yang diterapkan untuk memantau penggunaan sumber daya yang digunakan dan mekanisme apa yang mereka gunakan untuk menciptakan atribusi biaya untuk kategori tertentu."
+		],
+		"Koneksi Pertanyaan": [
+			"OPS 8, REL 1, REL 6"
+		],
+		"Konteks Audiens": [
+			"Keuangan",
+			"Operasi"
+		]
+	},
+	"COST 4": {
+		"Objektif": [
+			"Apa pendekatan mereka saat menonaktifkan sumber daya di aws account untuk mengurangi pemborosan."
+		],
+		"Koneksi Pertanyaan": [
+			"REL 6"
+		],
+		"Konteks Audiens": [
+			"Keuangan",
+			"Operasi"
+		]
+	},
+	"COST 5": {
+		"Objektif": [
+			"Dapatkan wawasan, tentang pendekatan dan strategi mereka untuk mengevaluasi biaya ketika mereka memilih layanan mereka sebagai blok bangunan mereka untuk beban kerja."
+		],
+		"Konteks Audiens": [
+			"Keuangan",
+			"Operasi"
+		]
+	},
+	"COST 6": {
+		"Objektif": [
+			"Dapatkan wawasan tentang upaya mereka saat memilih ukuran sumber daya dan kuantitas untuk memastikannya dapat mengakomodasi tugas yang ada sambil meminimalkan pemborosan."
+		],
+		"Koneksi Pertanyaan": [
+			"PERF 2, PERF 3, PERF 4"
+		],
+		"Konteks Audiens": [
+			"Keuangan",
+			"Operasi"
+		]
+	},
+	"COST 7": {
+		"Objektif": [
+			"Dapatkan wawasan tentang pemahaman mereka tentang model biaya cloud AWS, dan jika mereka menggunakan model harga yang tepat untuk beban kerja.",
+			"Apakah mereka meningkatkan, Reserve Instance pricing ?, Savings Plans ?"
+		],
+		"Koneksi Pertanyaan": [
+			"OPS 1, OPS 4"
+		],
+		"Konteks Audiens": [
+			"Keuangan",
+			"Operasi"
+		]
+	},
+	"COST 8": {
+		"Objektif": [
+			"Gain insights on their understanding of data transfer charges in their workload, and what stratefy have they implemented to manage / prepare for this?"
+		],
+		"Koneksi Pertanyaan": [
+			"REL 2, PERF 5"
+		],
+		"Konteks Audiens": [
+			"Keuangan",
+			"Operasi"
+		]
+	},
+	"COST 9": {
+		"Objektif": [
+			"Dapatkan wawasan tentang pemahaman mereka tentang biaya transfer data dalam beban kerja mereka, dan strategi apa yang telah mereka terapkan untuk mengelola / mempersiapkan ini?"
+		],
+		"Koneksi Pertanyaan": [
+			"REL 6"
+		],
+		"Konteks Audiens": [
+			"Keuangan",
+			"Operasi"
+		]
+	},
+	"COST 10": {
+		"Objektif": [
+			"Dapatkan pemahaman tentang proses/pendekatan mereka dalam mengikuti layanan baru AWS, fitur yang akan meningkatkan optimalisasi biaya beban kerja mereka."
+		],
+		"Konteks Audiens": [
+			"Keuangan",
+			"Operasi"
+		]
+	}
+}
