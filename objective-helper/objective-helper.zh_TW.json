@@ -1,7 +1,7 @@
 {
   "_comment":{
-    "_version":"0.0.3",
-    "_date":"2021-06-17",
+    "_version":"0.0.4",
+    "_date":"2021-09-07",
     "_contributor":["bobyeh@ - github:juntinyeh","hclo@"],
     "_update_note":[
       "0.0.4 - Append Sample Questions for COST pilars",
@@ -393,5 +393,5 @@
   "關聯問題":"REL 6"},
 "COST 10":{
   "目標":["了解他們的流程/方法以跟上 AWS 新服務的步伐，這些功能將改善他們的工作負載成本優化。"],
-  "目標人員":["技術研發團隊","維運團隊"],}
+  "目標人員":["技術研發團隊","維運團隊"]}
 }
