@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         WAFR-Review-Helper-Libs
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.0.1
-// @description  OH_Get_Workload_Attr --> parse the URL
+// @version      0.0.2
+// @description  WA Website frontend changed, change the target div to info-link for OH_Get_Question_Ref
 // @include      https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/
 // @author       bobyeh@amazon.com (github:juntinyeh)
 // @match        https://*.console.aws.amazon.com/wellarchitected/*
@@ -47,13 +47,14 @@ function OH_Get_Workload_Attr()
 function OH_Get_Question_Ref(){
     // Find and parse the Question Text, get the Questions key
     var current_question_key;
-    var has_help_button = document.getElementsByClassName("has-help-button");
+    //var has_help_button = document.getElementsByClassName("has-help-button");
+    var has_help_button = document.getElementsByClassName("info-link");
     if(has_help_button.length>0)
     {
-        var key_index = has_help_button[0].innerHTML.search(/^\S+\s\d+/g);
+        var key_index = has_help_button[0].parentNode.innerHTML.search(/^\S+\s\d+/g);
         if( key_index == 0)
         {
-            current_question_key = String(has_help_button[0].innerHTML.match(/^\S+\s\d+/g));
+            current_question_key = String(has_help_button[0].parentNode.innerHTML.match(/^\S+\s\d+/g));
         }
     }
     return current_question_key;

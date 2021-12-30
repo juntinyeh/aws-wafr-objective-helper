@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Amazon Web Services Well-Architected Framework Review Helper
 // @namespace    http://console.aws.amazon.com/wellarchitected/
-// @version      0.4.5
-// @description  Create a template for developer
+// @version      0.5.0 - to fit with AWS Console - Jan/2022
+// @description  Major fix: move the anchor to Helpful resource tab (right hand side)
 // @include      https://raw.githubusercontent.com/juntinyeh/aws-wafr-objective-helper/main/
 // @require      WAFR-Context-Helper.user.js
 // @require      WAFR-FollowUP-Helper.user.js
@@ -28,10 +28,8 @@ set Log_Level = 'debug' if you want to try something new and use the debug(log_m
 var LOG_LEVEL = '';
 
 var OH_ENABLE_CONTEXT_HELPER = true;
-var OH_ENABLE_FOLLOWUP_HELPER = false;
+var OH_ENABLE_FOLLOWUP_HELPER = true;
 var OH_ENABLE_CONFORMANCE_HELPER = true;
-// a new flag for module developer ref.
-var OH_ENABLE_TEPLATE = false;
 /*
 Note: To append a new module into this helper chain, please append a switch flag here.
 */
@@ -56,7 +54,7 @@ var oh_div_helper_button = document.createElement('button');
     oh_div_helper_button.id = 'oh_div_helper_button';
     oh_div_helper_button.className = "awsui-button";
     oh_div_helper_button.innerHTML = 'WA Insight ▼';
-    oh_div_helper_button.addEventListener("click", function() {        
+    oh_div_helper_button.addEventListener("click", function() {
         div_ani_click_toggle('oh_div_helper_button','oh_div_helper', 'WA Insight ');
         DOM_Context_Helper_Refresh_Check();
     });
@@ -70,11 +68,11 @@ var oh_div_helper_button = document.createElement('button');
 function DOM_Append_Helper_Div() {
     if(OH_R_HELPER_CONTAINER_DIV_READY) return;
 
-    var objs = document.getElementsByClassName("awsui-form-field awsui-form-field-stretch");
-    if(objs[0] != undefined && objs.length > 1 && OH_Get_Question_Ref() != undefined)
+    var objs = document.getElementById("helpfulResourcesHeader");
+    if(objs != undefined )
     {
-        objs[0].appendChild(oh_div_helper_header);
-        objs[0].appendChild(oh_div_helper);
+        objs.appendChild(oh_div_helper_header);
+        objs.appendChild(oh_div_helper);
         ele_reset_innerHTML(oh_div_helper);
 
 
@@ -95,11 +93,6 @@ function DOM_Append_Helper_Div() {
         if(OH_ENABLE_FOLLOWUP_HELPER){
             oh_div_helper.appendChild(OH_FollowUp_Helper_Append_Div());
         }
-
-        // Load new module div here //
-        // if(OH_ENABLE_TEPLATE) oh_div_helper.appendChild(oh_template_Append_Div());
-        // Load new module div before here //
-
 
         OH_R_HELPER_CONTAINER_DIV_READY = true;
     }
